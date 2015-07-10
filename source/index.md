@@ -43,19 +43,18 @@ Request data | [GET](https://docs.google.com/drawings/d/13vZSrLS6FnD81OHgMIYzTpy
 
 Key | Value | Info
 --- | ----- | ----
-X-Authentication | ```<user_id>,<key>``` | User authentication header
+X-Authentication | ```<userId>,<key>``` | User authentication header
 Authorization | ```<api_key>``` | Your developer key
 
 ##Variables
 
 You can send data to the API in 3 different ways. Each method has a different meaning. 
 
-
 Key | Example | Info
 --- | ----- | ----
-URL Variables | ```GET https://peakapi.whitespell.com/users/<user_id>``` | This is used when the value is guaranteed to be unique and you are directly accessing an object
+URL Variables | ```GET https://peakapi.whitespell.com/users/<userId>``` | This is used when the value is guaranteed to be unique and you are directly accessing an object
 Query String Variables | ```GET https://peakapi.whitespell.com/users/categories/?categories=1,2,3&limit=10``` | This is mainly used to specify/narrow a result set or search for certain values. 
-Request Body (Payload) | ```POST https://peakapi.whitespell.com/categories -> {"category_name" : "new_category"}``` | This is used in the body of the request, also known as the payload. We only accept JSON payloads.
+Request Body (Payload) | ```POST https://peakapi.whitespell.com/categories -> {"categoryName" : "new_category"}``` | This is used in the body of the request, also known as the payload. We only accept JSON payloads.
 
 ## Errors
 ```shell
@@ -113,8 +112,8 @@ curl "https://peakapi.whitespell.com/users/"
         "user_following": [],
         "category_following": [],
         "category_publishing": [],
-        "user_id": 0,
-        "username": "example_name",
+        "userId": 0,
+        "userName": "example_name",
         "email": "hidden",
         "thumbnail": "https://image.com/photo.jpg"
     },
@@ -122,8 +121,8 @@ curl "https://peakapi.whitespell.com/users/"
         "user_following": [],
         "category_following": [],
         "category_publishing": [],
-        "user_id": 0,
-        "username": "example_name2",
+        "userId": 0,
+        "userName": "example_name2",
         "email": "hidden",
         "thumbnail": "https://image.com/photo.jpg"
     }
@@ -142,7 +141,7 @@ Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
 limit | 50 | If set, limit the amount of user objects you will get back by this amount. | Not Started
 offset | None | If set, start loading from user ids only larger than the offset number (e.g. for infinite scrolling)  | Not Started
-username | None | If set, will search for users with a matching or semi-matching username  | Not Started
+userName | None | If set, will search for users with a matching or semi-matching userName  | Not Started
 bio | None | If set, will search for users with a matching or semi-matching bio  | Not Started
 publisher | None | If set, will look for accounts only with certain publisher status. | Not Started
 
@@ -163,8 +162,8 @@ curl "https://peakapi.whitespell.com/users/"
     "user_following": [],
     "category_following": [],
     "category_publishing": [],
-    "user_id": 134,
-    "username": "pimdewitte",
+    "userId": 134,
+    "userName": "pimdewitte",
     "email": "hidden",
     "thumbnail": "https://image.com/photo.jpg"
 }
@@ -184,5 +183,93 @@ include_following | false | If set, will include a JSON Array of user objects th
 include_followers | false | If set, will include a JSON Array of user objects which are following this user.  | Not Started
 include_publishing | false | If set, will include a list of categories this user is publishing in  | Not Started
 
+
+### Update your User Profile
+
+
+```shell
+curl -d \ '{"userName":"1337","displayName":"Mike","thumbnail":"https://newThumbUrl.com","cover_photo":"https://coverPhotoUrl.com","slogan":"slogan"}' \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID" \
+```
+
+> The above command returns JSON structured like this:
+> Only updated fields are returned in the response, others are "".
+
+```json
+[
+    {
+    "user_following":[],
+    "category_following":[],
+    "category_publishing":[],
+    "userId":134,
+    "userName":"1337",
+    "displayName":"Mike",
+    "email":"",
+    "thumbnail":"https://newthumburl.com",
+    "coverPhoto":"new",
+    "slogan":"slogan"
+    }
+]
+```
+
+This endpoint allows a user to update their user profile.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/USER_ID`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+userName | No | If set, will attempt update of userName. | Tested
+displayName | No | If set, update the displayName.  | Tested
+thumbnail | No | If set, update the profile picture thumbnail url.  | Tested
+cover_photo | No | If set, update the cover photo thumbnail url.  | Tested
+slogan | No | If set, update the profile slogan.  | Tested
+
+
+### Update your User Settings
+
+
+```shell
+curl -d \ '{"password":"CURRENT_PASS","email":"Mike@realemail.com","new_password":"NEW_PASS"}' \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: 134,c5m7tb6equb0isdbbv1pla98hu" \
+-X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/settings" \
+```
+
+> The above command returns JSON structured like this:
+> Only updated fields are returned in the response, others are "" or [].
+
+```json
+[
+    {
+    "key":"NEWLY_CREATED_KEY",
+    "userId":YOUR_USER_ID,
+    "expires":-1
+    }
+]
+```
+
+This endpoint allows a user to update their user profile.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/USER_ID/settings`
+
+### POST Parameters
+
+Parameter | Default | Description | Status
+--------- | ------- | ----------- | ------
+password | No | Current password is required to make changes. | Tested
+email | No | If set, attempt to update the user email.  | Tested
+new_password | No | If set, attempt to update the user password.  | Tested
 
 
