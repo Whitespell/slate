@@ -188,7 +188,7 @@ include_publishing | false | If set, will include a list of categories this user
 
 
 ```shell
-curl -d \ '{"userName":"1337","displayName":"Mike","thumbnail":"https://newThumbUrl.com","cover_photo":"https://coverPhotoUrl.com","slogan":"slogan"}' \
+curl -d \ '{"userName":"YOUR_NEW_USERNAME","displayName":"DISPLAY_NAME","thumbnail":"https://newThumbUrl.com","cover_photo":"https://coverPhotoUrl.com","slogan":"slogan"}' \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
@@ -205,12 +205,12 @@ curl -d \ '{"userName":"1337","displayName":"Mike","thumbnail":"https://newThumb
     "user_following":[],
     "category_following":[],
     "category_publishing":[],
-    "userId":134,
-    "userName":"1337",
-    "displayName":"Mike",
+    "userId":YOUR_USER_ID,
+    "userName":"YOUR_NEW_USERNAME",
+    "displayName":"DISPLAY_NAME",
     "email":"",
-    "thumbnail":"https://newthumburl.com",
-    "coverPhoto":"new",
+    "thumbnail":"https://newThumbUrl.com",
+    "coverPhoto":"https://coverPhotoUrl.com",
     "slogan":"slogan"
     }
 ]
@@ -220,7 +220,7 @@ This endpoint allows a user to update their user profile.
 
 ### HTTP Request
 
-`POST https://peakapi.whitespell.com/users/USER_ID`
+`POST https://peakapi.whitespell.com/users/YOUR_USER_ID`
 
 ### POST Parameters
 
@@ -237,11 +237,11 @@ slogan | No | If set, update the profile slogan.  | Tested
 
 
 ```shell
-curl -d \ '{"password":"CURRENT_PASS","email":"Mike@realemail.com","new_password":"NEW_PASS"}' \
+curl -d \ '{"password":"CURRENT_PASS","email":"email@email.com","new_password":"NEW_PASS"}' \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
--H "X-Authentication: 134,c5m7tb6equb0isdbbv1pla98hu" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
 -X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/settings" \
 ```
 
@@ -266,9 +266,9 @@ This endpoint allows a user to update their user profile.
 
 ### POST Parameters
 
-Parameter | Default | Description | Status
+Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
-password | No | Current password is required to make changes. | Tested
+password | Yes | Current password is required to make changes. | Tested
 email | No | If set, attempt to update the user email.  | Tested
 new_password | No | If set, attempt to update the user password.  | Tested
 
