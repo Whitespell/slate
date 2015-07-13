@@ -129,7 +129,7 @@ curl "https://peakapi.whitespell.com/users/"
 ]
 ```
 
-This endpoint retrieves all users and allows for search queries on users
+This endpoint retrieves all users and allows for search queries on users.
 
 ### HTTP Request
 
@@ -169,7 +169,7 @@ curl "https://peakapi.whitespell.com/users/"
 }
 ```
 
-This endpoint retrieves all users and allows for search queries on users
+This endpoint retrieves all users and allows for search queries on users.
 
 ### HTTP Request
 
@@ -184,17 +184,68 @@ includeFollowers | false | If set, will include a JSON Array of user objects whi
 includePublishing | false | If set, will include a list of categories this user is publishing in  | Not Started
 
 
-### Update your User Profile
+## Create a New User
+
+
+```shell
+curl -d \ '{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","email":"YOUR_EMAIL@EMAIL.COM", "publisher":0}' \
+-H "Content-Type: application/json" \
+-X POST "https://peakapi.whitespell.com/users" \
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+    	"userFollowing": [],
+    	"usersFollowed": [],
+    	"categoryFollowing": [],
+    	"categoryPublishing": [],
+    	"userId": YOUR_USER_ID,
+    	"userName": "YOUR_USERNAME",
+    	"displayName": "",
+    	"email": "YOUR_EMAIL@EMAIL.COM",
+    	"thumbnail": "",
+    	"coverPhoto": "",
+    	"slogan": ""
+    }
+]
+```
+
+This endpoint allows a new user to create their User Account.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+userName | Yes | String(30) | Tested
+password | Yes | String(inf) | Tested
+email | Yes | String(45) | Tested
+publisher | No | BOOL (1 or 0) | Tested
+
+
+
+
+
+## Update your User Profile
 
 
 ```shell
 curl -d \ '{"userName":"YOUR_NEW_USERNAME","displayName":"DISPLAY_NAME","thumbnail":"https://newThumbUrl.com","cover_photo":"https://coverPhotoUrl.com","slogan":"slogan"}' \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
+-H "X-Authentication: 272,sadn13rf4c7hrgeiv7j0kifd8s" \
+-X POST "https://peakapi.whitespell.com/users/272" \
+```
+
 -H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
--X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID" \
-```
+-X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID"
 
 > The above command returns JSON structured like this:
 > Only updated fields are returned in the response, others are "".
@@ -226,14 +277,14 @@ This endpoint allows a user to update their user profile.
 
 Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
-userName | No | If set, will attempt update of userName. | Tested
-displayName | No | If set, update the displayName.  | Tested
-thumbnail | No | If set, update the profile picture thumbnail url.  | Tested
-coverPhoto | No | If set, update the cover photo thumbnail url.  | Tested
-slogan | No | If set, update the profile slogan.  | Tested
+userName | No | String(30) | Tested
+displayName | No | String(30) | Tested
+thumbnail | No | String(255) | Tested
+coverPhoto | No | String(255)  | Tested
+slogan | No | String(255) | Tested
 
 
-### Update your User Settings
+## Update your User Settings
 
 
 ```shell
@@ -268,8 +319,56 @@ This endpoint allows a user to update their user settings, where they can change
 
 Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
-password | Yes | Current password is required to make changes. | Tested
-email | No | If set, attempt to update the user email.  | Tested
-newPassword | No | If set, attempt to update the user password.  | Tested
+password | Yes | String(inf) | Tested
+email | No | String(45) | Tested
+newPassword | No | String(inf) | Tested
 
 
+#Content
+
+
+## Request Content
+
+
+
+
+
+# Testing
+
+
+## Authentication Request
+
+
+```shell
+curl -d \ '{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","device":"DEVICE_INFO", "mac_address":"MAC_ADDRESS","geolocation":"LOCATION_INFO"}' \
+-H "Content-Type: application/json" \
+-X POST "https://peakapi.whitespell.com/authentication" \
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "status"    :    "ok",
+        "key"    :    "32bitstring",
+        "expires"    :   137183918301
+    }
+]
+```
+
+This endpoint allows testing of authentication requests.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/authentication/`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+userName | Yes | String(30) | Tested
+password | Yes | String(inf) | Tested
+device | No | String(45) | In Progress
+mac_address | No | String(45) | In Progress
+geolocation | No | String(Lat, Lon, 45) | In Progress
