@@ -112,15 +112,15 @@ Error Code | Meaning
     {
     users: [1]
         0:  {
-            userFollowing: [0]
-            usersFollowed: [0]
-            categoryFollowing: [0]
-            categoryPublishing: [0]
-            userId: 142
-            userName: "Chris Johnson"
+            userFollowing: [0],
+            usersFollowed: [0],
+            categoryFollowing: [0],
+            categoryPublishing: [0],
+            userId: 142,
+            userName: "Chris Johnson",
             displayName: ""
-            }
-    categories: [0]
+            },
+    categories: [0],
     content: [0]
     }
 ]
@@ -289,7 +289,7 @@ curl -d \ '{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","email":"YOUR_
     	"usersFollowed": [],
     	"categoryFollowing": [],
     	"categoryPublishing": [],
-    	"userId": YOUR_USER_ID,
+    	"userId": [YOUR_USER_ID],
     	"userName": "YOUR_USERNAME",
     	"displayName": "",
     	"email": "YOUR_EMAIL@EMAIL.COM",
@@ -335,7 +335,7 @@ curl -d \ '{"userName":"YOUR_NEW_USERNAME","displayName":"DISPLAY_NAME","thumbna
     "userFollowing":[],
     "categoryFollowing":[],
     "categoryPublishing":[],
-    "userId":YOUR_USER_ID,
+    "userId":[YOUR_USER_ID],
     "userName":"YOUR_NEW_USERNAME",
     "displayName":"DISPLAY_NAME",
     "email":"",
@@ -381,7 +381,7 @@ curl -d \ '{"password":"CURRENT_PASS","email":"email@email.com","newPassword":"N
 [
     {
     "key":"NEWLY_CREATED_KEY",
-    "userId":YOUR_USER_ID,
+    "userId":[YOUR_USER_ID],
     "expires":-1
     }
 ]
@@ -454,11 +454,11 @@ curl -d \ '{"userId":YOUR_USER_ID}' \
 ```json
 [
     {
-        "category_id" : 1
+        "category_id" : 1,
         "category_name" : "fitness"
     },
     {
-        "category_id" : 2
+        "category_id" : 2,
         "category_name" : "lacrosse"
     }
 ]
@@ -634,9 +634,6 @@ contentUrl | Yes | String(255) | Tested
 contentDescription | Yes | String(100) | Tested
 
 
-# ContentType
-
-
 ## Request Content Types
 
 
@@ -651,7 +648,7 @@ curl "https://peakapi.whitespell.com/content/types" \
 ```json
 [
      {
-        "content_type_id" : 1
+        "content_type_id" : 1,
         "content_type_name" : "youtube"
      }
 ]
@@ -715,11 +712,11 @@ curl "https://peakapi.whitespell.com/content/categories" \
 ```json
 [
      {
-         "category_id" : 1
+         "category_id" : 1,
          "category_name" : "soccer"
      },
      {
-         "category_id" : 2
+         "category_id" : 2,
          "category_name" : "basketball"
      }
 ]
