@@ -58,9 +58,9 @@ Request Body (Payload) | ```POST https://peakapi.whitespell.com/categories -> {"
 
 ## Errors
 ```shell
-curl "http://peakapi.whitespell.com/users/categories?"
-  -H "Authorization: YOUR_API_KEY" 
-  -H "X-Authentication: 134,c5m7tb6equb0isdbbv1pla98hu"
+curl "http://peakapi.whitespell.com/users/categories?" \
+  -H "Authorization: YOUR_API_KEY" \
+  -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"
 ```
 
 > Because the 'categories' parameter is missing in the query string, and it is a required parameter, the following JSON error will be thrown
@@ -94,14 +94,56 @@ Error Code | Meaning
 503 | Service Unavailable -- We're temp. offline for maintanance. Please try again later.
 
 
+# Testing
+
+
+## Authentication Request
+
+
+```shell
+curl -d \ '{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","device":"DEVICE_INFO", "mac_address":"MAC_ADDRESS","geolocation":"LOCATION_INFO"}' \
+-H "Content-Type: application/json" \
+-X POST "https://peakapi.whitespell.com/authentication" 
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "status"    :    "ok",
+        "key"    :    "32bitstring",
+        "expires"    :   137183918301
+    }
+]
+```
+
+This endpoint allows testing of authentication requests.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/authentication/`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+userName | Yes | String(30) | Tested
+password | Yes | String(inf) | Tested
+device | No | String(45) | In Progress
+mac_address | No | String(45) | In Progress
+geolocation | No | String(Lat, Lon, 45) | In Progress
+
+
 # Users
+
 
 ## Get All Users
 
 ```shell
-curl "https://peakapi.whitespell.com/users/"
-  -H "Authorization: YOUR_API_KEY" 
-  -H "X-Authentication: 134,c5m7tb6equb0isdbbv1pla98hu"
+curl "https://peakapi.whitespell.com/users/" \ 
+  -H "Authorization: YOUR_API_KEY" \
+  -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -150,9 +192,9 @@ publisher | None | If set, will look for accounts only with certain publisher st
 
 
 ```shell
-curl "https://peakapi.whitespell.com/users/"
-  -H "Authorization: YOUR_API_KEY" 
-  -H "X-Authentication: 134,c5m7tb6equb0isdbbv1pla98hu"
+curl "https://peakapi.whitespell.com/users/" \
+  -H "Authorization: YOUR_API_KEY" \
+  -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"
 ```
 
 > The above command returns JSON structured like this:
@@ -190,7 +232,7 @@ includePublishing | false | If set, will include a list of categories this user 
 ```shell
 curl -d \ '{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","email":"YOUR_EMAIL@EMAIL.COM", "publisher":0}' \
 -H "Content-Type: application/json" \
--X POST "https://peakapi.whitespell.com/users" \
+-X POST "https://peakapi.whitespell.com/users" 
 ```
 
 > The above command returns JSON structured like this:
@@ -229,26 +271,18 @@ email | Yes | String(45) | Tested
 publisher | No | BOOL (1 or 0) | Tested
 
 
-
-
-
 ## Update your User Profile
 
 
 ```shell
 curl -d \ '{"userName":"YOUR_NEW_USERNAME","displayName":"DISPLAY_NAME","thumbnail":"https://newThumbUrl.com","cover_photo":"https://coverPhotoUrl.com","slogan":"slogan"}' \
--H "Accept: application/json" \
 -H "Content-Type: application/json" \
--H "X-Authentication: 272,sadn13rf4c7hrgeiv7j0kifd8s" \
--X POST "https://peakapi.whitespell.com/users/272" \
-```
-
--H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
 -X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID"
+```
 
 > The above command returns JSON structured like this:
-> Only updated fields are returned in the response, others are "".
+> Only updated fields are returned in the response, others are "" or [].
 
 ```json
 [
@@ -289,15 +323,14 @@ slogan | No | String(255) | Tested
 
 ```shell
 curl -d \ '{"password":"CURRENT_PASS","email":"email@email.com","new_password":"NEW_PASS"}' \
--H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
--X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/settings" \
+-X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/settings"
 ```
 
 > The above command returns JSON structured like this:
-> Only updated fields are returned in the response, others are "" or [].
+> Only updated fields are returned in the response, others are "".
 
 ```json
 [
@@ -333,42 +366,3 @@ newPassword | No | String(inf) | Tested
 
 
 
-# Testing
-
-
-## Authentication Request
-
-
-```shell
-curl -d \ '{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","device":"DEVICE_INFO", "mac_address":"MAC_ADDRESS","geolocation":"LOCATION_INFO"}' \
--H "Content-Type: application/json" \
--X POST "https://peakapi.whitespell.com/authentication" \
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-    {
-        "status"    :    "ok",
-        "key"    :    "32bitstring",
-        "expires"    :   137183918301
-    }
-]
-```
-
-This endpoint allows testing of authentication requests.
-
-### HTTP Request
-
-`POST https://peakapi.whitespell.com/authentication/`
-
-### POST Parameters
-
-Parameter | Required | Description | Status
---------- | ------- | ----------- | ------
-userName | Yes | String(30) | Tested
-password | Yes | String(inf) | Tested
-device | No | String(45) | In Progress
-mac_address | No | String(45) | In Progress
-geolocation | No | String(Lat, Lon, 45) | In Progress
