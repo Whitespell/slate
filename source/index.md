@@ -237,7 +237,7 @@ publisher | None | If set, will look for accounts only with certain publisher st
 
 
 ```shell
-curl "https://peakapi.whitespell.com/users/" \
+curl "https://peakapi.whitespell.com/users/USER_ID" \
   -H "Authorization: YOUR_API_KEY" \
   -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"
 ```
@@ -260,7 +260,7 @@ This endpoint retrieves all users and allows for search queries on users.
 
 ### HTTP Request
 
-`GET https://peakapi.whitespell.com/users/`
+`GET https://peakapi.whitespell.com/users/USER_ID`
 
 ### Query Parameters
 
@@ -406,7 +406,7 @@ newPassword | No | String(inf) | Tested
 
 
 ```shell
-curl -d \ '{"following_id":188,"action":"follow"}' \
+curl -d \ '{"followingId":188,"action":"follow"}' \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
