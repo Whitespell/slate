@@ -109,18 +109,18 @@ curl "https://peakapi.whitespell.com/users/"
 ```json
 [
     {
-        "user_following": [],
-        "category_following": [],
-        "category_publishing": [],
+        "userFollowing": [],
+        "categoryFollowing": [],
+        "categoryPublishing": [],
         "userId": 0,
         "userName": "example_name",
         "email": "hidden",
         "thumbnail": "https://image.com/photo.jpg"
     },
     {
-        "user_following": [],
-        "category_following": [],
-        "category_publishing": [],
+        "userFollowing": [],
+        "categoryFollowing": [],
+        "categoryPublishing": [],
         "userId": 0,
         "userName": "example_name2",
         "email": "hidden",
@@ -159,9 +159,9 @@ curl "https://peakapi.whitespell.com/users/"
 
 ```json
 {
-    "user_following": [],
-    "category_following": [],
-    "category_publishing": [],
+    "userFollowing": [],
+    "categoryFollowing": [],
+    "categoryPublishing": [],
     "userId": 134,
     "userName": "pimdewitte",
     "email": "hidden",
@@ -179,9 +179,9 @@ This endpoint retrieves all users and allows for search queries on users
 
 Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
-include_following | false | If set, will include a JSON Array of user objects this user is following. | Not Started
-include_followers | false | If set, will include a JSON Array of user objects which are following this user.  | Not Started
-include_publishing | false | If set, will include a list of categories this user is publishing in  | Not Started
+includeFollowing | false | If set, will include a JSON Array of user objects this user is following. | Not Started
+includeFollowers | false | If set, will include a JSON Array of user objects which are following this user.  | Not Started
+includePublishing | false | If set, will include a list of categories this user is publishing in  | Not Started
 
 
 ### Update your User Profile
@@ -202,9 +202,9 @@ curl -d \ '{"userName":"YOUR_NEW_USERNAME","displayName":"DISPLAY_NAME","thumbna
 ```json
 [
     {
-    "user_following":[],
-    "category_following":[],
-    "category_publishing":[],
+    "userFollowing":[],
+    "categoryFollowing":[],
+    "categoryPublishing":[],
     "userId":YOUR_USER_ID,
     "userName":"YOUR_NEW_USERNAME",
     "displayName":"DISPLAY_NAME",
@@ -229,7 +229,7 @@ Parameter | Required | Description | Status
 userName | No | If set, will attempt update of userName. | Tested
 displayName | No | If set, update the displayName.  | Tested
 thumbnail | No | If set, update the profile picture thumbnail url.  | Tested
-cover_photo | No | If set, update the cover photo thumbnail url.  | Tested
+coverPhoto | No | If set, update the cover photo thumbnail url.  | Tested
 slogan | No | If set, update the profile slogan.  | Tested
 
 
@@ -258,7 +258,7 @@ curl -d \ '{"password":"CURRENT_PASS","email":"email@email.com","new_password":"
 ]
 ```
 
-This endpoint allows a user to update their user profile.
+This endpoint allows a user to update their user settings, where they can change their email and/or password.
 
 ### HTTP Request
 
@@ -270,6 +270,6 @@ Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
 password | Yes | Current password is required to make changes. | Tested
 email | No | If set, attempt to update the user email.  | Tested
-new_password | No | If set, attempt to update the user password.  | Tested
+newPassword | No | If set, attempt to update the user password.  | Tested
 
 
