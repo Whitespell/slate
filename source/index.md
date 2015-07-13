@@ -454,12 +454,12 @@ curl -d \ '{"userId":YOUR_USER_ID}' \
 ```json
 [
     {
-        "category_id" : 1,
-        "category_name" : "fitness"
+        "categoryId" : 1,
+        "categoryName" : "fitness"
     },
     {
-        "category_id" : 2,
-        "category_name" : "lacrosse"
+        "categoryId" : 2,
+        "categoryName" : "lacrosse"
     }
 ]
 ```
@@ -527,8 +527,8 @@ curl -d \ '{"categories":INT_ARRAY_OF_CATEGORIES}' \
 
 ```json
 [
-    {"user_id":134,"username":"pimdewitte","thumbnail":"https://lh3.googleusercontent.com/-Sa9kdnhuE5E/AAAAAAAAAAI/AAAAAAAAABs/H8dhweNPuFI/photo.jpg","category_id":1},
-    {"user_id":129,"username":"cyberstrike1","thumbnail":"https://lh3.googleusercontent.com/-Sa9kdnhuE5E/AAAAAAAAAAI/AAAAAAAAABs/H8dhweNPuFI/photo.jpg","category_id":1}
+    {"userId":134,"username":"pimdewitte","thumbnail":"https://lh3.googleusercontent.com/-Sa9kdnhuE5E/AAAAAAAAAAI/AAAAAAAAABs/H8dhweNPuFI/photo.jpg","categoryId":1},
+    {"userId":129,"username":"cyberstrike1","thumbnail":"https://lh3.googleusercontent.com/-Sa9kdnhuE5E/AAAAAAAAAAI/AAAAAAAAABs/H8dhweNPuFI/photo.jpg","categoryId":1}
 ]
 ```
 
@@ -563,22 +563,22 @@ curl "https://peakapi.whitespell.com/content/" \
 ```json
 [
     {
-            "content_id"    :    1313,
-            "user_id" : 13,
-            "content_type"    :    2,
-            "content_title"    :    "Knee to overhead press",
-            "content_description"    :    "video descr here",
+            "contentId"    :    1313,
+            "userId" : 13,
+            "contentType"    :    2,
+            "contentTitle"    :    "Knee to overhead press",
+            "contentDescription"    :    "video descr here",
             "timestamp"    :    1433083968,
-            "thumbnail_url"    "http://cdn.amazoncontent.com/test.jpg"
+            "thumbnailUrl"    "http://cdn.amazoncontent.com/test.jpg"
         },
         {
-            "content_id"    :    1212,
-            "user_id" : 11,
-            "content_type"    :    1,
-            "content_title"    :    "Knee to overhead press",
-            "content_description"    :    "see me do it",
+            "contentId"    :    1212,
+            "userId" : 11,
+            "contentType"    :    1,
+            "contentTitle"    :    "Knee to overhead press",
+            "contentDescription"    :    "see me do it",
             "timestamp"    :    1433083968,
-            "thumbnail_url"    "http://cdn.amazoncontent.com/test.jpg"
+            "thumbnailUrl"    "http://cdn.amazoncontent.com/test.jpg"
         }
 ]
 ```
@@ -648,8 +648,8 @@ curl "https://peakapi.whitespell.com/content/types" \
 ```json
 [
      {
-        "content_type_id" : 1,
-        "content_type_name" : "youtube"
+        "contentTypeId" : 1,
+        "contenTypeName" : "youtube"
      }
 ]
 ```
@@ -712,12 +712,12 @@ curl "https://peakapi.whitespell.com/content/categories" \
 ```json
 [
      {
-         "category_id" : 1,
-         "category_name" : "soccer"
+         "categoryId" : 1,
+         "categoryName" : "soccer"
      },
      {
-         "category_id" : 2,
-         "category_name" : "basketball"
+         "categoryId" : 2,
+         "categoryName" : "basketball"
      }
 ]
 ```
