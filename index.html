@@ -2,23 +2,1155 @@
 <html>
   <head>
     <meta charset="utf-8">
-
-    <!-- Always force latest IE rendering engine or request Chrome Frame -->
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>API Reference</title>
 
-    <!-- Use title if it's in the page YAML frontmatter -->
-    <title>Welcome to Middleman</title>
+    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="javascripts/all.js" type="text/javascript"></script>
 
-    <link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/all.css" rel="stylesheet" type="text/css" />
-    <script src="/javascripts/all.js" type="text/javascript"></script>
+      <script>
+        $(function() {
+          setupLanguages(["shell","Javascript","Java","Objective-C"]);
+        });
+      </script>
   </head>
 
   <body class="index">
-    <div class="welcome">
-  <h1>Middleman is Watching</h1>
-  <p class="doc">
-    <a href="http://middlemanapp.com/">Read Online Documentation</a>
-  </p><!-- .doc -->
-</div><!-- .welcome -->
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="https://whitespell.com/assets/img/whitespell-logo-white.svg" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="Javascript">Javascript</a>
+              <a href="#" data-language-name="Java">Java</a>
+              <a href="#" data-language-name="Objective-C">Objective-C</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="basics">Basics</h1>
+
+<h2 id="api">API</h2>
+
+<p>The API is located at <code class="prettyprint">https://peakapi.whitespell.com</code></p>
+
+<table><thead>
+<tr>
+<th>Data</th>
+<th>Format</th>
+<th>Info</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Payload</td>
+<td>JSON only</td>
+<td>This is to make it a lot easier to parse and post</td>
+</tr>
+<tr>
+<td>Requests</td>
+<td>Query String Parameters</td>
+<td>Make sure to also use SSL</td>
+</tr>
+<tr>
+<td>Encryption</td>
+<td>256-bit SSL</td>
+<td>Make sure to also use SSL in your requests for the sake of our users</td>
+</tr>
+<tr>
+<td>Max string length</td>
+<td>255</td>
+<td>Don&rsquo;t post strings longer than 255 characters :-)</td>
+</tr>
+</tbody></table>
+
+<h2 id="design-schema">Design Schema</h2>
+
+<p>In order to better understand the API, here you can find a design schema of the endpoints. Please email <a href="mailto:pim@whitespell.com">pim@whitespell.com</a> to request access.</p>
+
+<table><thead>
+<tr>
+<th>Method</th>
+<th>Schema URL</th>
+<th>Info</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Post data</td>
+<td><a href="https://docs.google.com/drawings/d/1UIDXzXAISMnD30ZVTRfRWIPrzDZQuWtkyJEMr0BOXF8/edit">POST</a></td>
+<td>Used to add or update data</td>
+</tr>
+<tr>
+<td>Request data</td>
+<td><a href="https://docs.google.com/drawings/d/13vZSrLS6FnD81OHgMIYzTpy-j4cC0fsQbbLdgwEp_Lo/edit">GET</a></td>
+<td>Used to add or update data</td>
+</tr>
+</tbody></table>
+
+<h2 id="headers">Headers</h2>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Value</th>
+<th>Info</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>X-Authentication</td>
+<td><code class="prettyprint">&lt;userId&gt;,&lt;key&gt;</code></td>
+<td>User authentication header</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td><code class="prettyprint">&lt;api_key&gt;</code></td>
+<td>Your developer key</td>
+</tr>
+</tbody></table>
+
+<h2 id="variables">Variables</h2>
+
+<p>You can send data to the API in 3 different ways. Each method has a different meaning. </p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Example</th>
+<th>Info</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>URL Variables</td>
+<td><code class="prettyprint">GET https://peakapi.whitespell.com/users/&lt;userId&gt;</code></td>
+<td>This is used when the value is guaranteed to be unique and you are directly accessing an object</td>
+</tr>
+<tr>
+<td>Query String Variables</td>
+<td><code class="prettyprint">GET https://peakapi.whitespell.com/users/categories/?categories=1,2,3&amp;limit=10</code></td>
+<td>This is mainly used to specify/narrow a result set or search for certain values.</td>
+</tr>
+<tr>
+<td>Request Body (Payload)</td>
+<td><code class="prettyprint">POST https://peakapi.whitespell.com/categories -&gt; {&quot;categoryName&quot; : &quot;new_category&quot;}</code></td>
+<td>This is used in the body of the request, also known as the payload. We only accept JSON payloads.</td>
+</tr>
+</tbody></table>
+
+<h2 id="errors">Errors</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"http://peakapi.whitespell.com/users/categories?"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span>
+</code></pre>
+
+<blockquote>
+<p>Because the &lsquo;categories&rsquo; parameter is missing in the query string, and it is a required parameter, the following JSON error will be thrown</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"className"</span><span class="w"> </span><span class="p">:</span><span class="w">   </span><span class="s2">"GetUsersByCategory"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"httpStatusCode"</span><span class="w">    </span><span class="p">:</span><span class="w">   </span><span class="mi">400</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"errorId"</span><span class="w">   </span><span class="p">:</span><span class="w">   </span><span class="mi">113</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"errorMessage"</span><span class="w">  </span><span class="p">:</span><span class="w">   </span><span class="s2">"Required key 'categories' was not found in the query string. See the documentation for all the requirements."</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>The API has a really good error informative reporting system, making it super simple for developers to use the API and learn from there errors.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>className</td>
+<td>The class the error was thrown in</td>
+</tr>
+<tr>
+<td>httpStatusCode</td>
+<td>The status code that was returned by the API</td>
+</tr>
+<tr>
+<td>errorId</td>
+<td>The error ID that was reported. Developers can use this to look up your error.</td>
+</tr>
+<tr>
+<td>errorMessage</td>
+<td>More information about the error</td>
+</tr>
+</tbody></table>
+
+<table><thead>
+<tr>
+<th>Error Code</th>
+<th>Meaning</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>400</td>
+<td>Bad Request &ndash; Your request contains information that is not acceptable, for example your JSON is not actually JSON</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Unauthorized &ndash; Your API key is wrong or your X-Authentication is wrong.</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Forbidden &ndash; You are not permitted to do this action</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Not Found &ndash; The specified kitten could not be found</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+</tr>
+<tr>
+<td>503</td>
+<td>Service Unavailable &ndash; We&rsquo;re temp. offline for maintanance. Please try again later.</td>
+</tr>
+</tbody></table>
+
+<h1 id="endpoints">Endpoints</h1>
+
+<h1 id="search">Search</h1>
+<pre class="highlight shell"><code>    curl <span class="s2">"https://peakapi.whitespell.com/search?q=SEARCH_STRING"</span> <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>    
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="err">users:</span><span class="w"> </span><span class="err">[1]</span><span class="w">
+        </span><span class="err">0:</span><span class="w">  </span><span class="err">{</span><span class="w">
+            </span><span class="err">userFollowing:</span><span class="w"> </span><span class="err">[0],</span><span class="w">
+            </span><span class="err">usersFollowed:</span><span class="w"> </span><span class="err">[0],</span><span class="w">
+            </span><span class="err">categoryFollowing:</span><span class="w"> </span><span class="err">[0],</span><span class="w">
+            </span><span class="err">categoryPublishing:</span><span class="w"> </span><span class="err">[0],</span><span class="w">
+            </span><span class="err">userId:</span><span class="w"> </span><span class="err">142,</span><span class="w">
+            </span><span class="err">userName:</span><span class="w"> </span><span class="nt">"Chris Johnson"</span><span class="err">,</span><span class="w">
+            </span><span class="err">displayName</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+    </span><span class="err">categories:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w">
+    </span><span class="err">content:</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w">
+    </span><span class="err">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint returns a JSON Object with a profiles array, a categories array (this returns the numbers of the searched categories, e.g. 1=football,2=skydiving,etc) and also a list of content (workouts). </p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/search/</code></p>
+
+<h3 id="query-parameters">QUERY Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>q</td>
+<td>Yes</td>
+<td>String value of search query (e.g. chri)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h1 id="authentication">Authentication</h1>
+
+<h2 id="authentication-request">Authentication Request</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","device":"DEVICE_INFO", "mac_address":"MAC_ADDRESS","geolocation":"LOCATION_INFO"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/authentication"</span> 
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"status"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"ok"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"key"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"32bitstring"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"expires"</span><span class="w">    </span><span class="p">:</span><span class="w">   </span><span class="mi">137183918301</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint allows testing of authentication requests.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/authentication/</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userName</td>
+<td>Yes</td>
+<td>String(30)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Yes</td>
+<td>String(inf)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>device</td>
+<td>No</td>
+<td>String(45)</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>mac_address</td>
+<td>No</td>
+<td>String(45)</td>
+<td>In Progress</td>
+</tr>
+<tr>
+<td>geolocation</td>
+<td>No</td>
+<td>String(Lat, Lon, 45)</td>
+<td>In Progress</td>
+</tr>
+</tbody></table>
+
+<h1 id="users">Users</h1>
+
+<h2 id="get-all-users">Get All Users</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/"</span> <span class="se">\ </span>
+  -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userFollowing"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"categoryFollowing"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"categoryPublishing"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"userName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_name"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://image.com/photo.jpg"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userFollowing"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"categoryFollowing"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"categoryPublishing"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"userName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"example_name2"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://image.com/photo.jpg"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all users and allows for search queries on users.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://peakapi.whitespell.com/users/</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>50</td>
+<td>If set, limit the amount of user objects you will get back by this amount.</td>
+<td>Not Started</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>None</td>
+<td>If set, start loading from user ids only larger than the offset number (e.g. for infinite scrolling)</td>
+<td>Not Started</td>
+</tr>
+<tr>
+<td>userName</td>
+<td>None</td>
+<td>If set, will search for users with a matching or semi-matching userName</td>
+<td>Not Started</td>
+</tr>
+<tr>
+<td>bio</td>
+<td>None</td>
+<td>If set, will search for users with a matching or semi-matching bio</td>
+<td>Not Started</td>
+</tr>
+<tr>
+<td>publisher</td>
+<td>None</td>
+<td>If set, will look for accounts only with certain publisher status.</td>
+<td>Not Started</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-a-specific-user">Get a Specific User</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/USER_ID"</span> <span class="se">\</span>
+  -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"userFollowing"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"categoryFollowing"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"categoryPublishing"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="mi">134</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"userName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pimdewitte"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://image.com/photo.jpg"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint retrieves all users and allows for search queries on users.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://peakapi.whitespell.com/users/USER_ID</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>includeFollowing</td>
+<td>false</td>
+<td>If set, will include a JSON Array of user objects this user is following.</td>
+<td>Not Started</td>
+</tr>
+<tr>
+<td>includeFollowers</td>
+<td>false</td>
+<td>If set, will include a JSON Array of user objects which are following this user.</td>
+<td>Not Started</td>
+</tr>
+<tr>
+<td>includePublishing</td>
+<td>false</td>
+<td>If set, will include a list of categories this user is publishing in</td>
+<td>Not Started</td>
+</tr>
+</tbody></table>
+
+<h2 id="create-a-new-user">Create a New User</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","email":"YOUR_EMAIL@EMAIL.COM", "publisher":0}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users"</span> 
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userFollowing"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"usersFollowed"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"categoryFollowing"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"categoryPublishing"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">YOUR_USER_ID</span><span class="p">],</span><span class="w">
+        </span><span class="nt">"userName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YOUR_USERNAME"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"displayName"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"YOUR_EMAIL@EMAIL.COM"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"coverPhoto"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"slogan"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint allows a new user to create their User Account.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userName</td>
+<td>Yes</td>
+<td>String(30)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>password</td>
+<td>Yes</td>
+<td>String(inf)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>email</td>
+<td>Yes</td>
+<td>String(45)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>publisher</td>
+<td>No</td>
+<td>BOOL (1 or 0)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-your-user-profile">Update your User Profile</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"userName":"YOUR_NEW_USERNAME","displayName":"DISPLAY_NAME","thumbnail":"https://newThumbUrl.com","cover_photo":"https://coverPhotoUrl.com","slogan":"slogan"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/YOUR_USER_ID"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:
+Only updated fields are returned in the response, others are &ldquo;&rdquo; or [].</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"userFollowing"</span><span class="p">:[],</span><span class="w">
+    </span><span class="nt">"categoryFollowing"</span><span class="p">:[],</span><span class="w">
+    </span><span class="nt">"categoryPublishing"</span><span class="p">:[],</span><span class="w">
+    </span><span class="nt">"userId"</span><span class="p">:[</span><span class="err">YOUR_USER_ID</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"YOUR_NEW_USERNAME"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"displayName"</span><span class="p">:</span><span class="s2">"DISPLAY_NAME"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"https://newThumbUrl.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"coverPhoto"</span><span class="p">:</span><span class="s2">"https://coverPhotoUrl.com"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"slogan"</span><span class="p">:</span><span class="s2">"slogan"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint allows a user to update their user profile.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/YOUR_USER_ID</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userName</td>
+<td>No</td>
+<td>String(30)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>displayName</td>
+<td>No</td>
+<td>String(30)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>thumbnail</td>
+<td>No</td>
+<td>String(255)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>coverPhoto</td>
+<td>No</td>
+<td>String(255)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>slogan</td>
+<td>No</td>
+<td>String(255)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h2 id="update-your-user-settings">Update your User Settings</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"password":"CURRENT_PASS","email":"email@email.com","newPassword":"NEW_PASS"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/YOUR_USER_ID/settings"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:
+Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"key"</span><span class="p">:</span><span class="s2">"NEWLY_CREATED_KEY"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"userId"</span><span class="p">:[</span><span class="err">YOUR_USER_ID</span><span class="p">],</span><span class="w">
+    </span><span class="nt">"expires"</span><span class="p">:</span><span class="mi">-1</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint allows a user to update their user settings, where they can change their email and/or password.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/USER_ID/settings</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>password</td>
+<td>Yes</td>
+<td>String(inf)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>email</td>
+<td>No</td>
+<td>String(45)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>newPassword</td>
+<td>No</td>
+<td>String(inf)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h2 id="user-follow-action">User Follow Action</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"followingId":188,"action":"follow"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/YOUR_USER_ID/following"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:
+Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"action_taken"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"followed"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint allows a user to follow another user.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/USER_ID/following</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>followingId</td>
+<td>Yes</td>
+<td>int(11)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>action</td>
+<td>Yes</td>
+<td>String, either follow/unfollow</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h2 id="request-following-categories">Request Following Categories</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"userId":YOUR_USER_ID}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/YOUR_USER_ID/categories"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"categoryId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"categoryName"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"fitness"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"categoryId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"categoryName"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"lacrosse"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint returns the list of categories you are following.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/YOUR_USER_ID/categories</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId</td>
+<td>Yes</td>
+<td>int(11)</td>
+<td>Not Started</td>
+</tr>
+</tbody></table>
+
+<h2 id="follow-category">Follow Category</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"categoryId":CATEGORY_ID,"action":"follow"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/YOUR_USER_ID/categories"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"action_taken"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"category_followed"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint returns the list of categories you are following.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/YOUR_USER_ID/categories</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>categoryId</td>
+<td>Yes</td>
+<td>int(11)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>action</td>
+<td>Yes</td>
+<td>String (either follow/unfollow)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-users-by-category">Get Users by Category</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"categories":INT_ARRAY_OF_CATEGORIES}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/categories"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">134</span><span class="p">,</span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"pimdewitte"</span><span class="p">,</span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"https://lh3.googleusercontent.com/-Sa9kdnhuE5E/AAAAAAAAAAI/AAAAAAAAABs/H8dhweNPuFI/photo.jpg"</span><span class="p">,</span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">129</span><span class="p">,</span><span class="nt">"username"</span><span class="p">:</span><span class="s2">"cyberstrike1"</span><span class="p">,</span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"https://lh3.googleusercontent.com/-Sa9kdnhuE5E/AAAAAAAAAAI/AAAAAAAAABs/H8dhweNPuFI/photo.jpg"</span><span class="p">,</span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">1</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint returns a list of users sorted by the categories you specify.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/YOUR_USER_ID/categories</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>categories</td>
+<td>Yes</td>
+<td>integer array of categories (e.g. /users/categories?categories=1,2)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>No</td>
+<td>int, Limit on amount of users in results</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h1 id="content">Content</h1>
+
+<h2 id="request-content">Request Content</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/content/"</span> <span class="se">\</span>
+       -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+       -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"contentId"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="mi">1313</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentType"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentTitle"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"Knee to overhead press"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentDescription"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"video descr here"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"timestamp"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="mi">1433083968</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thumbnailUrl"</span><span class="w">    </span><span class="nt">"http://cdn.amazoncontent.com/test.jpg"</span><span class="w">
+        </span><span class="err">}</span><span class="p">,</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"contentId"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="mi">1212</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentType"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentTitle"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"Knee to overhead press"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentDescription"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"see me do it"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"timestamp"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="mi">1433083968</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thumbnailUrl"</span><span class="w">    </span><span class="nt">"http://cdn.amazoncontent.com/test.jpg"</span><span class="w">
+        </span><span class="err">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint requests the content for the newsfeed, not user specific.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://peakapi.whitespell.com/content</code></p>
+
+<h3 id="get-parameters">GET Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>No</td>
+<td>int(11) of the size of the content you&rsquo;d like to see. E.g. 25 for 25 videos.</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>No</td>
+<td>int(11) of the minimum video ID to request (e.g. when you already have content, the last content id you have is the offset)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h2 id="add-content">Add Content</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"contentTypeId":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/content"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"content_type_added"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint allows a user to add content to the database.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/content</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contentTypeId</td>
+<td>Yes</td>
+<td>int, Numeric value of the content type (find all content types on GET /content/types)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>contentTitle</td>
+<td>Yes</td>
+<td>String(45)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>contentUrl</td>
+<td>Yes</td>
+<td>String(255)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>contentDescription</td>
+<td>Yes</td>
+<td>String(100)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h2 id="request-content-types">Request Content Types</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/content/types"</span> <span class="se">\</span>
+       -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+       -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"contentTypeId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"contenTypeName"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"youtube"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint requests all the content types.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://peakapi.whitespell.com/content/types</code></p>
+
+<h2 id="add-contenttype">Add ContentType</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"contentTypeName":"CONTENT_TYPE_NAME"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/content/types"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"content_type_added"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint adds a content type such as youtubeVideo to the database. Avoid spaces.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/content/types</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contentTypeName</td>
+<td>Yes</td>
+<td>String(45) Name of the added contentType. Avoid spaces.</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h1 id="categories">Categories</h1>
+
+<h2 id="request-categories">Request Categories</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/content/categories"</span> <span class="se">\</span>
+       -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+       -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"categoryId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"categoryName"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"soccer"</span><span class="w">
+     </span><span class="p">},</span><span class="w">
+     </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"categoryId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"categoryName"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"basketball"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint requests all current categories in the database.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://peakapi.whitespell.com/content/categories</code></p>
+
+<h2 id="add-a-category">Add a Category</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"categoryName":"CATEGORY_NAME","categoryThumbnail":"CATEGORY_THUMB_URL"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/content/categories"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"category_added"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint adds a category to the list of categories.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/content/categories</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>categoryName</td>
+<td>Yes</td>
+<td>String(25) Maximum 10 categories.</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>categoryThumbnail</td>
+<td>Yes</td>
+<td>String(255)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="Javascript">Javascript</a>
+                <a href="#" data-language-name="Java">Java</a>
+                <a href="#" data-language-name="Objective-C">Objective-C</a>
+          </div>
+      </div>
+    </div>
   </body>
 </html>
