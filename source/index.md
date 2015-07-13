@@ -94,7 +94,52 @@ Error Code | Meaning
 503 | Service Unavailable -- We're temp. offline for maintanance. Please try again later.
 
 
-# Testing
+# Endpoints
+
+
+# Search
+
+
+```shell
+    curl "https://peakapi.whitespell.com/search?q=SEARCH_STRING" \
+    -H "Content-Type: application/json" \     
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+    users: [1]
+        0:  {
+            userFollowing: [0]
+            usersFollowed: [0]
+            categoryFollowing: [0]
+            categoryPublishing: [0]
+            userId: 142
+            userName: "Chris Johnson"
+            displayName: ""
+            }
+    categories: [0]
+    content: [0]
+    }
+]
+```
+
+This endpoint returns a JSON Object with a profiles array, a categories array (this returns the numbers of the searched categories, e.g. 1=football,2=skydiving,etc) and also a list of content (workouts). 
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/search/`
+
+### QUERY Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+q | Yes | String value of search query (e.g. chri) | Tested
+
+
+# Authentication
 
 
 ## Authentication Request
@@ -322,7 +367,7 @@ slogan | No | String(255) | Tested
 
 
 ```shell
-curl -d \ '{"password":"CURRENT_PASS","email":"email@email.com","new_password":"NEW_PASS"}' \
+curl -d \ '{"password":"CURRENT_PASS","email":"email@email.com","newPassword":"NEW_PASS"}' \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
@@ -357,12 +402,369 @@ email | No | String(45) | Tested
 newPassword | No | String(inf) | Tested
 
 
-#Content
+## User Follow Action
+
+
+```shell
+curl -d \ '{"following_id":188,"action":"follow"}' \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/following"
+```
+
+> The above command returns JSON structured like this:
+> Only updated fields are returned in the response, others are "".
+
+```json
+[
+    {
+        "action_taken"    :    "followed"
+    }
+]
+```
+
+This endpoint allows a user to follow another user.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/USER_ID/following`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+followingId | Yes | int(11) | Tested
+action | Yes | String, either follow/unfollow | Tested
+
+
+## Request Following Categories
+
+
+```shell
+curl -d \ '{"userId":YOUR_USER_ID}' \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/categories"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "category_id" : 1
+        "category_name" : "fitness"
+    },
+    {
+        "category_id" : 2
+        "category_name" : "lacrosse"
+    }
+]
+```
+
+This endpoint returns the list of categories you are following.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/YOUR_USER_ID/categories`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+userId | Yes | int(11) | Not Started
+
+
+## Follow Category
+
+
+```shell
+curl -d \ '{"categoryId":CATEGORY_ID,"action":"follow"}' \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/categories"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "action_taken"    :    "category_followed"
+    }
+]
+```
+
+This endpoint returns the list of categories you are following.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/YOUR_USER_ID/categories`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+categoryId | Yes | int(11) | Tested
+action | Yes | String (either follow/unfollow) | Tested
+
+
+## Get Users by Category
+
+
+```shell
+curl -d \ '{"categories":INT_ARRAY_OF_CATEGORIES}' \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/users/categories"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {"user_id":134,"username":"pimdewitte","thumbnail":"https://lh3.googleusercontent.com/-Sa9kdnhuE5E/AAAAAAAAAAI/AAAAAAAAABs/H8dhweNPuFI/photo.jpg","category_id":1},
+    {"user_id":129,"username":"cyberstrike1","thumbnail":"https://lh3.googleusercontent.com/-Sa9kdnhuE5E/AAAAAAAAAAI/AAAAAAAAABs/H8dhweNPuFI/photo.jpg","category_id":1}
+]
+```
+
+This endpoint returns a list of users sorted by the categories you specify.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/YOUR_USER_ID/categories`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+categories | Yes | integer array of categories (e.g. /users/categories?categories=1,2)  | Tested
+limit | No | int, Limit on amount of users in results | Tested
+
+
+# Content
 
 
 ## Request Content
 
 
+```shell
+curl "https://peakapi.whitespell.com/content/" \
+       -H "Authorization: YOUR_API_KEY" \
+       -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+            "content_id"    :    1313,
+            "user_id" : 13,
+            "content_type"    :    2,
+            "content_title"    :    "Knee to overhead press",
+            "content_description"    :    "video descr here",
+            "timestamp"    :    1433083968,
+            "thumbnail_url"    "http://cdn.amazoncontent.com/test.jpg"
+        },
+        {
+            "content_id"    :    1212,
+            "user_id" : 11,
+            "content_type"    :    1,
+            "content_title"    :    "Knee to overhead press",
+            "content_description"    :    "see me do it",
+            "timestamp"    :    1433083968,
+            "thumbnail_url"    "http://cdn.amazoncontent.com/test.jpg"
+        }
+]
+```
+
+This endpoint requests the content for the newsfeed, not user specific.
+
+### HTTP Request
+
+`GET https://peakapi.whitespell.com/content`
+
+### GET Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+limit | No | int(11) of the size of the content you'd like to see. E.g. 25 for 25 videos. | Tested
+offset | No | int(11) of the minimum video ID to request (e.g. when you already have content, the last content id you have is the offset) | Tested
+
+
+## Add Content
+
+
+```shell
+curl -d \ '{"contentTypeId":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION"}' \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/content"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+            "content_type_added"    :    true
+    }
+]
+```
+
+This endpoint allows a user to add content to the database.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/content`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+contentTypeId | Yes | int, Numeric value of the content type (find all content types on GET /content/types)  | Tested
+contentTitle | Yes | String(45) | Tested
+contentUrl | Yes | String(255) | Tested
+contentDescription | Yes | String(100) | Tested
+
+
+# ContentType
+
+
+## Request Content Types
+
+
+```shell
+curl "https://peakapi.whitespell.com/content/types" \
+       -H "Authorization: YOUR_API_KEY" \
+       -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+     {
+        "content_type_id" : 1
+        "content_type_name" : "youtube"
+     }
+]
+```
+
+This endpoint requests all the content types.
+
+### HTTP Request
+
+`GET https://peakapi.whitespell.com/content/types`
+
+
+## Add ContentType
+
+
+```shell
+curl -d \ '{"contentTypeName":"CONTENT_TYPE_NAME"}' \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/content/types"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+            "content_type_added"    :    true
+    }
+]
+```
+
+This endpoint adds a content type such as youtubeVideo to the database. Avoid spaces.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/content/types`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+contentTypeName | Yes | String(45) Name of the added contentType. Avoid spaces. | Tested
+
+
+# Categories
+
+
+## Request Categories
+
+
+```shell
+curl "https://peakapi.whitespell.com/content/categories" \
+       -H "Authorization: YOUR_API_KEY" \
+       -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+     {
+         "category_id" : 1
+         "category_name" : "soccer"
+     },
+     {
+         "category_id" : 2
+         "category_name" : "basketball"
+     }
+]
+```
+
+This endpoint requests all current categories in the database.
+
+### HTTP Request
+
+`GET https://peakapi.whitespell.com/content/categories`
+
+
+## Add a Category
+
+
+```shell
+curl -d \ '{"categoryName":"CATEGORY_NAME","categoryThumbnail":"CATEGORY_THUMB_URL"}' \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/content/categories"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+    "category_added":true
+    }
+]
+```
+
+This endpoint adds a category to the list of categories.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/content/categories`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+categoryName | Yes | String(25) Maximum 10 categories. | Tested
+categoryThumbnail | Yes | String(255) | Tested
 
 
 
