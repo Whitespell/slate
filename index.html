@@ -237,9 +237,7 @@
 </code></pre>
 
 <blockquote>
-<p>The above command returns JSON structured like this:
-The categories response object contains the categoryIds that match the search query. 
-You can find the available categoryIds using the Request Category endpoint.</p>
+<p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"users"</span><span class="p">:[</span><span class="w">  
@@ -248,7 +246,7 @@ You can find the available categoryIds using the Request Category endpoint.</p>
             </span><span class="nt">"usersFollowed"</span><span class="p">:[],</span><span class="w">
             </span><span class="nt">"categoryFollowing"</span><span class="p">:[],</span><span class="w">
             </span><span class="nt">"categoryPublishing"</span><span class="p">:[],</span><span class="w">
-            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">331</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">1337</span><span class="p">,</span><span class="w">
             </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"football"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"displayName"</span><span class="p">:</span><span class="s2">""</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -258,20 +256,11 @@ You can find the available categoryIds using the Request Category endpoint.</p>
     </span><span class="p">],</span><span class="w">
     </span><span class="nt">"content"</span><span class="p">:[</span><span class="w">  
         </span><span class="p">{</span><span class="w">  
-            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">58</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"04122015 | 33 Days | Rest Day Grub"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://youtu.be/6_MoAb_es1I"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"33 days out, stay tuned for more footage of this past week!."</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"http://telecoms.com/wp-content/blogs.dir/1/files/2012/06/euro-football-sport.jpg"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">  
             </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">165</span><span class="p">,</span><span class="w">
             </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Amir Football Skills"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://youtu.be/5Z2Fm-2xZgc"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Amir gooit die gekke skillaz.."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Amir's football skills"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
             </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"http://telecoms.com/wp-content/blogs.dir/1/files/2012/06/euro-football-sport.jpg"</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -279,7 +268,8 @@ You can find the available categoryIds using the Request Category endpoint.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint returns a JSON Object with a profiles array, a categories array (this returns the numbers of the searched categories, e.g. 1=football,2=skydiving,etc) and also a list of content (workouts). </p>
+<p>This endpoint returns a JSON Object with a profiles array, a categories array (this returns the numbers of the searched categories, e.g. 1=football,2=skydiving,etc) and also a list of content (workouts). 
+The categories object contains the categoryIds that match the search query. You can find the available categoryIds using the Request Category endpoint.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
