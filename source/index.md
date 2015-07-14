@@ -138,7 +138,7 @@ Error Code | Meaning
 ```
 
 This endpoint returns a JSON Object with a profiles array, a categories array (this returns the numbers of the searched categories, e.g. 1=football,2=skydiving,etc) and also a list of content (workouts). 
-The categories object contains the categoryIds that match the search query. You can find the available categoryIds using the Request Category endpoint.
+The categories object contains the categoryIds that match the search query. You can find the available categoryIds using the Request Categories endpoint.
 
 ### HTTP Request
 
