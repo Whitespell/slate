@@ -108,21 +108,35 @@ Error Code | Meaning
 > The above command returns JSON structured like this:
 
 ```json
-[
-    {
-    users: [1]
-        0:  {
-            userFollowing: [0],
-            usersFollowed: [0],
-            categoryFollowing: [0],
-            categoryPublishing: [0],
-            userId: 142,
-            userName: "Chris Johnson",
-            displayName: ""
-            },
-    categories: [0],
-    content: [0]
-    }
+[  
+   {  
+      "users":[  
+         1
+      ],
+      "0":{  
+         "userFollowing":[  
+            0
+         ],
+         "usersFollowed":[  
+            0
+         ],
+         "categoryFollowing":[  
+            0
+         ],
+         "categoryPublishing":[  
+            0
+         ],
+         "userId":142,
+         "userName":"Chris Johnson",
+         "displayName":""
+      },
+      "categories":[  
+         0
+      ],
+      "content":[  
+         0
+      ]
+   }
 ]
 ```
 
