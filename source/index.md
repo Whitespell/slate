@@ -108,36 +108,30 @@ Error Code | Meaning
 > The above command returns JSON structured like this:
 
 ```json
-[  
-   {  
-      "users":[  
-         1
-      ],
-      "0":{  
-         "userFollowing":[  
-            0
-         ],
-         "usersFollowed":[  
-            0
-         ],
-         "categoryFollowing":[  
-            0
-         ],
-         "categoryPublishing":[  
-            0
-         ],
-         "userId":142,
-         "userName":"Chris Johnson",
-         "displayName":""
-      },
-      "categories":[  
-         0
-      ],
-      "content":[  
-         0
-      ]
-   }
-]
+{  
+    "users":[  
+        {  
+            "userFollowing":[],
+            "usersFollowed":[],
+            "categoryFollowing":[],
+            "categoryPublishing":[],
+            "userId":1111,
+            "userName":"pimdw",
+            "displayName":""
+        },
+        {  
+            "userFollowing":[],
+            "usersFollowed":[],
+            "categoryFollowing":[],
+            "categoryPublishing":[],
+            "userId":1337,
+            "userName":"pimdewitte",
+            "displayName":""
+        }
+    ],
+    "categories":[],
+    "content":[]
+}
 ```
 
 This endpoint returns a JSON Object with a profiles array, a categories array (this returns the numbers of the searched categories, e.g. 1=football,2=skydiving,etc) and also a list of content (workouts). 
@@ -303,7 +297,7 @@ curl -d \ '{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","email":"YOUR_
     	"usersFollowed": [],
     	"categoryFollowing": [],
     	"categoryPublishing": [],
-    	"userId": [YOUR_USER_ID],
+    	"userId": 1337,
     	"userName": "YOUR_USERNAME",
     	"displayName": "",
     	"email": "YOUR_EMAIL@EMAIL.COM",
@@ -349,7 +343,7 @@ curl -d \ '{"userName":"YOUR_NEW_USERNAME","displayName":"DISPLAY_NAME","thumbna
     "userFollowing":[],
     "categoryFollowing":[],
     "categoryPublishing":[],
-    "userId":[YOUR_USER_ID],
+    "userId":1337,
     "userName":"YOUR_NEW_USERNAME",
     "displayName":"DISPLAY_NAME",
     "email":"",
@@ -395,7 +389,7 @@ curl -d \ '{"password":"CURRENT_PASS","email":"email@email.com","newPassword":"N
 [
     {
     "key":"NEWLY_CREATED_KEY",
-    "userId":[YOUR_USER_ID],
+    "userId":1337,
     "expires":-1
     }
 ]
@@ -541,8 +535,18 @@ curl -d \ '{"categories":INT_ARRAY_OF_CATEGORIES}' \
 
 ```json
 [
-    {"userId":134,"username":"pimdewitte","thumbnail":"https://lh3.googleusercontent.com/-Sa9kdnhuE5E/AAAAAAAAAAI/AAAAAAAAABs/H8dhweNPuFI/photo.jpg","categoryId":1},
-    {"userId":129,"username":"cyberstrike1","thumbnail":"https://lh3.googleusercontent.com/-Sa9kdnhuE5E/AAAAAAAAAAI/AAAAAAAAABs/H8dhweNPuFI/photo.jpg","categoryId":1}
+    {  
+        "userId":134,
+        "username":"pimdewitte",
+        "thumbnail":"https://lh3.googleusercontent.com/-Sa9kdnhuE5E/AAAAAAAAAAI/AAAAAAAAABs/H8dhweNPuFI/photo.jpg",
+        "categoryId":1
+    },
+    {  
+        "userId":129,
+        "username":"cyberstrike1",
+        "thumbnail":"https://lh3.googleusercontent.com/-Sa9kdnhuE5E/AAAAAAAAAAI/AAAAAAAAABs/H8dhweNPuFI/photo.jpg",
+        "categoryId":1
+    }
 ]
 ```
 
@@ -583,7 +587,7 @@ curl "https://peakapi.whitespell.com/content/" \
             "contentTitle"    :    "Knee to overhead press",
             "contentDescription"    :    "video descr here",
             "timestamp"    :    1433083968,
-            "thumbnailUrl"    "http://cdn.amazoncontent.com/test.jpg"
+            "thumbnailUrl" :  "http://cdn.amazoncontent.com/test.jpg"
         },
         {
             "contentId"    :    1212,
@@ -592,7 +596,7 @@ curl "https://peakapi.whitespell.com/content/" \
             "contentTitle"    :    "Knee to overhead press",
             "contentDescription"    :    "see me do it",
             "timestamp"    :    1433083968,
-            "thumbnailUrl"    "http://cdn.amazoncontent.com/test.jpg"
+            "thumbnailUrl" :   "http://cdn.amazoncontent.com/test.jpg"
         }
 ]
 ```
