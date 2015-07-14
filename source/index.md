@@ -106,31 +106,45 @@ Error Code | Meaning
 ```
 
 > The above command returns JSON structured like this:
+> The categories response object contains the categoryIds that match the search query. 
+> You can find the available categoryIds using the Request Category endpoint.
 
 ```json
-{  
+{
     "users":[  
         {  
             "userFollowing":[],
             "usersFollowed":[],
             "categoryFollowing":[],
             "categoryPublishing":[],
-            "userId":1111,
-            "userName":"pimdw",
-            "displayName":""
-        },
-        {  
-            "userFollowing":[],
-            "usersFollowed":[],
-            "categoryFollowing":[],
-            "categoryPublishing":[],
-            "userId":1337,
-            "userName":"pimdewitte",
+            "userId":331,
+            "userName":"football",
             "displayName":""
         }
     ],
-    "categories":[],
-    "content":[]
+    "categories":[  
+        4
+    ],
+    "content":[  
+        {  
+            "contentId":58,
+            "contentType":1,
+            "contentTitle":"04122015 | 33 Days | Rest Day Grub",
+            "contentUrl":"https://youtu.be/6_MoAb_es1I",
+            "contentDescription":"33 days out, stay tuned for more footage of this past week!.",
+            "likes":100,
+            "thumbnail":"http://telecoms.com/wp-content/blogs.dir/1/files/2012/06/euro-football-sport.jpg"
+        },
+        {  
+            "contentId":165,
+            "contentType":1,
+            "contentTitle":"Amir Football Skills",
+            "contentUrl":"https://youtu.be/5Z2Fm-2xZgc",
+            "contentDescription":"Amir gooit die gekke skillaz..",
+            "likes":100,
+            "thumbnail":"http://telecoms.com/wp-content/blogs.dir/1/files/2012/06/euro-football-sport.jpg"
+        }
+    ]
 }
 ```
 
