@@ -106,8 +106,6 @@ Error Code | Meaning
 ```
 
 > The above command returns JSON structured like this:
-> The categories response object contains the categoryIds that match the search query. 
-> You can find the available categoryIds using the Request Category endpoint.
 
 ```json
 {
@@ -117,7 +115,7 @@ Error Code | Meaning
             "usersFollowed":[],
             "categoryFollowing":[],
             "categoryPublishing":[],
-            "userId":331,
+            "userId":1337,
             "userName":"football",
             "displayName":""
         }
@@ -127,20 +125,11 @@ Error Code | Meaning
     ],
     "content":[  
         {  
-            "contentId":58,
-            "contentType":1,
-            "contentTitle":"04122015 | 33 Days | Rest Day Grub",
-            "contentUrl":"https://youtu.be/6_MoAb_es1I",
-            "contentDescription":"33 days out, stay tuned for more footage of this past week!.",
-            "likes":100,
-            "thumbnail":"http://telecoms.com/wp-content/blogs.dir/1/files/2012/06/euro-football-sport.jpg"
-        },
-        {  
             "contentId":165,
             "contentType":1,
             "contentTitle":"Amir Football Skills",
             "contentUrl":"https://youtu.be/5Z2Fm-2xZgc",
-            "contentDescription":"Amir gooit die gekke skillaz..",
+            "contentDescription":"Amir's football skills",
             "likes":100,
             "thumbnail":"http://telecoms.com/wp-content/blogs.dir/1/files/2012/06/euro-football-sport.jpg"
         }
@@ -149,6 +138,7 @@ Error Code | Meaning
 ```
 
 This endpoint returns a JSON Object with a profiles array, a categories array (this returns the numbers of the searched categories, e.g. 1=football,2=skydiving,etc) and also a list of content (workouts). 
+The categories object contains the categoryIds that match the search query. You can find the available categoryIds using the Request Category endpoint.
 
 ### HTTP Request
 
