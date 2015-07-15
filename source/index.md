@@ -621,7 +621,7 @@ offset | None | If set, start loading from user ids only larger than the offset 
 
 
 ```shell
-curl "https://peakapi.whitespell.com/content/" \
+curl "https://peakapi.whitespell.com/content?userId=11" \
        -H "Authorization: YOUR_API_KEY" \
        -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" 
 ```
@@ -632,7 +632,7 @@ curl "https://peakapi.whitespell.com/content/" \
 [
     {
             "contentId"    :    1313,
-            "userId" : 13,
+            "userId" : 11,
             "contentType"    :    2,
             "contentTitle"    :    "Knee to overhead press",
             "contentDescription"    :    "video descr here",
@@ -651,7 +651,7 @@ curl "https://peakapi.whitespell.com/content/" \
 ]
 ```
 
-This endpoint requests the content for the newsfeed, not user specific.
+This endpoint requests the content for the newsfeed, can be user specific (?userId=USER_ID).
 
 ### HTTP Request
 
@@ -661,6 +661,7 @@ This endpoint requests the content for the newsfeed, not user specific.
 
 Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
+userId | None | int(11), use this to search for content posted by a specific userId. | Tested
 limit | 50 | int(11) of the size of the content you'd like to see. E.g. 25 for 25 videos. | Tested
 offset | None | int(11) of the minimum video ID to request (e.g. when you already have content, the last content id you have is the offset) | Tested
 
