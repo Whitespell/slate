@@ -169,8 +169,7 @@ offset | None | If set, start loading from user ids only larger than the offset 
             "userId":1337,
             "userName":"USER_NAME",
             "displayName":""
-        },
-        ...
+        }
     ],
     "categories":[
         4,
@@ -187,13 +186,13 @@ offset | None | If set, start loading from user ids only larger than the offset 
             "contentDescription":"Bored of doing the same old squat just Watch the video\nThe HARDCORE of SQUATS.",
             "likes":100,
             "thumbnailUrl":"https://i.ytimg.com/vi/X--QIF0mFTg/hqdefault.jpg"
-        },
-        ...
+        }
     ]
 }
 ```
 
-This endpoint returns a JSON Object with a user object array, a categoryId array and also a content array. 
+This endpoint returns a JSON Object with a user object array, a categoryId array and also a content array of the trending content. 
+Results are truncated here.
 
 ### HTTP Request
 
