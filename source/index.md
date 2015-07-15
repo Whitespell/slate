@@ -146,9 +146,12 @@ The categories object contains the categoryIds that match the search query. You 
 
 ### QUERY Parameters
 
-Parameter | Required | Description | Status
+Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
-q | Yes | String value of search query (e.g. chri) | Tested
+q | None | *REQUIRED* String value of search query (e.g. chri) | Tested
+limit | 50 | If set, limit the amount of user objects you will get back by this amount. | Tested
+offset | None | If set, start loading from user ids only larger than the offset number (e.g. for infinite scrolling)  | Tested
+
 
 
 # Authentication
@@ -238,8 +241,8 @@ This endpoint retrieves all users and allows for search queries on users.
 
 Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
-limit | 50 | If set, limit the amount of user objects you will get back by this amount. | Not Started
-offset | None | If set, start loading from user ids only larger than the offset number (e.g. for infinite scrolling)  | Not Started
+limit | 50 | If set, limit the amount of user objects you will get back by this amount. | Tested
+offset | None | If set, start loading from user ids only larger than the offset number (e.g. for infinite scrolling)  | Tested
 userName | None | If set, will search for users with a matching or semi-matching userName  | Not Started
 bio | None | If set, will search for users with a matching or semi-matching bio  | Not Started
 publisher | None | If set, will look for accounts only with certain publisher status. | Not Started
@@ -278,7 +281,7 @@ This endpoint retrieves all users and allows for search queries on users.
 
 Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
-includeFollowing | false | If set, will include a JSON Array of user objects this user is following. | Not Started
+includeFollowing | false | If set, will include a JSON Array of user objects this user is following. | Tested
 includeFollowers | false | If set, will include a JSON Array of user objects which are following this user.  | Not Started
 includePublishing | false | If set, will include a list of categories this user is publishing in  | Not Started
 
@@ -528,11 +531,7 @@ action | Yes | String (either follow/unfollow) | Tested
 
 
 ```shell
-curl -d \ '{"categories":INT_ARRAY_OF_CATEGORIES}' \
--H "Content-Type: application/json" \
--H "Authorization: YOUR_API_KEY" \
--H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
--X POST "https://peakapi.whitespell.com/users/categories"
+curl "https://peakapi.whitespell.com/users/categories?categories=1" 
 ```
 
 > The above command returns JSON structured like this:
@@ -558,14 +557,15 @@ This endpoint returns a list of users sorted by the categories you specify.
 
 ### HTTP Request
 
-`POST https://peakapi.whitespell.com/users/YOUR_USER_ID/categories`
+`GET https://peakapi.whitespell.com/users/categories`
 
-### POST Parameters
+### QUERY Parameters
 
-Parameter | Required | Description | Status
+Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
-categories | Yes | integer array of categories (e.g. /users/categories?categories=1,2)  | Tested
-limit | No | int, Limit on amount of users in results | Tested
+categories | None | *REQUIRED* integer array of categories  | Tested
+limit | 50 | If set, limit the amount of user objects you will get back by this amount. | Tested
+offset | None | If set, start loading from user ids only larger than the offset number (e.g. for infinite scrolling)  | Not Completed
 
 
 # Content
@@ -577,7 +577,7 @@ limit | No | int, Limit on amount of users in results | Tested
 ```shell
 curl "https://peakapi.whitespell.com/content/" \
        -H "Authorization: YOUR_API_KEY" \
-       -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"
+       -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" 
 ```
 
 > The above command returns JSON structured like this:
@@ -611,12 +611,12 @@ This endpoint requests the content for the newsfeed, not user specific.
 
 `GET https://peakapi.whitespell.com/content`
 
-### GET Parameters
+### QUERY Parameters
 
-Parameter | Required | Description | Status
+Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
-limit | No | int(11) of the size of the content you'd like to see. E.g. 25 for 25 videos. | Tested
-offset | No | int(11) of the minimum video ID to request (e.g. when you already have content, the last content id you have is the offset) | Tested
+limit | 50 | int(11) of the size of the content you'd like to see. E.g. 25 for 25 videos. | Tested
+offset | None | int(11) of the minimum video ID to request (e.g. when you already have content, the last content id you have is the offset) | Tested
 
 
 ## Add Content
