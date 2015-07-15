@@ -153,6 +153,52 @@ limit | 50 | If set, limit the amount of user objects you will get back by this 
 offset | None | If set, start loading from user ids only larger than the offset number (e.g. for infinite scrolling)  | Tested
 
 
+# Trending
+
+
+```shell
+    curl "https://peakapi.whitespell.com/trending"     
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "users":[
+        {
+            "userId":1337,
+            "userName":"USER_NAME",
+            "displayName":""
+        },
+        ...
+    ],
+    "categories":[
+        4,
+        3,
+        2,
+        1
+    ],
+    "content":[
+        {
+            "contentId":4448,
+            "contentType":1,
+            "contentTitle":"The HARDCORE of SQUATS",
+            "contentUrl":"https://youtu.be/X--QIF0mFTg",
+            "contentDescription":"Bored of doing the same old squat just Watch the video\nThe HARDCORE of SQUATS.",
+            "likes":100,
+            "thumbnailUrl":"https://i.ytimg.com/vi/X--QIF0mFTg/hqdefault.jpg"
+        },
+        ...
+    ]
+}
+```
+
+This endpoint returns a JSON Object with a user object array, a categoryId array and also a content array. 
+
+### HTTP Request
+
+`GET https://peakapi.whitespell.com/trending/`
+
 
 # Authentication
 
@@ -281,9 +327,10 @@ This endpoint retrieves all users and allows for search queries on users.
 
 Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
-includeFollowing | false | If set, will include a JSON Array of user objects this user is following. | Tested
-includeFollowers | false | If set, will include a JSON Array of user objects which are following this user.  | Not Started
-includePublishing | false | If set, will include a list of categories this user is publishing in  | Not Started
+includeFollowing | 0 | If value = 1, will include a JSON Array of user objects this user is following. | Tested
+includeCategories | 0 | If value = 1, will include a JSON Array of categoryIds this user is following. | Tested
+includeFollowers | 0 | If value = 1, will include a JSON Array of user objects which are following this user.  | Not Started
+includePublishing | 0 | If value = 1, will include a list of categories this user is publishing in  | Not Started
 
 
 ## Create a New User
