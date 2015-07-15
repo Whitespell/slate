@@ -977,7 +977,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </tbody></table>
 
 <h2 id="add-content">Add Content</h2>
-<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"contentTypeId":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION"}'</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"contentTypeId":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION","thumbnailUrl":"thumburl.com"}'</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
 -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
@@ -1032,6 +1032,12 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 <td>contentDescription</td>
 <td>Yes</td>
 <td>String(100)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>thumbnailUrl</td>
+<td>Yes</td>
+<td>String(255)</td>
 <td>Tested</td>
 </tr>
 </tbody></table>
