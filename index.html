@@ -280,15 +280,27 @@ The categories object contains the categoryIds that match the search query. You 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Required</th>
+<th>Default</th>
 <th>Description</th>
 <th>Status</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>q</td>
-<td>Yes</td>
-<td>String value of search query (e.g. chri)</td>
+<td>None</td>
+<td><em>REQUIRED</em> String value of search query (e.g. chri)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>limit</td>
+<td>50</td>
+<td>If set, limit the amount of user objects you will get back by this amount.</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>None</td>
+<td>If set, start loading from user ids only larger than the offset number (e.g. for infinite scrolling)</td>
 <td>Tested</td>
 </tr>
 </tbody></table>
@@ -414,13 +426,13 @@ The categories object contains the categoryIds that match the search query. You 
 <td>limit</td>
 <td>50</td>
 <td>If set, limit the amount of user objects you will get back by this amount.</td>
-<td>Not Started</td>
+<td>Tested</td>
 </tr>
 <tr>
 <td>offset</td>
 <td>None</td>
 <td>If set, start loading from user ids only larger than the offset number (e.g. for infinite scrolling)</td>
-<td>Not Started</td>
+<td>Tested</td>
 </tr>
 <tr>
 <td>userName</td>
@@ -482,7 +494,7 @@ The categories object contains the categoryIds that match the search query. You 
 <td>includeFollowing</td>
 <td>false</td>
 <td>If set, will include a JSON Array of user objects this user is following.</td>
-<td>Not Started</td>
+<td>Tested</td>
 </tr>
 <tr>
 <td>includeFollowers</td>
@@ -843,11 +855,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </tbody></table>
 
 <h2 id="get-users-by-category">Get Users by Category</h2>
-<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"categories":INT_ARRAY_OF_CATEGORIES}'</span> <span class="se">\</span>
--H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
--H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
--H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
--X POST <span class="s2">"https://peakapi.whitespell.com/users/categories"</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/categories?categories=1"</span> 
 </code></pre>
 
 <blockquote>
@@ -873,29 +881,35 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/YOUR_USER_ID/categories</code></p>
+<p><code class="prettyprint">GET https://peakapi.whitespell.com/users/categories</code></p>
 
-<h3 id="post-parameters">POST Parameters</h3>
+<h3 id="query-parameters">QUERY Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Required</th>
+<th>Default</th>
 <th>Description</th>
 <th>Status</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>categories</td>
-<td>Yes</td>
-<td>integer array of categories (e.g. /users/categories?categories=1,2)</td>
+<td>None</td>
+<td><em>REQUIRED</em> integer array of categories</td>
 <td>Tested</td>
 </tr>
 <tr>
 <td>limit</td>
-<td>No</td>
-<td>int, Limit on amount of users in results</td>
+<td>50</td>
+<td>If set, limit the amount of user objects you will get back by this amount.</td>
 <td>Tested</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>None</td>
+<td>If set, start loading from user ids only larger than the offset number (e.g. for infinite scrolling)</td>
+<td>Not Completed</td>
 </tr>
 </tbody></table>
 
@@ -904,7 +918,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 <h2 id="request-content">Request Content</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/content/"</span> <span class="se">\</span>
        -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
-       -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span>
+       -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> 
 </code></pre>
 
 <blockquote>
@@ -938,25 +952,25 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 
 <p><code class="prettyprint">GET https://peakapi.whitespell.com/content</code></p>
 
-<h3 id="get-parameters">GET Parameters</h3>
+<h3 id="query-parameters">QUERY Parameters</h3>
 
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Required</th>
+<th>Default</th>
 <th>Description</th>
 <th>Status</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>limit</td>
-<td>No</td>
+<td>50</td>
 <td>int(11) of the size of the content you&rsquo;d like to see. E.g. 25 for 25 videos.</td>
 <td>Tested</td>
 </tr>
 <tr>
 <td>offset</td>
-<td>No</td>
+<td>None</td>
 <td>int(11) of the minimum video ID to request (e.g. when you already have content, the last content id you have is the offset)</td>
 <td>Tested</td>
 </tr>
