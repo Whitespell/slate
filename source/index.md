@@ -623,7 +623,7 @@ offset | None | int(11) of the minimum video ID to request (e.g. when you alread
 
 
 ```shell
-curl -d \ '{"contentTypeId":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION"}' \
+curl -d \ '{"contentTypeId":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION","thumbnailUrl":"thumburl.com"}' \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
@@ -654,6 +654,7 @@ contentTypeId | Yes | int, Numeric value of the content type (find all content t
 contentTitle | Yes | String(45) | Tested
 contentUrl | Yes | String(255) | Tested
 contentDescription | Yes | String(100) | Tested
+thumbnailUrl | Yes | String(255) | Tested
 
 
 ## Request Content Types
