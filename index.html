@@ -231,9 +231,51 @@
 
 <h1 id="endpoints">Endpoints</h1>
 
+<h1 id="newsfeed">Newsfeed</h1>
+
+<h2 id="get-newsfeed">Get Newsfeed</h2>
+<pre class="highlight shell"><code>    curl <span class="s2">"https://peakapi.whitespell.com/newsfeed/USER_ID"</span> <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>    
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="err">newsfeed_id:</span><span class="w"> </span><span class="err">0</span><span class="w">
+</span><span class="err">newsfeed_object:</span><span class="w"> </span><span class="nt">"TEST"</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint returns the newsfeed for the a given userId.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://peakapi.whitespell.com/newsfeed/USER_ID</code></p>
+
+<h2 id="add-newsfeed">Add Newsfeed</h2>
+<pre class="highlight shell"><code>    curl <span class="s2">"https://peakapi.whitespell.com/newsfeed/USER_ID"</span> <span class="se">\</span>
+    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>    
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+</span><span class="err">newsfeed_id:</span><span class="w"> </span><span class="err">0</span><span class="w">
+</span><span class="err">newsfeed_object:</span><span class="w"> </span><span class="nt">"TEST"</span><span class="w">
+</span><span class="err">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint returns the newsfeed for the a given userId.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://peakapi.whitespell.com/newsfeed/USER_ID</code></p>
+
 <h1 id="search">Search</h1>
 <pre class="highlight shell"><code>    curl <span class="s2">"https://peakapi.whitespell.com/search?q=SEARCH_STRING"</span> <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>    
+        -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 </code></pre>
 
 <blockquote>
@@ -273,7 +315,7 @@ The categories object contains the categoryIds that match the search query. You 
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://peakapi.whitespell.com/search/</code></p>
+<p><code class="prettyprint">GET https://peakapi.whitespell.com/search/</code></p>
 
 <h3 id="query-parameters">QUERY Parameters</h3>
 
