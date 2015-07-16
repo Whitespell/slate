@@ -97,12 +97,63 @@ Error Code | Meaning
 # Endpoints
 
 
+# Newsfeed
+
+
+## Get Newsfeed
+
+
+```shell
+    curl "https://peakapi.whitespell.com/newsfeed/USER_ID" \
+    -H "Content-Type: application/json" \     
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+newsfeed_id: 0
+newsfeed_object: "TEST"
+}
+```
+
+This endpoint returns the newsfeed for the a given userId.
+
+### HTTP Request
+
+`GET https://peakapi.whitespell.com/newsfeed/USER_ID`
+
+
+## Add Newsfeed
+
+
+```shell
+    curl "https://peakapi.whitespell.com/newsfeed/USER_ID" \
+    -H "Content-Type: application/json" \     
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+newsfeed_id: 0
+newsfeed_object: "TEST"
+}
+```
+
+This endpoint returns the newsfeed for the a given userId.
+
+### HTTP Request
+
+`GET https://peakapi.whitespell.com/newsfeed/USER_ID`
+
+
 # Search
 
 
 ```shell
     curl "https://peakapi.whitespell.com/search?q=SEARCH_STRING" \
-    -H "Content-Type: application/json" \     
+        -H "Content-Type: application/json" \
 ```
 
 > The above command returns JSON structured like this:
@@ -142,7 +193,7 @@ The categories object contains the categoryIds that match the search query. You 
 
 ### HTTP Request
 
-`POST https://peakapi.whitespell.com/search/`
+`GET https://peakapi.whitespell.com/search/`
 
 ### QUERY Parameters
 
