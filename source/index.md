@@ -105,15 +105,15 @@ Error Code | Meaning
 
 ```shell
     curl "https://peakapi.whitespell.com/newsfeed/USER_ID" \
-    -H "Content-Type: application/json" \     
+    -H "Content-Type: application/json"   
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-newsfeed_id: 0,
-newsfeed_object: "TEST"
+"newsfeed_id" : 0,
+"newsfeed_object" : "TEST"
 }
 ```
 
@@ -136,8 +136,8 @@ This endpoint returns the newsfeed for a given userId.
 
 ```json
 {
-newsfeed_id: 0,
-newsfeed_object: "TEST"
+"newsfeed_id" : 0,
+"newsfeed_object" : "TEST"
 }
 ```
 
