@@ -242,12 +242,12 @@
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="err">newsfeed_id:</span><span class="w"> </span><span class="err">0</span><span class="w">
+</span><span class="err">newsfeed_id:</span><span class="w"> </span><span class="err">0,</span><span class="w">
 </span><span class="err">newsfeed_object:</span><span class="w"> </span><span class="nt">"TEST"</span><span class="w">
 </span><span class="err">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint returns the newsfeed for the a given userId.</p>
+<p>This endpoint returns the newsfeed for a given userId.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -255,19 +255,19 @@
 
 <h2 id="add-newsfeed">Add Newsfeed</h2>
 <pre class="highlight shell"><code>    curl <span class="s2">"https://peakapi.whitespell.com/newsfeed/USER_ID"</span> <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\ </span>    
+    -H <span class="s2">"Content-Type: application/json"</span>
 </code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-</span><span class="err">newsfeed_id:</span><span class="w"> </span><span class="err">0</span><span class="w">
+</span><span class="err">newsfeed_id:</span><span class="w"> </span><span class="err">0,</span><span class="w">
 </span><span class="err">newsfeed_object:</span><span class="w"> </span><span class="nt">"TEST"</span><span class="w">
 </span><span class="err">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint returns the newsfeed for the a given userId.</p>
+<p>This endpoint returns the newsfeed for a given userId.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -275,7 +275,7 @@
 
 <h1 id="search">Search</h1>
 <pre class="highlight shell"><code>    curl <span class="s2">"https://peakapi.whitespell.com/search?q=SEARCH_STRING"</span> <span class="se">\</span>
-        -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+        -H <span class="s2">"Content-Type: application/json"</span> 
 </code></pre>
 
 <blockquote>
