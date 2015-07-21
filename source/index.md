@@ -771,7 +771,7 @@ offset | None | int(11) of the minimum video ID to request (e.g. when you alread
 
 
 ```shell
-curl -d \ '{"categoryId":1,contentTypeId":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION","thumbnailUrl":"thumburl.com"}' \
+curl -d \ '{"categoryId":1,"contentTypeId":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION","thumbnailUrl":"thumburl.com"}' \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
