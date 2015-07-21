@@ -118,8 +118,10 @@ Error Code | Meaning
              {
                  "newsfeed_id":0,
                  "user":{
-                     "userFollowing":[],
-                     "categoryFollowing":[],
+                     "userFollowing":[
+                     ],
+                     "categoryFollowing":[
+                     ],
                      "userId":7018,
                      "userName":"elitefitnesslabs",
                      "displayName":"",
@@ -140,7 +142,7 @@ Error Code | Meaning
                      "thumbnailUrl":"https://i.ytimg.com/vi/RTK-dCCJs34/hqdefault.jpg"
                  }
              }
-        ]"
+         ]"
 }
 ```
 
