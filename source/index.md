@@ -196,6 +196,13 @@ This endpoint returns the newsfeed for a given userId.
 
 `GET https://peakapi.whitespell.com/newsfeed/USER_ID`
 
+### QUERY Parameters
+
+Parameter | Default | Description | Status
+--------- | ------- | ----------- | ------
+limit | 50 | int(11) of the size of the newsfeed you'd like to see. E.g. 25 for 25 videos. | Tested
+offset | None | int(11) of the minimum newsfeed ID to request | Tested
+
 
 # Search
 
