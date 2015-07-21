@@ -326,6 +326,30 @@
 
 <p><code class="prettyprint">GET https://peakapi.whitespell.com/newsfeed/USER_ID</code></p>
 
+<h3 id="query-parameters">QUERY Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>50</td>
+<td>int(11) of the size of the newsfeed you&rsquo;d like to see. E.g. 25 for 25 videos.</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>offset</td>
+<td>None</td>
+<td>int(11) of the minimum newsfeed ID to request</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
 <h1 id="search">Search</h1>
 <pre class="highlight shell"><code>    curl <span class="s2">"https://peakapi.whitespell.com/search?q=SEARCH_STRING"</span> <span class="se">\</span>
         -H <span class="s2">"Content-Type: application/json"</span> 
