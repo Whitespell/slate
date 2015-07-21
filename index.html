@@ -1059,7 +1059,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 <h1 id="content">Content</h1>
 
 <h2 id="request-content">Request Content</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/content?userId=11"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/content"</span> <span class="se">\</span>
        -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
        -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> 
 </code></pre>
@@ -1089,7 +1089,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint requests the content for the newsfeed, can be user specific (?userId=USER_ID).</p>
+<p>This endpoint requests the content for the newsfeed, can be user specific (?userId=USER_ID) or category specific (?categoryId=CATEGORY_ID).</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1112,6 +1112,12 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 <td>Tested</td>
 </tr>
 <tr>
+<td>categoryId</td>
+<td>0</td>
+<td>int(2), use this to search for content posted within a certain category.</td>
+<td>Tested</td>
+</tr>
+<tr>
 <td>limit</td>
 <td>50</td>
 <td>int(11) of the size of the content you&rsquo;d like to see. E.g. 25 for 25 videos.</td>
@@ -1120,13 +1126,13 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 <tr>
 <td>offset</td>
 <td>None</td>
-<td>int(11) of the minimum video ID to request (e.g. when you already have content, the last content id you have is the offset)</td>
+<td>int(11) of the minimum video ID to request (e.g. when you already have content, the last content id you have is the offset).</td>
 <td>Tested</td>
 </tr>
 </tbody></table>
 
 <h2 id="add-content">Add Content</h2>
-<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"contentTypeId":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION","thumbnailUrl":"thumburl.com"}'</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"categoryId":1,contentTypeId":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION","thumbnailUrl":"thumburl.com"}'</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
 -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
@@ -1159,6 +1165,12 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 <th>Status</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>categoryId</td>
+<td>Yes</td>
+<td>int, Numeric value of the category (find all categories on GET /categories)</td>
+<td>Tested</td>
+</tr>
 <tr>
 <td>contentTypeId</td>
 <td>Yes</td>
