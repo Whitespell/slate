@@ -241,81 +241,83 @@
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"newsfeed_id"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"user"</span><span class="p">:{</span><span class="w">
-        </span><span class="nt">"userFollowing"</span><span class="p">:[],</span><span class="w">
-        </span><span class="nt">"categoryFollowing"</span><span class="p">:[],</span><span class="w">
-        </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">7028</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"flexpointfitness"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"displayName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"flexpointfitness@temporary.email"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"https://yt3.ggpht.com/-wso_qOBUOLI/AAAAAAAAAAI/AAAAAAAAAAA/z1cGByWujus/s240-c-k-no/photo.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"coverPhoto"</span><span class="p">:</span><span class="s2">"https://s-media-cache-ak0.pinimg.com/736x/13/23/c1/1323c17e88c80e988fa14b31b6fed07b.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"slogan"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"content"</span><span class="p">:{</span><span class="w">
-        </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">7028</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">4123</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"05062015 | 10 Days Out | Quick Update"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://youtu.be/TlasHsDdZ7k"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"This video is about 05062015 | 10 Days Out | Update."</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"https://i.ytimg.com/vi/TlasHsDdZ7k/hqdefault.jpg"</span><span class="w">
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"newsfeed_id"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"user"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"userFollowing"</span><span class="p">:[],</span><span class="w">
+            </span><span class="nt">"categoryFollowing"</span><span class="p">:[],</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">7028</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"flexpointfitness"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"displayName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"flexpointfitness@temporary.email"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"https://yt3.ggpht.com/-wso_qOBUOLI/AAAAAAAAAAI/AAAAAAAAAAA/z1cGByWujus/s240-c-k-no/photo.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"coverPhoto"</span><span class="p">:</span><span class="s2">"https://s-media-cache-ak0.pinimg.com/736x/13/23/c1/1323c17e88c80e988fa14b31b6fed07b.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"slogan"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"content"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">7028</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">4123</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"05062015 | 10 Days Out | Quick Update"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://youtu.be/TlasHsDdZ7k"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"This video is about 05062015 | 10 Days Out | Update."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"https://i.ytimg.com/vi/TlasHsDdZ7k/hqdefault.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"newsfeed_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"user"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"userFollowing"</span><span class="p">:[],</span><span class="w">
+            </span><span class="nt">"categoryFollowing"</span><span class="p">:[],</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">7028</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"flexpointfitness"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"displayName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"flexpointfitness@temporary.email"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"https://yt3.ggpht.com/-wso_qOBUOLI/AAAAAAAAAAI/AAAAAAAAAAA/z1cGByWujus/s240-c-k-no/photo.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"coverPhoto"</span><span class="p">:</span><span class="s2">"https://s-media-cache-ak0.pinimg.com/736x/13/23/c1/1323c17e88c80e988fa14b31b6fed07b.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"slogan"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"content"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">7028</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">4111</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"04182015 | 28 Days | Cardio, Tanning, Posing"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://youtu.be/EmbO95UctC0"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"For Flex Point Fitness Apparel - \nwww.flexpointfitness.com\nInstagram - @flexpointfitness."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"https://i.ytimg.com/vi/EmbO95UctC0/hqdefault.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"newsfeed_id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"user"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"userFollowing"</span><span class="p">:[],</span><span class="w">
+            </span><span class="nt">"categoryFollowing"</span><span class="p">:[],</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">7018</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"elitefitnesslabs"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"displayName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"elitefitnesslabs@temporary.email"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"https://yt3.ggpht.com/-yW-7yNpq9U4/AAAAAAAAAAI/AAAAAAAAAAA/Rye-nyIBtVk/s240-c-k-no/photo.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"coverPhoto"</span><span class="p">:</span><span class="s2">"https://s-media-cache-ak0.pinimg.com/736x/13/23/c1/1323c17e88c80e988fa14b31b6fed07b.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"slogan"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"content"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">7018</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">4079</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Day In The Life :: Chipotle, Subway, Squats"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://youtu.be/RTK-dCCJs34"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Email: EliteFitnessLabs@gmail.com\nTwitter: EliteFitnessLab\nInstagram: EliteFitnessLabs."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"https://i.ytimg.com/vi/RTK-dCCJs34/hqdefault.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="err">,</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="nt">"newsfeed_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"user"</span><span class="p">:{</span><span class="w">
-        </span><span class="nt">"userFollowing"</span><span class="p">:[],</span><span class="w">
-        </span><span class="nt">"categoryFollowing"</span><span class="p">:[],</span><span class="w">
-        </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">7028</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"flexpointfitness"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"displayName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"flexpointfitness@temporary.email"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"https://yt3.ggpht.com/-wso_qOBUOLI/AAAAAAAAAAI/AAAAAAAAAAA/z1cGByWujus/s240-c-k-no/photo.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"coverPhoto"</span><span class="p">:</span><span class="s2">"https://s-media-cache-ak0.pinimg.com/736x/13/23/c1/1323c17e88c80e988fa14b31b6fed07b.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"slogan"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"content"</span><span class="p">:{</span><span class="w">
-        </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">7028</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">4111</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"04182015 | 28 Days | Cardio, Tanning, Posing"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://youtu.be/EmbO95UctC0"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"For Flex Point Fitness Apparel - \nwww.flexpointfitness.com\nInstagram - @flexpointfitness."</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"https://i.ytimg.com/vi/EmbO95UctC0/hqdefault.jpg"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="err">,</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="nt">"newsfeed_id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"user"</span><span class="p">:{</span><span class="w">
-        </span><span class="nt">"userFollowing"</span><span class="p">:[],</span><span class="w">
-        </span><span class="nt">"categoryFollowing"</span><span class="p">:[],</span><span class="w">
-        </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">7018</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"elitefitnesslabs"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"displayName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"elitefitnesslabs@temporary.email"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"https://yt3.ggpht.com/-yW-7yNpq9U4/AAAAAAAAAAI/AAAAAAAAAAA/Rye-nyIBtVk/s240-c-k-no/photo.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"coverPhoto"</span><span class="p">:</span><span class="s2">"https://s-media-cache-ak0.pinimg.com/736x/13/23/c1/1323c17e88c80e988fa14b31b6fed07b.jpg"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"slogan"</span><span class="p">:</span><span class="s2">""</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="nt">"content"</span><span class="p">:{</span><span class="w">
-        </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">7018</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">4079</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Day In The Life :: Chipotle, Subway, Squats"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://youtu.be/RTK-dCCJs34"</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Email: EliteFitnessLabs@gmail.com\nTwitter: EliteFitnessLab\nInstagram: EliteFitnessLabs."</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"https://i.ytimg.com/vi/RTK-dCCJs34/hqdefault.jpg"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre>
 
 <p>This endpoint returns the newsfeed for a given userId.</p>
