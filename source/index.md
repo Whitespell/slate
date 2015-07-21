@@ -896,7 +896,7 @@ This endpoint requests all current categories in the database.
 
 ### HTTP Request
 
-`GET https://peakapi.whitespell.com/content/categories`
+`GET https://peakapi.whitespell.com/categories`
 
 
 ## Add a Category
@@ -924,7 +924,7 @@ This endpoint adds a category to the list of categories.
 
 ### HTTP Request
 
-`POST https://peakapi.whitespell.com/content/categories`
+`POST https://peakapi.whitespell.com/categories`
 
 ### POST Parameters
 
