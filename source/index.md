@@ -113,31 +113,34 @@ Error Code | Meaning
 ```json
 {
 "newsfeed_id" : 0,
-"newsfeed_object" : "TEST"
-}
-```
-
-This endpoint returns the newsfeed for a given userId.
-
-### HTTP Request
-
-`GET https://peakapi.whitespell.com/newsfeed/USER_ID`
-
-
-## Add Newsfeed
-
-
-```shell
-    curl "https://peakapi.whitespell.com/newsfeed/USER_ID" \
-    -H "Content-Type: application/json"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-"newsfeed_id" : 0,
-"newsfeed_object" : "TEST"
+"newsfeed_object" : 
+        "[
+             {
+                 "newsfeed_id":0,
+                 "user":{
+                     "userFollowing":[],
+                     "categoryFollowing":[],
+                     "userId":7018,
+                     "userName":"elitefitnesslabs",
+                     "displayName":"",
+                     "email":"elitefitnesslabs@temporary.email",
+                     "thumbnail":"https://yt3.ggpht.com/-yW-7yNpq9U4/AAAAAAAAAAI/AAAAAAAAAAA/Rye-nyIBtVk/s240-c-k-no/photo.jpg",
+                     "coverPhoto":"https://s-media-cache-ak0.pinimg.com/736x/13/23/c1/1323c17e88c80e988fa14b31b6fed07b.jpg",
+                     "slogan":""
+                 },
+                 "content":{
+                     "userId":7018,
+                     "contentId":4079,
+                     "contentType":1,
+                     "categoryId":1,
+                     "contentTitle":"Day In The Life :: Chipotle, Subway, Squats",
+                     "contentUrl":"https://youtu.be/RTK-dCCJs34",
+                     "contentDescription":"Email: EliteFitnessLabs@gmail.com\nTwitter: EliteFitnessLab\nInstagram: EliteFitnessLabs.",
+                     "likes":100,
+                     "thumbnailUrl":"https://i.ytimg.com/vi/RTK-dCCJs34/hqdefault.jpg"
+                 }
+             }
+        ]"
 }
 ```
 
