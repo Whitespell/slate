@@ -721,7 +721,7 @@ offset | None | If set, start loading from user ids only larger than the offset 
 
 
 ```shell
-curl "https://peakapi.whitespell.com/content?userId=11" \
+curl "https://peakapi.whitespell.com/content" \
        -H "Authorization: YOUR_API_KEY" \
        -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" 
 ```
@@ -751,7 +751,7 @@ curl "https://peakapi.whitespell.com/content?userId=11" \
 ]
 ```
 
-This endpoint requests the content for the newsfeed, can be user specific (?userId=USER_ID).
+This endpoint requests the content for the newsfeed, can be user specific (?userId=USER_ID) or category specific (?categoryId=CATEGORY_ID).
 
 ### HTTP Request
 
@@ -762,15 +762,16 @@ This endpoint requests the content for the newsfeed, can be user specific (?user
 Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
 userId | None | int(11), use this to search for content posted by a specific userId. | Tested
+categoryId | 0 | int(2), use this to search for content posted within a certain category. | Tested
 limit | 50 | int(11) of the size of the content you'd like to see. E.g. 25 for 25 videos. | Tested
-offset | None | int(11) of the minimum video ID to request (e.g. when you already have content, the last content id you have is the offset) | Tested
+offset | None | int(11) of the minimum video ID to request (e.g. when you already have content, the last content id you have is the offset). | Tested
 
 
 ## Add Content
 
 
 ```shell
-curl -d \ '{"contentTypeId":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION","thumbnailUrl":"thumburl.com"}' \
+curl -d \ '{"categoryId":1,contentTypeId":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION","thumbnailUrl":"thumburl.com"}' \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
@@ -797,6 +798,7 @@ This endpoint allows a user to add content to the database.
 
 Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
+categoryId | Yes | int, Numeric value of the category (find all categories on GET /categories)  | Tested
 contentTypeId | Yes | int, Numeric value of the content type (find all content types on GET /content/types)  | Tested
 contentTitle | Yes | String(45) | Tested
 contentUrl | Yes | String(255) | Tested
