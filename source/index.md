@@ -436,7 +436,7 @@ Parameter | Default | Description | Status
 includeFollowing | 0 | If value = 1, will include a JSON Array of user objects this user is following. | Tested
 includeCategories | 0 | If value = 1, will include a JSON Array of categoryIds this user is following. | Tested
 includeFollowers | 0 | If value = 1, will include a JSON Array of user objects which are following this user.  | Not Started
-includePublishing | 0 | If value = 1, will include a list of categories this user is publishing in  | Not Started
+includePublishing | 0 | If value = 1, will include a list of categoryIds this user is publishing in  | Tested
 
 
 ## Create a New User
