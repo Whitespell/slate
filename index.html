@@ -1081,7 +1081,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 <tr>
 <td>categories</td>
 <td>None</td>
-<td><em>REQUIRED</em> integer array of categories</td>
+<td>Integer array of categories</td>
 <td>Tested</td>
 </tr>
 <tr>
@@ -1097,6 +1097,89 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 <td>Not Completed</td>
 </tr>
 </tbody></table>
+
+<h2 id="add-content-to-myworkouts">Add Content to MyWorkouts</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"contentId":CONTENT_ID}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/YOUR_USER_ID/categories"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"addedContentId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="err">CONTENT_ID</span><span class="w"> 
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint adds the content with the given contentId to the user&rsquo;s MyWorkouts.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/YOUR_USER_ID/workout</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contentId</td>
+<td>Yes</td>
+<td>int(11)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-myworkouts-for-a-user">Get MyWorkouts for a User</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/workout"</span> 
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"UserWorkouts"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11518</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">8435</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Rich Froning\u0027s Week of WODs: Fri-Sat"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://youtu.be/362511"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Rich Froning\u0027s Week of WODs: Fri-Sat."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"https://i.ytimg.com/vi/0P4Ao0dt9v0/hqdefault.jpg"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11518</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">8477</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Zuzka\u0027s Metabolic Circuit Challenge"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://youtu.be/2376153"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Zuzka\u0027s Metabolic Circuit Challenge."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"https://i.ytimg.com/vi/Hz_A6gZZjnU/hqdefault.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><em>Requires authentication as the user.</em> This endpoint returns the MyWorkouts list for the given userId. </p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://peakapi.whitespell.com/users/USER_ID/workout</code></p>
 
 <h1 id="content">Content</h1>
 
