@@ -743,7 +743,7 @@ curl -d \ '{"contentId":CONTENT_ID}' \
 ```json
 [
     {
-      "addedContentId" : CONTENT_ID 
+      "addedContentId" : 0 
     }
 ]
 ```
