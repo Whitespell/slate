@@ -113,7 +113,7 @@ Error Code | Meaning
 ```json
 [
     {
-        "newsfeed_id":0,
+        "newsfeedId":0,
         "user":{
             "userFollowing":[],
             "categoryFollowing":[],
@@ -138,7 +138,7 @@ Error Code | Meaning
         }
         },
         {
-        "newsfeed_id":1,
+        "newsfeedId":1,
         "user":{
             "userFollowing":[],
             "categoryFollowing":[],
@@ -163,7 +163,7 @@ Error Code | Meaning
         }
         },
         {
-        "newsfeed_id":2,
+        "newsfeedId":2,
         "user":{
             "userFollowing":[],
             "categoryFollowing":[],
@@ -299,11 +299,17 @@ offset | None | If set, start loading from user ids only larger than the offset 
 ```
 
 This endpoint returns a JSON Object with a user object array, a categoryId array and also a content array of the trending content. 
-Results are truncated here.
+Now trending users are sorted by amount of published content. 
 
 ### HTTP Request
 
 `GET https://peakapi.whitespell.com/trending/`
+
+### Query Parameters
+
+Parameter | Default | Description | Status
+--------- | ------- | ----------- | ------
+limit | 50 | If set, limit or increase the amount of each object type (user, category, content) you will get back. | Tested
 
 
 # Authentication
@@ -340,7 +346,7 @@ This endpoint allows testing of authentication requests.
 
 Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
-userName | Yes | String(30) | Tested
+userName | Yes | String(30) | Testede
 password | Yes | String(inf) | Tested
 device | No | String(45) | In Progress
 mac_address | No | String(45) | In Progress
@@ -395,7 +401,7 @@ Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
 limit | 50 | If set, limit the amount of user objects you will get back by this amount. | Tested
 offset | None | If set, start loading from user ids only larger than the offset number (e.g. for infinite scrolling)  | Tested
-userName | None | If set, will search for users with a matching or semi-matching userName  | Not Started
+userName | None | If set, will for users with a matching or semi-matching userName  | Not Started
 bio | None | If set, will search for users with a matching or semi-matching bio  | Not Started
 publisher | None | If set, will look for accounts only with certain publisher status. | Not Started
 
