@@ -727,7 +727,7 @@ limit | 50 | If set, limit the amount of user objects you will get back by this 
 offset | None | If set, start loading from user ids only larger than the offset number (e.g. for infinite scrolling)  | Not Completed
 
 
-## Add Content to MyWorkouts
+## Add to MyWorkouts
 
 
 ```shell
@@ -761,7 +761,7 @@ Parameter | Required | Description | Status
 contentId | Yes | int(11) | Tested
 
 
-## Get MyWorkouts for a User
+## Get MyWorkouts
 
 
 ```shell
