@@ -722,9 +722,88 @@ This endpoint returns a list of users sorted by the categories you specify.
 
 Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
-categories | None | *REQUIRED* integer array of categories  | Tested
+categories | None | Integer array of categories | Tested
 limit | 50 | If set, limit the amount of user objects you will get back by this amount. | Tested
 offset | None | If set, start loading from user ids only larger than the offset number (e.g. for infinite scrolling)  | Not Completed
+
+
+## Add Content to MyWorkouts
+
+
+```shell
+curl -d \ '{"contentId":CONTENT_ID}' \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/categories"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+      "addedContentId" : CONTENT_ID 
+    }
+]
+```
+
+This endpoint adds the content with the given contentId to the user's MyWorkouts.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/YOUR_USER_ID/workout`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+contentId | Yes | int(11) | Tested
+
+
+## Get MyWorkouts for a User
+
+
+```shell
+curl "https://peakapi.whitespell.com/users/USER_ID/workout" 
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "UserWorkouts":[
+        {
+            "userId":11518,
+            "contentId":8435,
+            "contentType":1,
+            "categoryId":2,
+            "contentTitle":"Rich Froning\u0027s Week of WODs: Fri-Sat",
+            "contentUrl":"https://youtu.be/362511",
+            "contentDescription":"Rich Froning\u0027s Week of WODs: Fri-Sat.",
+            "likes":100,
+            "thumbnailUrl":"https://i.ytimg.com/vi/0P4Ao0dt9v0/hqdefault.jpg"
+        },
+        {
+            "userId":11518,
+            "contentId":8477,
+            "contentType":1,
+            "categoryId":2,
+            "contentTitle":"Zuzka\u0027s Metabolic Circuit Challenge",
+            "contentUrl":"https://youtu.be/2376153",
+            "contentDescription":"Zuzka\u0027s Metabolic Circuit Challenge.",
+            "likes":100,
+            "thumbnailUrl":"https://i.ytimg.com/vi/Hz_A6gZZjnU/hqdefault.jpg"
+        }
+    ]
+}
+```
+
+*Requires authentication as the user.* This endpoint returns the MyWorkouts list for the given userId. 
+
+### HTTP Request
+
+`GET https://peakapi.whitespell.com/users/USER_ID/workout`
 
 
 # Content
