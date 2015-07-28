@@ -243,7 +243,7 @@
 </blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"newsfeed_id"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"newsfeedId"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nt">"user"</span><span class="p">:{</span><span class="w">
             </span><span class="nt">"userFollowing"</span><span class="p">:[],</span><span class="w">
             </span><span class="nt">"categoryFollowing"</span><span class="p">:[],</span><span class="w">
@@ -268,7 +268,7 @@
         </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"newsfeed_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"newsfeedId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="nt">"user"</span><span class="p">:{</span><span class="w">
             </span><span class="nt">"userFollowing"</span><span class="p">:[],</span><span class="w">
             </span><span class="nt">"categoryFollowing"</span><span class="p">:[],</span><span class="w">
@@ -293,7 +293,7 @@
         </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
-        </span><span class="nt">"newsfeed_id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"newsfeedId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
         </span><span class="nt">"user"</span><span class="p">:{</span><span class="w">
             </span><span class="nt">"userFollowing"</span><span class="p">:[],</span><span class="w">
             </span><span class="nt">"categoryFollowing"</span><span class="p">:[],</span><span class="w">
@@ -460,11 +460,29 @@ The categories object contains the categoryIds that match the search query. You 
 </span></code></pre>
 
 <p>This endpoint returns a JSON Object with a user object array, a categoryId array and also a content array of the trending content. 
-Results are truncated here.</p>
+Now trending users are sorted by amount of published content. </p>
 
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">GET https://peakapi.whitespell.com/trending/</code></p>
+
+<h3 id="query-parameters">Query Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>limit</td>
+<td>50</td>
+<td>If set, limit or increase the amount of each object type (user, category, content) you will get back.</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
 
 <h1 id="authentication">Authentication</h1>
 
@@ -506,7 +524,7 @@ Results are truncated here.</p>
 <td>userName</td>
 <td>Yes</td>
 <td>String(30)</td>
-<td>Tested</td>
+<td>Testede</td>
 </tr>
 <tr>
 <td>password</td>
@@ -598,7 +616,7 @@ Results are truncated here.</p>
 <tr>
 <td>userName</td>
 <td>None</td>
-<td>If set, will search for users with a matching or semi-matching userName</td>
+<td>If set, will for users with a matching or semi-matching userName</td>
 <td>Not Started</td>
 </tr>
 <tr>
