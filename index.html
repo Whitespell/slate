@@ -1103,7 +1103,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
 -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
--X POST <span class="s2">"https://peakapi.whitespell.com/users/YOUR_USER_ID/categories"</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/YOUR_USER_ID/workouts"</span>
 </code></pre>
 
 <blockquote>
@@ -1116,11 +1116,11 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint adds the content with the given contentId to the user&rsquo;s MyWorkouts.</p>
+<p><em>Requires authentication as the user.</em> This endpoint adds the content with the given contentId to the user&rsquo;s MyWorkouts.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/YOUR_USER_ID/workout</code></p>
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/YOUR_USER_ID/workouts</code></p>
 
 <h3 id="post-parameters">POST Parameters</h3>
 
@@ -1180,6 +1180,115 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">GET https://peakapi.whitespell.com/users/USER_ID/workout</code></p>
+
+<h2 id="add-to-user-list">Add to User List</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"contentId":CONTENT_ID,"listId":LIST_ID}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/YOUR_USER_ID/lists"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"addedContentId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"addedToListId"</span><span class="w">  </span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p><em>Requires authentication as the user.</em> This endpoint adds the content with the given contentId to the user&rsquo;s MyWorkouts.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/YOUR_USER_ID/lists</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contentId</td>
+<td>Yes</td>
+<td>int(11)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>listId</td>
+<td>Yes</td>
+<td>int(11)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-user-list">Get User List</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/lists"</span> 
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"userList"</span><span class="p">:[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11518</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">8420</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Jim Stoppani\u0027s Superman Workout 3"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://youtu.be/vK3FJnjxr8c"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Jim Stoppani\u0027s Superman Workout 3."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"https://i.ytimg.com/vi/vK3FJnjxr8c/hqdefault.jpg"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11603</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">11123</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"?????? ?????? -- ????"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://youtu.be/qMQHyFsihe8"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"?????????????? ?????????? ??????????? ??????? ?? ?????? ???????? ????????? ???????."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"https://i.ytimg.com/vi/qMQHyFsihe8/hqdefault.jpg"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"listId"</span><span class="p">:</span><span class="mi">2</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><em>Requires authentication as the user.</em> This endpoint returns the saved user list for the given userId and listId. </p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://peakapi.whitespell.com/users/USER_ID/lists</code></p>
+
+<h3 id="query-parameters">QUERY Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>listId</td>
+<td>None</td>
+<td><em>REQUIRED</em> int(11), use this to return the saved user list for the given listId.</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
 
 <h1 id="content">Content</h1>
 
