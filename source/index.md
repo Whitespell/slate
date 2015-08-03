@@ -828,7 +828,7 @@ curl -d \ '{"contentId":CONTENT_ID,"listId":LIST_ID}' \
 ]
 ```
 
-*Requires authentication as the user.* This endpoint adds the content with the given contentId to the user's MyWorkouts.
+*Requires authentication as the user.* This endpoint adds the content with the given contentId to the user's list with the given listId.
 
 ### HTTP Request
 
