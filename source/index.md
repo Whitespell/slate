@@ -735,7 +735,7 @@ curl -d \ '{"contentId":CONTENT_ID}' \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
--X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/categories"
+-X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/workouts"
 ```
 
 > The above command returns JSON structured like this:
@@ -748,11 +748,11 @@ curl -d \ '{"contentId":CONTENT_ID}' \
 ]
 ```
 
-This endpoint adds the content with the given contentId to the user's MyWorkouts.
+*Requires authentication as the user.* This endpoint adds the content with the given contentId to the user's MyWorkouts.
 
 ### HTTP Request
 
-`POST https://peakapi.whitespell.com/users/YOUR_USER_ID/workout`
+`POST https://peakapi.whitespell.com/users/YOUR_USER_ID/workouts`
 
 ### POST Parameters
 
@@ -804,6 +804,94 @@ curl "https://peakapi.whitespell.com/users/USER_ID/workout"
 ### HTTP Request
 
 `GET https://peakapi.whitespell.com/users/USER_ID/workout`
+
+
+## Add to User List
+
+
+```shell
+curl -d \ '{"contentId":CONTENT_ID,"listId":LIST_ID}' \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/lists"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+      "addedContentId" : 0,
+      "addedToListId"  : 0
+    }
+]
+```
+
+*Requires authentication as the user.* This endpoint adds the content with the given contentId to the user's MyWorkouts.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/YOUR_USER_ID/lists`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+contentId | Yes | int(11) | Tested
+listId | Yes | int(11) | Tested
+
+
+## Get User List
+
+
+```shell
+curl "https://peakapi.whitespell.com/users/USER_ID/lists" 
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "userList":[
+        {
+            "userId":11518,
+            "contentId":8420,
+            "contentType":1,
+            "categoryId":2,
+            "contentTitle":"Jim Stoppani\u0027s Superman Workout 3",
+            "contentUrl":"https://youtu.be/vK3FJnjxr8c",
+            "contentDescription":"Jim Stoppani\u0027s Superman Workout 3.",
+            "likes":100,
+            "thumbnailUrl":"https://i.ytimg.com/vi/vK3FJnjxr8c/hqdefault.jpg"
+        },
+        {
+            "userId":11603,
+            "contentId":11123,
+            "contentType":1,
+            "categoryId":13,
+            "contentTitle":"?????? ?????? -- ????",
+            "contentUrl":"https://youtu.be/qMQHyFsihe8",
+            "contentDescription":"?????????????? ?????????? ??????????? ??????? ?? ?????? ???????? ????????? ???????.",
+            "likes":100,
+            "thumbnailUrl":"https://i.ytimg.com/vi/qMQHyFsihe8/hqdefault.jpg"
+        }
+    ],
+    "listId":2
+}
+```
+
+*Requires authentication as the user.* This endpoint returns the saved user list for the given userId and listId. 
+
+### HTTP Request
+
+`GET https://peakapi.whitespell.com/users/USER_ID/lists`
+
+### QUERY Parameters
+
+Parameter | Default | Description | Status
+--------- | ------- | ----------- | ------
+listId | None | *REQUIRED* int(11), use this to return the saved user list for the given listId. | Tested
 
 
 # Content
