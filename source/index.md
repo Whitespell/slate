@@ -373,18 +373,22 @@ curl "https://peakapi.whitespell.com/users/" \
         "categoryFollowing": [],
         "categoryPublishing": [],
         "userId": 0,
+        "publisher" : 1,
         "userName": "example_name",
         "email": "hidden",
         "thumbnail": "https://image.com/photo.jpg"
+        "slogan":"slogan"
     },
     {
         "userFollowing": [],
         "categoryFollowing": [],
         "categoryPublishing": [],
         "userId": 0,
+        "publisher" : 1,
         "userName": "example_name2",
         "email": "hidden",
-        "thumbnail": "https://image.com/photo.jpg"
+        "thumbnail": "https://image.com/photo.jpg",
+        "slogan":"slogan"
     }
 ]
 ```
@@ -423,9 +427,11 @@ curl "https://peakapi.whitespell.com/users/USER_ID" \
     "categoryFollowing": [],
     "categoryPublishing": [],
     "userId": 134,
+    "publisher": 1,
     "userName": "pimdewitte",
     "email": "hidden",
-    "thumbnail": "https://image.com/photo.jpg"
+    "thumbnail": "https://image.com/photo.jpg",
+    "slogan":"slogan"
 }
 ```
 
