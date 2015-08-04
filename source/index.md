@@ -582,7 +582,7 @@ Parameter | Required | Description | Status
 password | Yes | String(inf) | Tested
 email | No | String(45) | Tested
 newPassword | No | String(inf) | Tested
-publisher | No | int(11) | Tested
+publisher | No | BOOL (1 or 0) | Tested
 
 
 ## User Follow Action
