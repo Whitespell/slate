@@ -232,6 +232,7 @@ offset | None | int(11) of the minimum newsfeed ID to request | Tested
     ],
     "content":[  
         {  
+            "userId":1,
             "contentId":165,
             "contentType":1,
             "contentTitle":"Amir Football Skills",
@@ -286,6 +287,7 @@ offset | None | If set, start loading from user ids only larger than the offset 
     ],
     "content":[
         {
+            "userId":1,
             "contentId":4448,
             "contentType":1,
             "contentTitle":"The HARDCORE of SQUATS",
@@ -547,7 +549,7 @@ slogan | No | String(255) | Tested
 
 
 ```shell
-curl -d \ '{"password":"CURRENT_PASS","email":"email@email.com","newPassword":"NEW_PASS"}' \
+curl -d \ '{"password":"CURRENT_PASS","email":"email@email.com","newPassword":"NEW_PASS","publisher":PUBLISHER_NEW_VALUE}' \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
@@ -567,7 +569,7 @@ curl -d \ '{"password":"CURRENT_PASS","email":"email@email.com","newPassword":"N
 ]
 ```
 
-This endpoint allows a user to update their user settings, where they can change their email and/or password.
+This endpoint allows a user to update their user settings, where they can change their email, password and/or publisher status.
 
 ### HTTP Request
 
@@ -580,6 +582,7 @@ Parameter | Required | Description | Status
 password | Yes | String(inf) | Tested
 email | No | String(45) | Tested
 newPassword | No | String(inf) | Tested
+publisher | No | int(11) | Tested
 
 
 ## User Follow Action
