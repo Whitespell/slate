@@ -562,9 +562,9 @@ curl -d \ '{"password":"CURRENT_PASS","email":"email@email.com","newPassword":"N
 ```json
 [
     {
-    "key":"NEWLY_CREATED_KEY",
-    "userId":1337,
-    "expires":-1
+    "userId": 1,
+    "publisher": 0,
+    "email": "updated@email.com"
     }
 ]
 ```
