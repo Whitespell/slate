@@ -1516,6 +1516,113 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </tr>
 </tbody></table>
 
+<h2 id="get-comments-on-content">Get Comments on Content</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/content/CONTENT_ID/comments"</span> <span class="se">\</span>
+       -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+       -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">8420</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">272</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="s2">"first comment"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"date"</span><span class="p">:</span><span class="s2">"Aug 6, 2015"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"time"</span><span class="p">:</span><span class="s2">"05:08:16 PM"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">8420</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">272</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="s2">"second comment"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"date"</span><span class="p">:</span><span class="s2">"Aug 6, 2015"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"time"</span><span class="p">:</span><span class="s2">"05:08:23 PM"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">8420</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">272</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="s2">"third comment"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"date"</span><span class="p">:</span><span class="s2">"Aug 6, 2015"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"time"</span><span class="p">:</span><span class="s2">"05:08:28 PM"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">8420</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">272</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"comment"</span><span class="p">:</span><span class="s2">"fourth comment"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"date"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"date"</span><span class="p">:</span><span class="s2">"Aug 6, 2015"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"time"</span><span class="p">:</span><span class="s2">"05:08:33 PM"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p><em>Requires authentication as any user.</em> This endpoint returns all the comments for the given contentId, sorted by date and time.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://peakapi.whitespell.com/content/CONTENT_ID/comments</code></p>
+
+<h2 id="add-comment-to-content">Add Comment to Content</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"userId":USER_ID,"comment":"COMMENT_VALUE"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/content/CONTENT_ID/comments"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"commentAdded"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p><em>Requires authentication as the user posting the comment.</em> This endpoint adds a comment to the given contentId as the given userId. </p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/content/CONTENT_ID/comments</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId</td>
+<td>Yes</td>
+<td>int(11)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>comment</td>
+<td>Yes</td>
+<td>String(255)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
 <h1 id="categories">Categories</h1>
 
 <h2 id="request-categories">Request Categories</h2>
