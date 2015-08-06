@@ -1056,6 +1056,104 @@ Parameter | Required | Description | Status
 contentTypeName | Yes | String(45) Name of the added contentType. Avoid spaces. | Tested
 
 
+## Get Comments on Content
+
+
+```shell
+curl "https://peakapi.whitespell.com/content/CONTENT_ID/comments" \
+       -H "Authorization: YOUR_API_KEY" \
+       -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "contentId":8420,
+        "userId":272,
+        "likes":0,
+        "comment":"first comment",
+        "date":{
+            "date":"Aug 6, 2015",
+            "time":"05:08:16 PM"
+        }
+    },
+    {
+        "contentId":8420,
+        "userId":272,
+        "likes":0,
+        "comment":"second comment",
+        "date":{
+            "date":"Aug 6, 2015",
+            "time":"05:08:23 PM"
+        }
+    },
+    {
+        "contentId":8420,
+        "userId":272,
+        "likes":0,
+        "comment":"third comment",
+        "date":{
+            "date":"Aug 6, 2015",
+            "time":"05:08:28 PM"
+        }
+    },
+    {
+        "contentId":8420,
+        "userId":272,
+        "likes":0,
+        "comment":"fourth comment",
+        "date":{
+            "date":"Aug 6, 2015",
+            "time":"05:08:33 PM"
+        }
+    }
+]
+```
+
+*Requires authentication as any user.* This endpoint returns all the comments for the given contentId, sorted by date and time.
+
+### HTTP Request
+
+`GET https://peakapi.whitespell.com/content/CONTENT_ID/comments`
+
+
+## Add Comment to Content
+
+
+```shell
+curl -d \ '{"userId":USER_ID,"comment":"COMMENT_VALUE"}' \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/content/CONTENT_ID/comments"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+            "commentAdded"    :    true
+    }
+]
+```
+
+*Requires authentication as the user posting the comment.* This endpoint adds a comment to the given contentId as the given userId. 
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/content/CONTENT_ID/comments`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+userId | Yes | int(11) | Tested
+comment | Yes | String(255) | Tested
+
+
 # Categories
 
 
