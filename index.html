@@ -1380,7 +1380,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </tbody></table>
 
 <h2 id="add-content">Add Content</h2>
-<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"categoryId":1,"contentTypeId":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION","thumbnailUrl":"thumburl.com"}'</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"categoryId":1,"contentType":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION","thumbnailUrl":"thumburl.com"}'</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
 -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
@@ -1420,7 +1420,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 <td>Tested</td>
 </tr>
 <tr>
-<td>contentTypeId</td>
+<td>contentType</td>
 <td>Yes</td>
 <td>int, Numeric value of the content type (find all content types on GET /content/types)</td>
 <td>Tested</td>
