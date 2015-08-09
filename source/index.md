@@ -981,7 +981,7 @@ This endpoint allows a user to add content to the database.
 
 ### HTTP Request
 
-`POST https://peakapi.whitespell.com/users/content`
+`POST https://peakapi.whitespell.com/users/USER_ID/content`
 
 ### POST Parameters
 
