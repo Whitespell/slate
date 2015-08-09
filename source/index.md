@@ -960,7 +960,7 @@ offset | None | int(11) of the minimum video ID to request (e.g. when you alread
 
 
 ```shell
-curl -d \ '{"categoryId":1,"contentTypeId":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION","thumbnailUrl":"thumburl.com"}' \
+curl -d \ '{"categoryId":1,"contentType":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION","thumbnailUrl":"thumburl.com"}' \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
@@ -988,7 +988,7 @@ This endpoint allows a user to add content to the database.
 Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
 categoryId | Yes | int, Numeric value of the category (find all categories on GET /categories)  | Tested
-contentTypeId | Yes | int, Numeric value of the content type (find all content types on GET /content/types)  | Tested
+contentType | Yes | int, Numeric value of the content type (find all content types on GET /content/types)  | Tested
 contentTitle | Yes | String(45) | Tested
 contentUrl | Yes | String(255) | Tested
 contentDescription | Yes | String(100) | Tested
