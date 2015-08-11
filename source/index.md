@@ -457,7 +457,7 @@ includePublishing | 0 | If value = 1, will include a list of categoryIds this us
 
 
 ```shell
-curl -d \ '{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","email":"YOUR_EMAIL@EMAIL.COM", "publisher":0}' \
+curl -d \ '{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","email":"YOUR_EMAIL@EMAIL.COM", "publisher":1}' \
 -H "Content-Type: application/json" \
 -X POST "https://peakapi.whitespell.com/users" 
 ```
@@ -465,24 +465,19 @@ curl -d \ '{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","email":"YOUR_
 > The above command returns JSON structured like this:
 
 ```json
-[
-    {
-    	"userFollowing": [],
-    	"usersFollowed": [],
-    	"categoryFollowing": [],
-    	"categoryPublishing": [],
-    	"userId": 1337,
-    	"userName": "YOUR_USERNAME",
-    	"displayName": "",
-    	"email": "YOUR_EMAIL@EMAIL.COM",
-    	"thumbnail": "",
-    	"coverPhoto": "",
-    	"slogan": ""
-    }
-]
+{
+    "userId":11741,
+    "publisher":1,
+    "userName":"newPubUser2",
+    "displayName":"",
+    "email":"q2q@qq.com",
+    "thumbnail":"",
+    "coverPhoto":"",
+    "slogan":""
+}
 ```
 
-This endpoint allows a new user to create their User Account.
+This endpoint allows a new user to create their User Account, with or without publisher status.
 
 ### HTTP Request
 
