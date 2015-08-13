@@ -898,6 +898,70 @@ Parameter | Default | Description | Status
 listId | None | *REQUIRED* int(11), use this to return the saved user list for the given listId. | Tested
 
 
+## Update Email Verification Status
+
+
+```shell
+curl -d \ '{"emailToken":"EMAIL_TOKEN"}' \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/email"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "userId":11751,
+    "publisher":0,
+    "emailVerified":1,
+    "userName":"USERNAME",
+    "displayName":"",
+    "email":"EMAIL",
+    "thumbnail":"",
+    "coverPhoto":"",
+    "slogan":""
+}
+```
+
+*Requires authentication as the user.* This endpoint is used to validate a user account with a valid email token on the web frontend.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/YOUR_USER_ID/email`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+emailToken | Yes | String(45) | Tested
+
+
+## Get Email Verification Status
+
+
+```shell
+curl "https://peakapi.whitespell.com/users/USER_ID/email" 
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "userId":11751,
+    "emailVerified":0,
+    "emailExpiration":"EXPIRATION_DATE"
+}
+```
+
+*Requires authentication* This endpoint returns a user's email verification status. 
+
+### HTTP Request
+
+`GET https://peakapi.whitespell.com/users/USER_ID/email`
+
+
 # Content
 
 
