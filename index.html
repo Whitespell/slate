@@ -1299,6 +1299,74 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </tr>
 </tbody></table>
 
+<h2 id="update-email-verification-status">Update Email Verification Status</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"emailToken":"EMAIL_TOKEN"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/YOUR_USER_ID/email"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11751</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"publisher"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"emailVerified"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"USERNAME"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"displayName"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"coverPhoto"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"slogan"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><em>Requires authentication as the user.</em> This endpoint is used to validate a user account with a valid email token on the web frontend.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/YOUR_USER_ID/email</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>emailToken</td>
+<td>Yes</td>
+<td>String(45)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-email-verification-status">Get Email Verification Status</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/email"</span> 
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11751</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"emailVerified"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"emailExpiration"</span><span class="p">:</span><span class="s2">"EXPIRATION_DATE"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><em>Requires authentication</em> This endpoint returns a user&rsquo;s email verification status. </p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://peakapi.whitespell.com/users/USER_ID/email</code></p>
+
 <h1 id="content">Content</h1>
 
 <h2 id="request-content">Request Content</h2>
