@@ -1150,7 +1150,10 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </tbody></table>
 
 <h2 id="get-myworkouts">Get MyWorkouts</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/workout"</span> 
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/workouts"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> 
 </code></pre>
 
 <blockquote>
@@ -1240,7 +1243,10 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </tbody></table>
 
 <h2 id="get-user-list">Get User List</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/lists"</span> 
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/lists"</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> 
 </code></pre>
 
 <blockquote>
