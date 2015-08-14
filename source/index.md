@@ -810,7 +810,7 @@ curl "https://peakapi.whitespell.com/users/USER_ID/workouts" \
 
 ### HTTP Request
 
-`GET https://peakapi.whitespell.com/users/USER_ID/workout`
+`GET https://peakapi.whitespell.com/users/USER_ID/workouts`
 
 
 ## Add to User List
@@ -948,7 +948,9 @@ emailToken | Yes | String(45) | Tested
 
 
 ```shell
-curl "https://peakapi.whitespell.com/users/USER_ID/email" 
+curl "https://peakapi.whitespell.com/users/USER_ID/email" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" 
 ```
 
 > The above command returns JSON structured like this:
