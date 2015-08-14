@@ -448,9 +448,9 @@ This endpoint retrieves all users and allows for search queries on users.
 
 Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
-includeFollowing | 0 | If value = 1, will include a JSON Array of user objects this user is following. | Tested
+includeFollowing | 0 | If value = 1, will include a JSON Array of userIds this user is following. | Tested
 includeCategories | 0 | If value = 1, will include a JSON Array of categoryIds this user is following. | Tested
-includeFollowers | 0 | If value = 1, will include a JSON Array of user objects which are following this user.  | Tested
+includeFollowers | 0 | If value = 1, will include a JSON Array of userIds which are following this user.  | Tested
 includePublishing | 0 | If value = 1, will include a list of categoryIds this user is publishing in  | Tested
 
 
@@ -780,7 +780,7 @@ curl "https://peakapi.whitespell.com/users/USER_ID/workouts" \
 
 ```json
 {
-    "UserWorkouts":[
+    "userWorkouts":[
         {
             "userId":11518,
             "contentId":8435,
