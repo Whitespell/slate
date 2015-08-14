@@ -425,6 +425,7 @@ curl "https://peakapi.whitespell.com/users/USER_ID" \
 
 ```json
 {
+    "userFollowers": [],
     "userFollowing": [],
     "categoryFollowing": [],
     "categoryPublishing": [],
@@ -449,7 +450,7 @@ Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
 includeFollowing | 0 | If value = 1, will include a JSON Array of user objects this user is following. | Tested
 includeCategories | 0 | If value = 1, will include a JSON Array of categoryIds this user is following. | Tested
-includeFollowers | 0 | If value = 1, will include a JSON Array of user objects which are following this user.  | Not Started
+includeFollowers | 0 | If value = 1, will include a JSON Array of user objects which are following this user.  | Tested
 includePublishing | 0 | If value = 1, will include a list of categoryIds this user is publishing in  | Tested
 
 
