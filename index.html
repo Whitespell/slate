@@ -1191,7 +1191,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://peakapi.whitespell.com/users/USER_ID/workout</code></p>
+<p><code class="prettyprint">GET https://peakapi.whitespell.com/users/USER_ID/workouts</code></p>
 
 <h2 id="add-to-user-list">Add to User List</h2>
 <pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"contentId":CONTENT_ID,"listId":LIST_ID}'</span> <span class="se">\</span>
@@ -1354,7 +1354,9 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </tbody></table>
 
 <h2 id="get-email-verification-status">Get Email Verification Status</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/email"</span> 
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/email"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> 
 </code></pre>
 
 <blockquote>
