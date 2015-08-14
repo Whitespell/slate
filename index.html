@@ -649,6 +649,7 @@ Now trending users are sorted by amount of published content. </p>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"userFollowers"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="nt">"userFollowing"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="nt">"categoryFollowing"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="nt">"categoryPublishing"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
@@ -693,7 +694,7 @@ Now trending users are sorted by amount of published content. </p>
 <td>includeFollowers</td>
 <td>0</td>
 <td>If value = 1, will include a JSON Array of user objects which are following this user.</td>
-<td>Not Started</td>
+<td>Tested</td>
 </tr>
 <tr>
 <td>includePublishing</td>
