@@ -769,7 +769,10 @@ contentId | Yes | int(11) | Tested
 
 
 ```shell
-curl "https://peakapi.whitespell.com/users/USER_ID/workout" 
+curl "https://peakapi.whitespell.com/users/USER_ID/workouts" \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" 
 ```
 
 > The above command returns JSON structured like this:
@@ -850,7 +853,10 @@ listId | Yes | int(11) | Tested
 
 
 ```shell
-curl "https://peakapi.whitespell.com/users/USER_ID/lists" 
+curl "https://peakapi.whitespell.com/users/USER_ID/lists" \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" 
 ```
 
 > The above command returns JSON structured like this:
