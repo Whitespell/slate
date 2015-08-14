@@ -438,7 +438,7 @@ curl "https://peakapi.whitespell.com/users/USER_ID" \
 }
 ```
 
-This endpoint retrieves all users and allows for search queries on users.
+This endpoint retrieves information related to a unique user and allows for search queries on a unique user.
 
 ### HTTP Request
 
