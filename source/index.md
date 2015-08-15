@@ -448,9 +448,9 @@ This endpoint retrieves information related to a unique user and allows for sear
 
 Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
+includeFollowers | 0 | If value = 1, will include a JSON Array of userIds who are followers of this user.  | Tested
 includeFollowing | 0 | If value = 1, will include a JSON Array of userIds this user is following. | Tested
 includeCategories | 0 | If value = 1, will include a JSON Array of categoryIds this user is following. | Tested
-includeFollowers | 0 | If value = 1, will include a JSON Array of userIds which are following this user.  | Tested
 includePublishing | 0 | If value = 1, will include a list of categoryIds this user is publishing in  | Tested
 
 
