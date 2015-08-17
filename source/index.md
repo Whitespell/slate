@@ -245,7 +245,7 @@ offset | None | int(11) of the minimum newsfeed ID to request | Tested
 }
 ```
 
-This endpoint returns a JSON Object with a profiles array, a categories array (this returns the numbers of the searched categories, e.g. 1=football,2=skydiving,etc) and also a list of content (workouts). 
+This endpoint returns a JSON Object with a profiles array, a categories array (this returns the numbers of the searched categories, e.g. 1=football,2=skydiving,etc) and also a list of content. 
 The categories object contains the categoryIds that match the search query. You can find the available categoryIds using the Request Categories endpoint.
 
 ### HTTP Request
@@ -732,7 +732,7 @@ limit | 50 | If set, limit the amount of user objects you will get back by this 
 offset | None | If set, start loading from user ids only larger than the offset number (e.g. for infinite scrolling)  | Not Completed
 
 
-## Add to MyWorkouts
+## Add to Saved Content
 
 
 ```shell
@@ -753,7 +753,7 @@ curl -d \ '{"contentId":CONTENT_ID}' \
 ]
 ```
 
-*Requires authentication as the user.* This endpoint adds the content with the given contentId to the user's MyWorkouts.
+*Requires authentication as the user.* This endpoint adds the content with the given contentId to the user's SavedContent.
 
 ### HTTP Request
 
@@ -766,7 +766,7 @@ Parameter | Required | Description | Status
 contentId | Yes | int(11) | Tested
 
 
-## Get MyWorkouts
+## Get User Saved Content
 
 
 ```shell
@@ -807,7 +807,7 @@ curl "https://peakapi.whitespell.com/users/USER_ID/workouts" \
 }
 ```
 
-*Requires authentication as the user.* This endpoint returns the MyWorkouts list for the given userId. 
+*Requires authentication as the user.* This endpoint returns the savedContent list for the given userId. 
 
 ### HTTP Request
 
@@ -994,6 +994,7 @@ curl "https://peakapi.whitespell.com/content" \
             "contentTitle"    :    "Knee to overhead press",
             "contentDescription"    :    "video descr here",
             "timestamp"    :    1433083968,
+            "likes":100,
             "thumbnailUrl" :  "http://cdn.amazoncontent.com/test.jpg"
         },
         {
@@ -1003,6 +1004,7 @@ curl "https://peakapi.whitespell.com/content" \
             "contentTitle"    :    "Knee to overhead press",
             "contentDescription"    :    "see me do it",
             "timestamp"    :    1433083968,
+            "likes":99,
             "thumbnailUrl" :   "http://cdn.amazoncontent.com/test.jpg"
         }
 ]
@@ -1220,6 +1222,41 @@ Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
 userId | Yes | int(11) | Tested
 comment | Yes | String(255) | Tested
+
+
+## Content Like Action
+
+
+```shell
+curl -d \ '{"userId":188,"action":"like"}' \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/content/CONTENT_ID/likes"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "action_taken"    :    "like"
+    }
+]
+```
+
+This endpoint allows a user like/unlike content.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/content/CONTENT_ID/likes`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+userId | Yes | int(11), userId of user that is liking/unliking content | Tested
+action | Yes | String, either like/unlike | Tested
 
 
 # Categories
