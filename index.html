@@ -388,7 +388,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint returns a JSON Object with a profiles array, a categories array (this returns the numbers of the searched categories, e.g. 1=football,2=skydiving,etc) and also a list of content (workouts). 
+<p>This endpoint returns a JSON Object with a profiles array, a categories array (this returns the numbers of the searched categories, e.g. 1=football,2=skydiving,etc) and also a list of content. 
 The categories object contains the categoryIds that match the search query. You can find the available categoryIds using the Request Categories endpoint.</p>
 
 <h3 id="http-request">HTTP Request</h3>
@@ -1108,7 +1108,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </tr>
 </tbody></table>
 
-<h2 id="add-to-myworkouts">Add to MyWorkouts</h2>
+<h2 id="add-to-saved-content">Add to Saved Content</h2>
 <pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"contentId":CONTENT_ID}'</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
@@ -1126,7 +1126,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p><em>Requires authentication as the user.</em> This endpoint adds the content with the given contentId to the user&rsquo;s MyWorkouts.</p>
+<p><em>Requires authentication as the user.</em> This endpoint adds the content with the given contentId to the user&rsquo;s SavedContent.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1150,7 +1150,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </tr>
 </tbody></table>
 
-<h2 id="get-myworkouts">Get MyWorkouts</h2>
+<h2 id="get-user-saved-content">Get User Saved Content</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/workouts"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
@@ -1188,7 +1188,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><em>Requires authentication as the user.</em> This endpoint returns the MyWorkouts list for the given userId. </p>
+<p><em>Requires authentication as the user.</em> This endpoint returns the savedContent list for the given userId. </p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1395,6 +1395,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
             </span><span class="nt">"contentTitle"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"Knee to overhead press"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"contentDescription"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"video descr here"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"timestamp"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="mi">1433083968</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
             </span><span class="nt">"thumbnailUrl"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="s2">"http://cdn.amazoncontent.com/test.jpg"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -1404,6 +1405,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
             </span><span class="nt">"contentTitle"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"Knee to overhead press"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"contentDescription"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"see me do it"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"timestamp"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="mi">1433083968</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">99</span><span class="p">,</span><span class="w">
             </span><span class="nt">"thumbnailUrl"</span><span class="w"> </span><span class="p">:</span><span class="w">   </span><span class="s2">"http://cdn.amazoncontent.com/test.jpg"</span><span class="w">
         </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
@@ -1691,6 +1693,54 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 <td>comment</td>
 <td>Yes</td>
 <td>String(255)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h2 id="content-like-action">Content Like Action</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"userId":188,"action":"like"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/content/CONTENT_ID/likes"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"action_taken"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"like"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint allows a user like/unlike content.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/content/CONTENT_ID/likes</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId</td>
+<td>Yes</td>
+<td>int(11), userId of user that is liking/unliking content</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>action</td>
+<td>Yes</td>
+<td>String, either like/unlike</td>
 <td>Tested</td>
 </tr>
 </tbody></table>
