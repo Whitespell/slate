@@ -740,7 +740,7 @@ curl -d \ '{"contentId":CONTENT_ID}' \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
--X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/workouts"
+-X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/saved"
 ```
 
 > The above command returns JSON structured like this:
@@ -757,7 +757,7 @@ curl -d \ '{"contentId":CONTENT_ID}' \
 
 ### HTTP Request
 
-`POST https://peakapi.whitespell.com/users/YOUR_USER_ID/workouts`
+`POST https://peakapi.whitespell.com/users/YOUR_USER_ID/saved`
 
 ### POST Parameters
 
@@ -770,7 +770,7 @@ contentId | Yes | int(11) | Tested
 
 
 ```shell
-curl "https://peakapi.whitespell.com/users/USER_ID/workouts" \
+curl "https://peakapi.whitespell.com/users/USER_ID/saved" \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" 
@@ -911,16 +911,14 @@ listId | None | *REQUIRED* int(11), use this to return the saved user list for t
 ```shell
 curl -d \ '{"emailToken":"EMAIL_TOKEN"}' \
 -H "Content-Type: application/json" \
--H "Authorization: YOUR_API_KEY" \
--H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
--X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/email"
+-X POST "https://peakapi.whitespell.com/users/email"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-    "userId":11751,
+    "userId":-1,
     "publisher":0,
     "emailVerified":1,
     "userName":"USERNAME",
@@ -932,16 +930,17 @@ curl -d \ '{"emailToken":"EMAIL_TOKEN"}' \
 }
 ```
 
-*Requires authentication as the user.* This endpoint is used to validate a user account with a valid email token on the web frontend.
+This endpoint is used to validate a user account with a valid email token on the web frontend.
 
 ### HTTP Request
 
-`POST https://peakapi.whitespell.com/users/YOUR_USER_ID/email`
+`POST https://peakapi.whitespell.com/users/email`
 
 ### POST Parameters
 
 Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
+userName | Yes | String(45) | Tested
 emailToken | Yes | String(45) | Tested
 
 
@@ -950,8 +949,7 @@ emailToken | Yes | String(45) | Tested
 
 ```shell
 curl "https://peakapi.whitespell.com/users/USER_ID/email" \
--H "Authorization: YOUR_API_KEY" \
--H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" 
+-H "Content-Type: application/json" 
 ```
 
 > The above command returns JSON structured like this:
@@ -964,11 +962,67 @@ curl "https://peakapi.whitespell.com/users/USER_ID/email" \
 }
 ```
 
-*Requires authentication* This endpoint returns a user's email verification status. 
+This endpoint returns a user's email verification status. 
 
 ### HTTP Request
 
 `GET https://peakapi.whitespell.com/users/USER_ID/email`
+
+
+## Reset User Password
+
+
+```shell
+curl -d \ '{"userName":"username","newPassword":"newPass","resetToken":"EMAIL_TOKEN"}' \
+-H "Content-Type: application/json" \
+-X POST "https://peakapi.whitespell.com/users/reset"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true
+}
+```
+
+This endpoint is used to reset a user's password with a valid reset token on the web frontend.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/reset`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+userName | Yes | String(45) | Tested
+newPassword | Yes | String(inf) | Tested
+resetToken | Yes | String(32) | Tested
+
+
+## Send Forgot Password Email
+
+
+```shell
+curl -d \ '{"userName":"username"}' \
+-H "Content-Type: application/json" \
+-X POST "https://peakapi.whitespell.com/users/forgot"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success": true
+}
+```
+
+This endpoint sends a Forgot Password? email to the user's email. 
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/USER_ID/forgot`
 
 
 # Content
