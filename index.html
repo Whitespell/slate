@@ -1113,7 +1113,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
 -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
--X POST <span class="s2">"https://peakapi.whitespell.com/users/YOUR_USER_ID/workouts"</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/YOUR_USER_ID/saved"</span>
 </code></pre>
 
 <blockquote>
@@ -1130,7 +1130,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/YOUR_USER_ID/workouts</code></p>
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/YOUR_USER_ID/saved</code></p>
 
 <h3 id="post-parameters">POST Parameters</h3>
 
@@ -1151,7 +1151,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </tbody></table>
 
 <h2 id="get-user-saved-content">Get User Saved Content</h2>
-<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/workouts"</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/saved"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
 -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> 
@@ -1309,16 +1309,14 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 <h2 id="update-email-verification-status">Update Email Verification Status</h2>
 <pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"emailToken":"EMAIL_TOKEN"}'</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
--H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
--H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
--X POST <span class="s2">"https://peakapi.whitespell.com/users/YOUR_USER_ID/email"</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/email"</span>
 </code></pre>
 
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11751</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">-1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"publisher"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"emailVerified"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"USERNAME"</span><span class="p">,</span><span class="w">
@@ -1330,11 +1328,11 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><em>Requires authentication as the user.</em> This endpoint is used to validate a user account with a valid email token on the web frontend.</p>
+<p>This endpoint is used to validate a user account with a valid email token on the web frontend.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/YOUR_USER_ID/email</code></p>
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/email</code></p>
 
 <h3 id="post-parameters">POST Parameters</h3>
 
@@ -1347,6 +1345,12 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </tr>
 </thead><tbody>
 <tr>
+<td>userName</td>
+<td>Yes</td>
+<td>String(45)</td>
+<td>Tested</td>
+</tr>
+<tr>
 <td>emailToken</td>
 <td>Yes</td>
 <td>String(45)</td>
@@ -1356,8 +1360,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 
 <h2 id="get-email-verification-status">Get Email Verification Status</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/email"</span> <span class="se">\</span>
--H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
--H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> 
+-H <span class="s2">"Content-Type: application/json"</span> 
 </code></pre>
 
 <blockquote>
@@ -1370,11 +1373,81 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p><em>Requires authentication</em> This endpoint returns a user&rsquo;s email verification status. </p>
+<p>This endpoint returns a user&rsquo;s email verification status. </p>
 
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">GET https://peakapi.whitespell.com/users/USER_ID/email</code></p>
+
+<h2 id="reset-user-password">Reset User Password</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"userName":"username","newPassword":"newPass","resetToken":"EMAIL_TOKEN"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/reset"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint is used to reset a user&rsquo;s password with a valid reset token on the web frontend.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/reset</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userName</td>
+<td>Yes</td>
+<td>String(45)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>newPassword</td>
+<td>Yes</td>
+<td>String(inf)</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>resetToken</td>
+<td>Yes</td>
+<td>String(32)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h2 id="send-forgot-password-email">Send Forgot Password Email</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"userName":"username"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/forgot"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint sends a Forgot Password? email to the user&rsquo;s email. </p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/USER_ID/forgot</code></p>
 
 <h1 id="content">Content</h1>
 
