@@ -1022,7 +1022,7 @@ This endpoint sends a Forgot Password? email to the user's email.
 
 ### HTTP Request
 
-`POST https://peakapi.whitespell.com/users/USER_ID/forgot`
+`POST https://peakapi.whitespell.com/users/forgot`
 
 
 # Content
