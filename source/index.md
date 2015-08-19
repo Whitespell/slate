@@ -811,7 +811,7 @@ curl "https://peakapi.whitespell.com/users/USER_ID/saved" \
 
 ### HTTP Request
 
-`GET https://peakapi.whitespell.com/users/USER_ID/workouts`
+`GET https://peakapi.whitespell.com/users/USER_ID/saved`
 
 
 ## Add to User List
