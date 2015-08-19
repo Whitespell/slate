@@ -941,7 +941,7 @@ This endpoint is used to validate a user account with a valid email token on the
 Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
 userName | Yes | String(45) | Tested
-emailToken | Yes | String(45) | Tested
+emailToken | Yes | String(32) | Tested
 
 
 ## Get Email Verification Status
