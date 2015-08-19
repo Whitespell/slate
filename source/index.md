@@ -909,7 +909,7 @@ listId | None | *REQUIRED* int(11), use this to return the saved user list for t
 
 
 ```shell
-curl -d \ '{"emailToken":"EMAIL_TOKEN"}' \
+curl -d \ '{"userName":"username","emailToken":"EMAIL_TOKEN"}' \
 -H "Content-Type: application/json" \
 -X POST "https://peakapi.whitespell.com/users/email"
 ```
@@ -1023,6 +1023,12 @@ This endpoint sends a Forgot Password? email to the user's email.
 ### HTTP Request
 
 `POST https://peakapi.whitespell.com/users/forgot`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+userName | Yes | String(45) | Tested
 
 
 # Content
