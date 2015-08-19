@@ -780,7 +780,7 @@ curl "https://peakapi.whitespell.com/users/USER_ID/saved" \
 
 ```json
 {
-    "userWorkouts":[
+    "savedContent":[
         {
             "userId":11518,
             "contentId":8435,
