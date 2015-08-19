@@ -1307,7 +1307,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </tbody></table>
 
 <h2 id="update-email-verification-status">Update Email Verification Status</h2>
-<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"emailToken":"EMAIL_TOKEN"}'</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"userName":"username","emailToken":"EMAIL_TOKEN"}'</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -X POST <span class="s2">"https://peakapi.whitespell.com/users/email"</span>
 </code></pre>
@@ -1448,6 +1448,24 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">POST https://peakapi.whitespell.com/users/forgot</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userName</td>
+<td>Yes</td>
+<td>String(45)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
 
 <h1 id="content">Content</h1>
 
