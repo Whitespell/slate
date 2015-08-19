@@ -814,15 +814,15 @@ curl "https://peakapi.whitespell.com/users/USER_ID/saved" \
 `GET https://peakapi.whitespell.com/users/USER_ID/saved`
 
 
-## Add to User List
+## Add to Bundle
 
 
 ```shell
-curl -d \ '{"contentId":CONTENT_ID,"listId":LIST_ID}' \
+curl -d \ '{"contentId":CONTENT_ID,"bundleId":LIST_ID}' \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
--X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/lists"
+-X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/bundles"
 ```
 
 > The above command returns JSON structured like this:
@@ -831,30 +831,30 @@ curl -d \ '{"contentId":CONTENT_ID,"listId":LIST_ID}' \
 [
     {
       "addedContentId" : 0,
-      "addedToListId"  : 0
+      "addedToBundleId"  : 0
     }
 ]
 ```
 
-*Requires authentication as the user.* This endpoint adds the content with the given contentId to the user's list with the given listId.
+*Requires authentication as the user.* This endpoint adds the content with the given contentId to the user's list with the given bundleId.
 
 ### HTTP Request
 
-`POST https://peakapi.whitespell.com/users/YOUR_USER_ID/lists`
+`POST https://peakapi.whitespell.com/users/YOUR_USER_ID/bundles`
 
 ### POST Parameters
 
 Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
 contentId | Yes | int(11) | Tested
-listId | Yes | int(11) | Tested
+bundleId | Yes | int(11) | Tested
 
 
-## Get User List
+## Get Bundle
 
 
 ```shell
-curl "https://peakapi.whitespell.com/users/USER_ID/lists" \
+curl "https://peakapi.whitespell.com/users/USER_ID/bundles" \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" 
@@ -864,7 +864,7 @@ curl "https://peakapi.whitespell.com/users/USER_ID/lists" \
 
 ```json
 {
-    "userList":[
+    "bundle":[
         {
             "userId":11518,
             "contentId":8420,
@@ -888,21 +888,21 @@ curl "https://peakapi.whitespell.com/users/USER_ID/lists" \
             "thumbnailUrl":"https://i.ytimg.com/vi/qMQHyFsihe8/hqdefault.jpg"
         }
     ],
-    "listId":2
+    "bundleId":2
 }
 ```
 
-*Requires authentication as the user.* This endpoint returns the saved user list for the given userId and listId. 
+*Requires authentication as the user.* This endpoint returns the saved user list for the given userId and bundleId. 
 
 ### HTTP Request
 
-`GET https://peakapi.whitespell.com/users/USER_ID/lists`
+`GET https://peakapi.whitespell.com/users/USER_ID/bundles`
 
 ### QUERY Parameters
 
 Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
-listId | None | *REQUIRED* int(11), use this to return the saved user list for the given listId. | Tested
+bundleId | None | *REQUIRED* int(11), use this to return the saved user list for the given bundleId. | Tested
 
 
 ## Update Email Verification Status
@@ -1326,23 +1326,27 @@ action | Yes | String, either like/unlike | Tested
 
 
 ```shell
-curl "https://peakapi.whitespell.com/content/categories" \
-       -H "Authorization: YOUR_API_KEY" \
-       -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"
+curl "https://peakapi.whitespell.com/categories"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 [
-     {
-         "categoryId" : 1,
-         "categoryName" : "soccer"
-     },
-     {
-         "categoryId" : 2,
-         "categoryName" : "basketball"
-     }
+    {
+        "categoryId":1,
+        "categoryName":"basketball",
+        "categoryThumbnail":"http://www.dhresource.com/albu_355597555_00/1.0x0.jpg",
+        "categoryFollowers":12,
+        "categoryPublishers":3
+    },
+    {
+        "categoryId":2,
+        "categoryName":"fitness",
+        "categoryThumbnail":"https://encrypted-tbn2.gstatic.com/images?q\u003dtbn:ANd9GcSARlNn_7bqIDtOekrGQyloJOLaoHaBNvOOUMdeXoSTFXviLXHT",
+        "categoryFollowers":61,
+        "categoryPublishers":0
+    }
 ]
 ```
 
