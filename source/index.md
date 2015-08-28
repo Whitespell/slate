@@ -1031,6 +1031,73 @@ Parameter | Required | Description | Status
 userName | Yes | String(45) | Tested
 
 
+## Check if Peak Password Required for Facebook Login
+
+
+```shell
+curl -d \ '{"accessToken":"FB_ACCESS_TOKEN"}' \
+-H "Content-Type: application/json" \
+-X POST "https://peakapi.whitespell.com/users/checkfacebook"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+      "requiredPassword" : true
+    }
+]
+```
+
+This endpoint is used to check whether the users/facebook endpoint will require the user's Peak password.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/checkfacebook`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+accessToken | Yes | String(varchar), retrieved from client side facebook login | Needs Integration Test
+
+
+## Facebook User Creation and Authentication  
+
+
+```shell
+curl -d \ '{"accessToken":"FB_ACCESS_TOKEN","password":"PEAK_PASSWORD"}' \
+-H "Content-Type: application/json" \
+-X POST "https://peakapi.whitespell.com/users/facebook"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+      "requiredPassword" : true
+    }
+]
+```
+
+This endpoint is used to create a new user or authenticate a current one with the Facebook login accessToken. 
+Intended for use on client side after retrieving the Facebook access token from Facebook login in the client. 
+Always use the users/checkfacebook endpoint first to determine if the user's Peak password is required to log in.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/facebook`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+accessToken | Yes | String(varchar), retrieved from client side facebook login | Needs Integration Test
+password | No | String(inf), the user's peak password | Needs Integration Test
+
+
 # Content
 
 
