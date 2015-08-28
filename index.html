@@ -1467,6 +1467,94 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </tr>
 </tbody></table>
 
+<h2 id="check-if-peak-password-required-for-facebook-login">Check if Peak Password Required for Facebook Login</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"accessToken":"FB_ACCESS_TOKEN"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/checkfacebook"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"requiredPassword"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint is used to check whether the users/facebook endpoint will require the user&rsquo;s Peak password.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/checkfacebook</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accessToken</td>
+<td>Yes</td>
+<td>String(varchar), retrieved from client side facebook login</td>
+<td>Needs Integration Test</td>
+</tr>
+</tbody></table>
+
+<h2 id="facebook-user-creation-and-authentication">Facebook User Creation and Authentication</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"accessToken":"FB_ACCESS_TOKEN","password":"PEAK_PASSWORD"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/facebook"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nt">"requiredPassword"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint is used to create a new user or authenticate a current one with the Facebook login accessToken. 
+Intended for use on client side after retrieving the Facebook access token from Facebook login in the client. 
+Always use the users/checkfacebook endpoint first to determine if the user&rsquo;s Peak password is required to log in.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/facebook</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>accessToken</td>
+<td>Yes</td>
+<td>String(varchar), retrieved from client side facebook login</td>
+<td>Needs Integration Test</td>
+</tr>
+<tr>
+<td>password</td>
+<td>No</td>
+<td>String(inf), the user&rsquo;s peak password</td>
+<td>Needs Integration Test</td>
+</tr>
+</tbody></table>
+
 <h1 id="content">Content</h1>
 
 <h2 id="request-content">Request Content</h2>
