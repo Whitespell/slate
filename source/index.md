@@ -1077,7 +1077,9 @@ curl -d \ '{"accessToken":"FB_ACCESS_TOKEN","password":"PEAK_PASSWORD"}' \
 ```json
 [
     {
-      "requiredPassword" : true
+        "key":"AUTH_KEY",
+        "userId":117,
+        "expires":-1
     }
 ]
 ```
