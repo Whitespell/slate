@@ -944,6 +944,37 @@ userName | Yes | String(45) | Tested
 emailToken | Yes | String(32) | Tested
 
 
+## Resend Welcome Email (Email Verification)
+
+
+```shell
+curl -d \ {"email":"USER_EMAIL"}' \
+-H "Content-Type: application/json" \
+-X POST "https://peakapi.whitespell.com/users/resendemail"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "success":true
+}
+```
+
+This endpoint is used to resend a user's welcome email. It resets their email verification status until they verify it
+through the web link provided in their email.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/resendemail`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+email | Yes | String(255) | Tested
+
+
 ## Get Email Verification Status
 
 
@@ -1060,7 +1091,7 @@ This endpoint is used to check whether the users/facebook endpoint will require 
 
 Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
-accessToken | Yes | String(varchar), retrieved from client side facebook login | Needs Integration Test
+accessToken | Yes | String(varchar), retrieved from client side facebook login | Tested
 
 
 ## Facebook User Creation and Authentication  
@@ -1084,9 +1115,10 @@ curl -d \ '{"accessToken":"FB_ACCESS_TOKEN","password":"PEAK_PASSWORD"}' \
 ]
 ```
 
+Always use the users/checkfacebook endpoint first to determine if the user's Peak password is required to log in.
+
 This endpoint is used to create a new user or authenticate a current one with the Facebook login accessToken. 
 Intended for use on client side after retrieving the Facebook access token from Facebook login in the client. 
-Always use the users/checkfacebook endpoint first to determine if the user's Peak password is required to log in.
 
 ### HTTP Request
 
@@ -1096,8 +1128,8 @@ Always use the users/checkfacebook endpoint first to determine if the user's Pea
 
 Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
-accessToken | Yes | String(varchar), retrieved from client side facebook login | Needs Integration Test
-password | No | String(inf), the user's peak password | Needs Integration Test
+accessToken | Yes | String(varchar), retrieved from client side facebook login | Tested
+password | No | String(inf), the user's peak password | Tested
 
 
 # Content
