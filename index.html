@@ -1358,6 +1358,45 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </tr>
 </tbody></table>
 
+<h2 id="resend-welcome-email-email-verification">Resend Welcome Email (Email Verification)</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="o">{</span><span class="s2">"email"</span>:<span class="s2">"USER_EMAIL"</span><span class="o">}</span><span class="s1">' \
+-H "Content-Type: application/json" \
+-X POST "https://peakapi.whitespell.com/users/resendemail"
+</span></code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint is used to resend a user&rsquo;s welcome email. It resets their email verification status until they verify it
+through the web link provided in their email.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/resendemail</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>Yes</td>
+<td>String(255)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
 <h2 id="get-email-verification-status">Get Email Verification Status</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/email"</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> 
@@ -1503,7 +1542,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 <td>accessToken</td>
 <td>Yes</td>
 <td>String(varchar), retrieved from client side facebook login</td>
-<td>Needs Integration Test</td>
+<td>Tested</td>
 </tr>
 </tbody></table>
 
@@ -1525,9 +1564,10 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
+<p>Always use the users/checkfacebook endpoint first to determine if the user&rsquo;s Peak password is required to log in.</p>
+
 <p>This endpoint is used to create a new user or authenticate a current one with the Facebook login accessToken. 
-Intended for use on client side after retrieving the Facebook access token from Facebook login in the client. 
-Always use the users/checkfacebook endpoint first to determine if the user&rsquo;s Peak password is required to log in.</p>
+Intended for use on client side after retrieving the Facebook access token from Facebook login in the client. </p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1547,13 +1587,13 @@ Always use the users/checkfacebook endpoint first to determine if the user&rsquo
 <td>accessToken</td>
 <td>Yes</td>
 <td>String(varchar), retrieved from client side facebook login</td>
-<td>Needs Integration Test</td>
+<td>Tested</td>
 </tr>
 <tr>
 <td>password</td>
 <td>No</td>
 <td>String(inf), the user&rsquo;s peak password</td>
-<td>Needs Integration Test</td>
+<td>Tested</td>
 </tr>
 </tbody></table>
 
