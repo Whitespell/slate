@@ -1597,6 +1597,56 @@ Intended for use on client side after retrieving the Facebook access token from 
 </tr>
 </tbody></table>
 
+<h2 id="add-user-feedback-for-peak">Add User Feedback for Peak</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"email":"USER_EMAIL","message":"FEEDBACK_MESSAGE"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/</span><span class="nv">$/</span><span class="s2">feedback"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p><em>Authentication as the User is Required</em> 
+This endpoint is used to allow a user to upload feedback for the app. 
+It will be stored in our database and also uploaded to UserVoice.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/$/feedback</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>Yes</td>
+<td>String(255), the user&rsquo;s email</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>message</td>
+<td>Yes</td>
+<td>String(255), the user&rsquo;s feedback message</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
 <h1 id="content">Content</h1>
 
 <h2 id="request-content">Request Content</h2>
