@@ -1132,6 +1132,43 @@ accessToken | Yes | String(varchar), retrieved from client side facebook login |
 password | No | String(inf), the user's peak password | Tested
 
 
+## Add User Feedback for Peak
+
+
+```shell
+curl -d \ '{"email":"USER_EMAIL","message":"FEEDBACK_MESSAGE"}' \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/users/$/feedback"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "success":true
+    }
+]
+```
+
+*Authentication as the User is Required* 
+This endpoint is used to allow a user to upload feedback for the app. 
+It will be stored in our database and also uploaded to UserVoice.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/$/feedback`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+email | Yes | String(255), the user's email | Tested
+message | Yes | String(255), the user's feedback message | Tested
+
+
 # Content
 
 
