@@ -1140,7 +1140,7 @@ curl -d \ '{"email":"USER_EMAIL","message":"FEEDBACK_MESSAGE"}' \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
--X POST "https://peakapi.whitespell.com/users/$/feedback"
+-X POST "https://peakapi.whitespell.com/users/USER_ID/feedback"
 ```
 
 > The above command returns JSON structured like this:
@@ -1159,7 +1159,7 @@ It will be stored in our database and also uploaded to UserVoice.
 
 ### HTTP Request
 
-`POST https://peakapi.whitespell.com/users/$/feedback`
+`POST https://peakapi.whitespell.com/users/USER_ID/feedback`
 
 ### POST Parameters
 
