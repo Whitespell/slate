@@ -1154,8 +1154,8 @@ curl -d \ '{"email":"USER_EMAIL","message":"FEEDBACK_MESSAGE"}' \
 ```
 
 *Authentication as the User is Required* 
-This endpoint is used to allow a user to upload feedback for the app. 
-It will be stored in our database and also uploaded to UserVoice.
+
+This endpoint is used to allow a user to add feedback for the app. 
 
 ### HTTP Request
 
@@ -1167,6 +1167,113 @@ Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
 email | Yes | String(255), the user's email | Tested
 message | Yes | String(255), the user's feedback message | Tested
+
+
+## Add Reporting Type
+
+
+```shell
+curl -d \ '{"reportingTypeName":"REPORTING_TYPE_NAME"}' \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/users/reporting/types"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "reportingTypeAdded":true
+    }
+]
+```
+
+*Authentication is Required* 
+
+This endpoint adds a new reporting type (e.g. Vulgar comments or Fake profile picture) to the database.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/reporting/types`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+reportingTypeName | Yes | String(255), short description of why the user is being reported, to be shown in dropdown menu | Tested
+
+
+## Request Reporting Types
+
+
+```shell
+curl "https://peakapi.whitespell.com/users/reporting/types" \
+       -H "Authorization: YOUR_API_KEY" \
+       -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" 
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[  
+    {  
+        "reportingTypeId":4,
+        "reportingTypeName":"Fake profile"
+    },
+    {  
+        "reportingTypeId":1,
+        "reportingTypeName":"Hate Speech or Attacking An Individual"
+    }
+]
+```
+
+*Authentication is Required* 
+
+This endpoint requests the reporting types that will be available for reporting a user endpoint (users/USER_ID/reporting).
+
+### HTTP Request
+
+`GET https://peakapi.whitespell.com/users/reporting/types`
+
+
+## Report a User 
+
+
+```shell
+curl -d \ '{"reportedUserId":"REPORTED_USER_ID","typeId":1,"message":"REPORTING_MESSAGE"}' \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/users/USER_ID/reporting"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "success":true
+    }
+]
+```
+
+*Authentication is Required* 
+
+This endpoint adds a new report on a user to the database.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/USER_ID/reporting/`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+reportedUserId | Yes | Int(11), the reported user's userId | Tested
+typeId | Yes | Int(11), the id of the reporting type, get all reporting types with GET users/reporting/types | Tested
+message | Yes | String(255), user inputted message describing the reason for the report | Tested
 
 
 # Content
