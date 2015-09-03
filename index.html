@@ -1615,9 +1615,9 @@ Intended for use on client side after retrieving the Facebook access token from 
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p><em>Authentication as the User is Required</em> 
-This endpoint is used to allow a user to upload feedback for the app. 
-It will be stored in our database and also uploaded to UserVoice.</p>
+<p><em>Authentication as the User is Required</em> </p>
+
+<p>This endpoint is used to allow a user to add feedback for the app. </p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1643,6 +1643,135 @@ It will be stored in our database and also uploaded to UserVoice.</p>
 <td>message</td>
 <td>Yes</td>
 <td>String(255), the user&rsquo;s feedback message</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h2 id="add-reporting-type">Add Reporting Type</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"reportingTypeName":"REPORTING_TYPE_NAME"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/reporting/types"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"reportingTypeAdded"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p><em>Authentication is Required</em> </p>
+
+<p>This endpoint adds a new reporting type (e.g. Vulgar comments or Fake profile picture) to the database.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/reporting/types</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reportingTypeName</td>
+<td>Yes</td>
+<td>String(255), short description of why the user is being reported, to be shown in dropdown menu</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h2 id="request-reporting-types">Request Reporting Types</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/reporting/types"</span> <span class="se">\</span>
+       -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+       -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> 
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">  
+    </span><span class="p">{</span><span class="w">  
+        </span><span class="nt">"reportingTypeId"</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"reportingTypeName"</span><span class="p">:</span><span class="s2">"Fake profile"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">  
+        </span><span class="nt">"reportingTypeId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"reportingTypeName"</span><span class="p">:</span><span class="s2">"Hate Speech or Attacking An Individual"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p><em>Authentication is Required</em> </p>
+
+<p>This endpoint requests the reporting types that will be available for reporting a user endpoint (users/USER_ID/reporting).</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://peakapi.whitespell.com/users/reporting/types</code></p>
+
+<h2 id="report-a-user">Report a User</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"reportedUserId":"REPORTED_USER_ID","typeId":1,"message":"REPORTING_MESSAGE"}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/reporting"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p><em>Authentication is Required</em> </p>
+
+<p>This endpoint adds a new report on a user to the database.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/USER_ID/reporting/</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>reportedUserId</td>
+<td>Yes</td>
+<td>Int(11), the reported user&rsquo;s userId</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>typeId</td>
+<td>Yes</td>
+<td>Int(11), the id of the reporting type, get all reporting types with GET users/reporting/types</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>message</td>
+<td>Yes</td>
+<td>String(255), user inputted message describing the reason for the report</td>
 <td>Tested</td>
 </tr>
 </tbody></table>
