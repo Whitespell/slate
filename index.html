@@ -489,7 +489,7 @@ Now trending users are sorted by amount of published content. </p>
 <h1 id="authentication">Authentication</h1>
 
 <h2 id="authentication-request">Authentication Request</h2>
-<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","device":"DEVICE_INFO", "mac_address":"MAC_ADDRESS","geolocation":"LOCATION_INFO"}'</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","deviceName":"DEVICE_NAME","deviceType":1,"deviceUUID":"DEVICE_TOKEN","mac_address":"MAC_ADDRESS","geolocation":"LOCATION_INFO"}'</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -X POST <span class="s2">"https://peakapi.whitespell.com/authentication"</span> 
 </code></pre>
@@ -506,7 +506,7 @@ Now trending users are sorted by amount of published content. </p>
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint allows testing of authentication requests.</p>
+<p>This endpoint allows testing of authentication requests. Device information only relevant on iOS or Android, not relevant on the web. </p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -535,10 +535,22 @@ Now trending users are sorted by amount of published content. </p>
 <td>Tested</td>
 </tr>
 <tr>
-<td>device</td>
+<td>deviceName</td>
 <td>No</td>
-<td>String(45)</td>
-<td>In Progress</td>
+<td>String(255), Name of device in settings, e.g. &ldquo;Users Phone&rdquo;</td>
+<td>Needs Integration Test</td>
+</tr>
+<tr>
+<td>deviceType</td>
+<td>No</td>
+<td>BOOL, 0 or 1, 0 for iOS devices, 1 for Android</td>
+<td>Needs Integration Test</td>
+</tr>
+<tr>
+<td>deviceUUID</td>
+<td>No</td>
+<td>String(255), the identifying device token for the device</td>
+<td>Needs Integration Test</td>
 </tr>
 <tr>
 <td>mac_address</td>
