@@ -321,7 +321,7 @@ limit | 50 | If set, limit or increase the amount of each object type (user, cat
 
 
 ```shell
-curl -d \ '{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","device":"DEVICE_INFO", "mac_address":"MAC_ADDRESS","geolocation":"LOCATION_INFO"}' \
+curl -d \ '{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","deviceName":"DEVICE_NAME","deviceType":1,"deviceUUID":"DEVICE_TOKEN","mac_address":"MAC_ADDRESS","geolocation":"LOCATION_INFO"}' \
 -H "Content-Type: application/json" \
 -X POST "https://peakapi.whitespell.com/authentication" 
 ```
@@ -338,7 +338,7 @@ curl -d \ '{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","device":"DEVI
 ]
 ```
 
-This endpoint allows testing of authentication requests.
+This endpoint allows testing of authentication requests. Device information only relevant on iOS or Android, not relevant on the web. 
 
 ### HTTP Request
 
@@ -350,7 +350,9 @@ Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
 userName | Yes | String(30) | Testede
 password | Yes | String(inf) | Tested
-device | No | String(45) | In Progress
+deviceName | No | String(255), Name of device in settings, e.g. "Users Phone" | Needs Integration Test
+deviceType | No | BOOL, 0 or 1, 0 for iOS devices, 1 for Android | Needs Integration Test
+deviceUUID | No | String(255), the identifying device token for the device | Needs Integration Test
 mac_address | No | String(45) | In Progress
 geolocation | No | String(Lat, Lon, 45) | In Progress
 
