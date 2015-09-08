@@ -1302,7 +1302,9 @@ curl "https://peakapi.whitespell.com/content" \
             "contentDescription"    :    "video descr here",
             "timestamp"    :    1433083968,
             "likes":100,
-            "thumbnailUrl" :  "http://cdn.amazoncontent.com/test.jpg"
+            "thumbnailUrl" :  "http://cdn.amazoncontent.com/test.jpg",
+            "curationAccepted": 1,
+            "userLiked": 1
         },
         {
             "contentId"    :    1212,
@@ -1312,12 +1314,17 @@ curl "https://peakapi.whitespell.com/content" \
             "contentDescription"    :    "see me do it",
             "timestamp"    :    1433083968,
             "likes":99,
-            "thumbnailUrl" :   "http://cdn.amazoncontent.com/test.jpg"
+            "thumbnailUrl" :   "http://cdn.amazoncontent.com/test.jpg",
+            "curationAccepted": 1,
+            "userLiked": 1
         }
 ]
 ```
 
-This endpoint requests the content for the newsfeed, can be user specific (?userId=USER_ID) or category specific (?categoryId=CATEGORY_ID).
+This endpoint requests the content in the database, can be user specific (?userId=USER_ID) or category specific (?categoryId=CATEGORY_ID).
+
+curationAccepted is used for the contentCuration platform (1 accepted, 0 not). userLiked refers to whether the 
+authenticated user liked the given content. (1 authenticated user has liked it, 0 authenticated user has not liked it) 
 
 ### HTTP Request
 
