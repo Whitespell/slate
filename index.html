@@ -1808,7 +1808,9 @@ Intended for use on client side after retrieving the Facebook access token from 
             </span><span class="nt">"contentDescription"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"video descr here"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"timestamp"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="mi">1433083968</span><span class="p">,</span><span class="w">
             </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"thumbnailUrl"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="s2">"http://cdn.amazoncontent.com/test.jpg"</span><span class="w">
+            </span><span class="nt">"thumbnailUrl"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="s2">"http://cdn.amazoncontent.com/test.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"curationAccepted"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="nt">"contentId"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="mi">1212</span><span class="p">,</span><span class="w">
@@ -1818,12 +1820,17 @@ Intended for use on client side after retrieving the Facebook access token from 
             </span><span class="nt">"contentDescription"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"see me do it"</span><span class="p">,</span><span class="w">
             </span><span class="nt">"timestamp"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="mi">1433083968</span><span class="p">,</span><span class="w">
             </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">99</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"thumbnailUrl"</span><span class="w"> </span><span class="p">:</span><span class="w">   </span><span class="s2">"http://cdn.amazoncontent.com/test.jpg"</span><span class="w">
+            </span><span class="nt">"thumbnailUrl"</span><span class="w"> </span><span class="p">:</span><span class="w">   </span><span class="s2">"http://cdn.amazoncontent.com/test.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"curationAccepted"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
         </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint requests the content for the newsfeed, can be user specific (?userId=USER_ID) or category specific (?categoryId=CATEGORY_ID).</p>
+<p>This endpoint requests the content in the database, can be user specific (?userId=USER_ID) or category specific (?categoryId=CATEGORY_ID).</p>
+
+<p>curationAccepted is used for the contentCuration platform (1 accepted, 0 not). userLiked refers to whether the 
+authenticated user liked the given content. (1 authenticated user has liked it, 0 authenticated user has not liked it) </p>
 
 <h3 id="http-request">HTTP Request</h3>
 
