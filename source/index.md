@@ -1456,42 +1456,67 @@ curl "https://peakapi.whitespell.com/content/CONTENT_ID/comments" \
 [
     {
         "contentId":8420,
-        "userId":272,
         "likes":0,
         "comment":"first comment",
-        "date":{
-            "date":"Aug 6, 2015",
-            "time":"05:08:16 PM"
+        "timestamp":"Aug 6, 2015 5:08:16 PM",
+        "poster":{
+            "userId":272,
+            "publisher":0,
+            "emailVerified":0,
+            "userName":"1337",
+            "thumbnail":"http://wpidiots.com/html/writic/red-writic-template/css/img/demo-images/avatar1.jpg"
         }
     },
     {
         "contentId":8420,
-        "userId":272,
         "likes":0,
         "comment":"second comment",
-        "date":{
-            "date":"Aug 6, 2015",
-            "time":"05:08:23 PM"
+        "timestamp":"Aug 6, 2015 5:08:23 PM",
+        "poster":{
+            "userId":272,
+            "publisher":0,
+            "emailVerified":0,
+            "userName":"1337",
+            "thumbnail":"http://wpidiots.com/html/writic/red-writic-template/css/img/demo-images/avatar1.jpg"
         }
     },
     {
         "contentId":8420,
-        "userId":272,
         "likes":0,
         "comment":"third comment",
-        "date":{
-            "date":"Aug 6, 2015",
-            "time":"05:08:28 PM"
+        "timestamp":"Aug 6, 2015 5:08:28 PM",
+        "poster":{
+            "userId":272,
+            "publisher":0,
+            "emailVerified":0,
+            "userName":"1337",
+            "thumbnail":"http://wpidiots.com/html/writic/red-writic-template/css/img/demo-images/avatar1.jpg"
         }
     },
     {
         "contentId":8420,
-        "userId":272,
         "likes":0,
         "comment":"fourth comment",
-        "date":{
-            "date":"Aug 6, 2015",
-            "time":"05:08:33 PM"
+        "timestamp":"Aug 6, 2015 5:08:33 PM",
+        "poster":{
+            "userId":272,
+            "publisher":0,
+            "emailVerified":0,
+            "userName":"1337",
+            "thumbnail":"http://wpidiots.com/html/writic/red-writic-template/css/img/demo-images/avatar1.jpg"
+        }
+    },
+    {
+        "contentId":8420,
+        "likes":0,
+        "comment":"wow this video is awesome, love it!",
+        "timestamp":"Aug 6, 2015 9:54:30 PM",
+        "poster":{
+            "userId":272,
+            "publisher":0,
+            "emailVerified":0,
+            "userName":"1337",
+            "thumbnail":"http://wpidiots.com/html/writic/red-writic-template/css/img/demo-images/avatar1.jpg"
         }
     }
 ]
