@@ -1336,6 +1336,7 @@ Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
 userId | None | int(11), use this to search for content posted by a specific userId. | Tested
 categoryId | 0 | int(2), use this to search for content posted within a certain category. | Tested
+notCurated | None | int value = 1, use this to search for content that has not been accepted for curation yet. | Tested
 limit | 50 | int(11) of the size of the content you'd like to see. E.g. 25 for 25 videos. | Tested
 offset | None | int(11) of the minimum video ID to request (e.g. when you already have content, the last content id you have is the offset). | Tested
 
