@@ -380,7 +380,7 @@ curl "https://peakapi.whitespell.com/users/" \
         "publisher" : 1,
         "userName": "example_name",
         "email": "hidden",
-        "thumbnail": "https://image.com/photo.jpg"
+        "thumbnail": "https://image.com/photo.jpg",
         "slogan":"slogan"
     },
     {
