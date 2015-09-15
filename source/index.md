@@ -959,7 +959,8 @@ curl -d \ {"email":"USER_EMAIL"}' \
 
 ```json
 {
-    "success":true
+    "success":true,
+    "email":"USER_EMAIL"
 }
 ```
 
@@ -1015,7 +1016,8 @@ curl -d \ '{"userName":"username","newPassword":"newPass","resetToken":"EMAIL_TO
 
 ```json
 {
-    "success": true
+    "success": true,
+    "email":"USER_EMAIL"
 }
 ```
 
@@ -1047,7 +1049,8 @@ curl -d \ '{"userName":"username"}' \
 
 ```json
 {
-    "success": true
+    "success": true,
+    "email":"USER_EMAIL"
 }
 ```
 
