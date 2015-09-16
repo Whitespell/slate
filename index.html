@@ -1894,7 +1894,8 @@ authenticated user liked the given content. (1 authenticated user has liked it, 
 </blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"content_type_added"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="kc">true</span><span class="w">
+    </span><span class="nt">"contentAdded"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"contentId"</span><span class="p">:</span><span class="s2">"CONTENT_ADDED_ID"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -1965,7 +1966,7 @@ authenticated user liked the given content. (1 authenticated user has liked it, 
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
      </span><span class="p">{</span><span class="w">
         </span><span class="nt">"contentTypeId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="nt">"contenTypeName"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"youtube"</span><span class="w">
+        </span><span class="nt">"contentTypeName"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"youtube"</span><span class="w">
      </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
@@ -2198,6 +2199,48 @@ authenticated user liked the given content. (1 authenticated user has liked it, 
 </tr>
 </tbody></table>
 
+<h2 id="add-content-to-a-bundle">Add content to a bundle</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"childId":CHILD_ID}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/content/PARENT_CONTENT_ID/add_child"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"added_to_bundle"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint adds a child to a parent (bundle) </p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/content/PARENT_CONTENT_ID/add_child</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>childId</td>
+<td>Yes</td>
+<td>int(11), contentId of the parent content (bundle)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
 <h1 id="categories">Categories</h1>
 
 <h2 id="request-categories">Request Categories</h2>
@@ -2244,7 +2287,7 @@ authenticated user liked the given content. (1 authenticated user has liked it, 
 </blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"category_added"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+        </span><span class="nt">"category_added"</span><span class="p">:</span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
