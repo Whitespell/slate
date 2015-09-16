@@ -1360,7 +1360,8 @@ curl -d \ '{"categoryId":1,"contentType":CONTENT_TYPE,"contentTitle":"CONTENT_TI
 ```json
 [
     {
-            "content_type_added"    :    true
+    "contentAdded":true,
+    "contentId":"CONTENT_ADDED_ID"
     }
 ]
 ```
@@ -1398,7 +1399,7 @@ curl "https://peakapi.whitespell.com/content/types" \
 [
      {
         "contentTypeId" : 1,
-        "contenTypeName" : "youtube"
+        "contentTypeName" : "youtube"
      }
 ]
 ```
@@ -1606,7 +1607,7 @@ action | Yes | String, either like/unlike | Tested
 
 
 ```shell
-curl -d \ '{"childId":"CHILD_ID"}' \
+curl -d \ '{"childId":CHILD_ID}' \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
@@ -1618,7 +1619,7 @@ curl -d \ '{"childId":"CHILD_ID"}' \
 ```json
 [
     {
-    "added_to_bundle":true
+        "added_to_bundle":true
     }
 ]
 ```
@@ -1633,11 +1634,7 @@ This endpoint adds a child to a parent (bundle)
 
 Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
-childId | Yes | int(11) | Tested
-
-
-
-
+childId | Yes | int(11), contentId of the parent content (bundle) | Tested
 
 
 # Categories
@@ -1694,7 +1691,7 @@ curl -d \ '{"categoryName":"CATEGORY_NAME","categoryThumbnail":"CATEGORY_THUMB_U
 ```json
 [
     {
-    "category_added":true
+        "category_added":true
     }
 ]
 ```
