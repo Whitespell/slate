@@ -1602,6 +1602,44 @@ userId | Yes | int(11), userId of user that is liking/unliking content | Tested
 action | Yes | String, either like/unlike | Tested
 
 
+## Add content to a bundle
+
+
+```shell
+curl -d \ '{"childId":"CHILD_ID"}' \
+-H "Content-Type: application/json" \
+-H "Authorization: YOUR_API_KEY" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/content/PARENT_CONTENT_ID/add_child"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+    "added_to_bundle":true
+    }
+]
+```
+
+This endpoint adds a child to a parent (bundle) 
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/content/PARENT_CONTENT_ID/add_child`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+childId | Yes | int(11) | Tested
+
+
+
+
+
+
 # Categories
 
 
