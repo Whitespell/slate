@@ -113,84 +113,119 @@ Error Code | Meaning
 ```json
 [
     {
-        "newsfeedId":0,
+        "newsfeedId":14020,
         "user":{
-            "userFollowing":[],
-            "categoryFollowing":[],
-            "userId":7028,
-            "userName":"flexpointfitness",
+            "userId":11835,
+            "publisher":1,
+            "emailVerified":0,
+            "userName":"peakbasketball",
             "displayName":"",
-            "email":"flexpointfitness@temporary.email",
-            "thumbnail":"https://yt3.ggpht.com/-wso_qOBUOLI/AAAAAAAAAAI/AAAAAAAAAAA/z1cGByWujus/s240-c-k-no/photo.jpg",
-            "coverPhoto":"https://s-media-cache-ak0.pinimg.com/736x/13/23/c1/1323c17e88c80e988fa14b31b6fed07b.jpg",
+            "email":"basketball@peakapp.me",
+            "thumbnail":"http://peakapp.me/img/app_assets/avatar.png",
+            "coverPhoto":"http://peakapp.me/img/app_assets/cover.png",
             "slogan":""
         },
         "content":{
-            "userId":7028,
-            "contentId":4123,
-            "contentType":1,
-            "categoryId":4,
-            "contentTitle":"05062015 | 10 Days Out | Quick Update",
-            "contentUrl":"https://youtu.be/TlasHsDdZ7k",
-            "contentDescription":"This video is about 05062015 | 10 Days Out | Update.",
-            "likes":100,
-            "thumbnailUrl":"https://i.ytimg.com/vi/TlasHsDdZ7k/hqdefault.jpg"
-        }
-        },
-        {
-        "newsfeedId":1,
-        "user":{
-            "userFollowing":[],
-            "categoryFollowing":[],
-            "userId":7028,
-            "userName":"flexpointfitness",
-            "displayName":"",
-            "email":"flexpointfitness@temporary.email",
-            "thumbnail":"https://yt3.ggpht.com/-wso_qOBUOLI/AAAAAAAAAAI/AAAAAAAAAAA/z1cGByWujus/s240-c-k-no/photo.jpg",
-            "coverPhoto":"https://s-media-cache-ak0.pinimg.com/736x/13/23/c1/1323c17e88c80e988fa14b31b6fed07b.jpg",
-            "slogan":""
-        },
-        "content":{
-            "userId":7028,
-            "contentId":4111,
-            "contentType":1,
-            "categoryId":3,
-            "contentTitle":"04182015 | 28 Days | Cardio, Tanning, Posing",
-            "contentUrl":"https://youtu.be/EmbO95UctC0",
-            "contentDescription":"For Flex Point Fitness Apparel - \nwww.flexpointfitness.com\nInstagram - @flexpointfitness.",
-            "likes":100,
-            "thumbnailUrl":"https://i.ytimg.com/vi/EmbO95UctC0/hqdefault.jpg"
-        }
-        },
-        {
-        "newsfeedId":2,
-        "user":{
-            "userFollowing":[],
-            "categoryFollowing":[],
-            "userId":7018,
-            "userName":"elitefitnesslabs",
-            "displayName":"",
-            "email":"elitefitnesslabs@temporary.email",
-            "thumbnail":"https://yt3.ggpht.com/-yW-7yNpq9U4/AAAAAAAAAAI/AAAAAAAAAAA/Rye-nyIBtVk/s240-c-k-no/photo.jpg",
-            "coverPhoto":"https://s-media-cache-ak0.pinimg.com/736x/13/23/c1/1323c17e88c80e988fa14b31b6fed07b.jpg",
-            "slogan":""
-        },
-        "content":{
-            "userId":7018,
-            "contentId":4079,
+            "userId":11835,
+            "contentId":14020,
             "contentType":1,
             "categoryId":1,
-            "contentTitle":"Day In The Life :: Chipotle, Subway, Squats",
-            "contentUrl":"https://youtu.be/RTK-dCCJs34",
-            "contentDescription":"Email: EliteFitnessLabs@gmail.com\nTwitter: EliteFitnessLab\nInstagram: EliteFitnessLabs.",
-            "likes":100,
-            "thumbnailUrl":"https://i.ytimg.com/vi/RTK-dCCJs34/hqdefault.jpg"
+            "contentTitle":"Kobe Bryant Shooting Drills",
+            "contentUrl":"https://www.youtube.com/watch?v\u003dHOf7UsHyFFQ",
+            "contentDescription":"Basketball Shooting Drills That Kobe Bryant Uses In His Training",
+            "likes":0,
+            "thumbnailUrl":"http://i3.ytimg.com/vi/HOf7UsHyFFQ/0.jpg",
+            "userLiked":0,
+            "children":[]
+        }
+    },
+    {
+        "newsfeedId":14019,
+        "user":{
+            "userId":11835,
+            "publisher":1,
+            "emailVerified":0,
+            "userName":"peakbasketball",
+            "displayName":"",
+            "email":"basketball@peakapp.me",
+            "thumbnail":"http://peakapp.me/img/app_assets/avatar.png",
+            "coverPhoto":"http://peakapp.me/img/app_assets/cover.png",
+            "slogan":""
+        },
+        "content":{
+            "userId":11835,
+            "contentId":14019,
+            "contentType":1,
+            "categoryId":1,
+            "contentTitle":"Outdoor Basketball Training",
+            "contentUrl":"https://www.youtube.com/watch?v\u003dbGy-pCzJG0I",
+            "contentDescription":"Check out these outdoor exercises that will build your fitness and mental toughness.",
+            "likes":0,
+            "thumbnailUrl":"http://i3.ytimg.com/vi/bGy-pCzJG0I/0.jpg",
+            "userLiked":0,
+            "children":[]
+        }
+    },
+    {
+        "newsfeedId":14017,
+        "user":{
+            "userId":11835,
+            "publisher":1,
+            "emailVerified":0,
+            "userName":"peakbasketball",
+            "displayName":"",
+            "email":"basketball@peakapp.me",
+            "thumbnail":"http://peakapp.me/img/app_assets/avatar.png",
+            "coverPhoto":"http://peakapp.me/img/app_assets/cover.png",
+            "slogan":""
+        },
+        "content":{
+            "userId":11835,
+            "contentId":14017,
+            "contentType":6,
+            "categoryId":1,
+            "contentTitle":"Basketball Skills Training - Anthony Bathalon",
+            "contentUrl":"https://www.youtube.com/watch?v\u003d-it8-e7dOEo",
+            "contentDescription":"Anthony Bathalon showing and motivating you to believe in working on your game.",
+            "likes":0,
+            "thumbnailUrl":"http://i3.ytimg.com/vi/-it8-e7dOEo/0.jpg",
+            "userLiked":0,
+            "children":[
+                {
+                    "userId":11835,
+                    "contentId":14016,
+                    "contentType":1,
+                    "categoryId":1,
+                    "contentTitle":"Fun Drills For Youth Players",
+                    "contentUrl":"https://www.youtube.com/watch?v\u003dcQkYcgO7pXw",
+                    "contentDescription":"Here are some great drills for youth players!",
+                    "likes":0,
+                    "thumbnailUrl":"http://i3.ytimg.com/vi/cQkYcgO7pXw/0.jpg",
+                    "userLiked":0,
+                    "children":[]
+                },
+                {
+                    "userId":11835,
+                    "contentId":14018,
+                    "contentType":1,
+                    "categoryId":1,
+                    "contentTitle":"Full Shooting Workout for Basketball Players\n",
+                    "contentUrl":"https://www.youtube.com/watch?v\u003dJ71iEaXSLCs",
+                    "contentDescription":"Dennis Stanton shares a full shooting workout for basketball players. ",
+                    "likes":0,
+                    "thumbnailUrl":"http://i3.ytimg.com/vi/J71iEaXSLCs/0.jpg",
+                    "userLiked":0,
+                    "children":[]
+                }
+            ]
         }
     }
 ]
 ```
 
 This endpoint returns the newsfeed for a given userId.
+Offset and Ceil are used to load parts of the newsfeed rather than retrieving the whole newsfeed. 
+e.g. offset = 14020 and ceil = 14070 will return any newsfeedIds from 14021 to 14069. 
 
 ### HTTP Request
 
@@ -202,6 +237,7 @@ Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
 limit | 50 | int(11) of the size of the newsfeed you'd like to see. E.g. 25 for 25 videos. | Tested
 offset | None | int(11) of the minimum newsfeed ID to request | Tested
+ceil | None | int(11) of the maximum newsfeed ID to request | Tested
 
 
 # Search
@@ -338,7 +374,7 @@ curl -d \ '{"userName":"YOUR_USERNAME","password":"YOUR_PASSWORD","deviceName":"
 ]
 ```
 
-This endpoint allows testing of authentication requests. Device information only relevant on iOS or Android, not relevant on the web. 
+This endpoint allows testing of authentication requests. If on a mobile client please include deviceName, deviceType and deviceUUID. 
 
 ### HTTP Request
 
@@ -348,11 +384,11 @@ This endpoint allows testing of authentication requests. Device information only
 
 Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
-userName | Yes | String(30) | Testede
+userName | Yes | String(30) | Tested
 password | Yes | String(inf) | Tested
-deviceName | No | String(255), Name of device in settings, e.g. "Users Phone" | Needs Integration Test
-deviceType | No | BOOL, 0 or 1, 0 for iOS devices, 1 for Android | Needs Integration Test
-deviceUUID | No | String(255), the identifying device token for the device | Needs Integration Test
+deviceName | No | String(255), Name of device in settings, e.g. "Users Phone" | Tested
+deviceType | No | BOOL, 0 or 1, 0 for iOS devices, 1 for Android | Tested
+deviceUUID | No | String(255), the identifying device token for the device | Tested
 mac_address | No | String(45) | In Progress
 geolocation | No | String(Lat, Lon, 45) | In Progress
 
@@ -655,7 +691,7 @@ This endpoint returns the list of categories you are following.
 
 Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
-userId | Yes | int(11) | Not Started
+userId | Yes | int(11) | Tested
 
 
 ## Follow Category
@@ -1103,7 +1139,7 @@ accessToken | Yes | String(varchar), retrieved from client side facebook login |
 
 
 ```shell
-curl -d \ '{"accessToken":"FB_ACCESS_TOKEN","password":"PEAK_PASSWORD"}' \
+curl -d \ '{"accessToken":"FB_ACCESS_TOKEN","password":"PEAK_PASSWORD","deviceName":"DEVICE_NAME","deviceType":1,"deviceUUID":"DEVICE_TOKEN"}' \
 -H "Content-Type: application/json" \
 -X POST "https://peakapi.whitespell.com/users/facebook"
 ```
@@ -1124,6 +1160,7 @@ Always use the users/checkfacebook endpoint first to determine if the user's Pea
 
 This endpoint is used to create a new user or authenticate a current one with the Facebook login accessToken. 
 Intended for use on client side after retrieving the Facebook access token from Facebook login in the client. 
+If on a mobile client please include deviceName, deviceType and deviceUUID.
 
 ### HTTP Request
 
@@ -1135,6 +1172,9 @@ Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
 accessToken | Yes | String(varchar), retrieved from client side facebook login | Tested
 password | No | String(inf), the user's peak password | Tested
+deviceName | No | String(255), Name of device in settings, e.g. "Users Phone" | Tested
+deviceType | No | BOOL, 0 or 1, 0 for iOS devices, 1 for Android | Tested
+deviceUUID | No | String(255), the identifying device token for the device | Tested
 
 
 ## Add User Feedback for Peak
