@@ -224,8 +224,6 @@ Error Code | Meaning
 ```
 
 This endpoint returns the newsfeed for a given userId.
-Offset and Ceil are used to load parts of the newsfeed rather than retrieving the whole newsfeed. 
-e.g. offset = 14020 and ceil = 14070 will return any newsfeedIds from 14021 to 14069. 
 
 ### HTTP Request
 
@@ -236,8 +234,6 @@ e.g. offset = 14020 and ceil = 14070 will return any newsfeedIds from 14021 to 1
 Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
 limit | 50 | int(11) of the size of the newsfeed you'd like to see. E.g. 25 for 25 videos. | Tested
-offset | None | int(11) of the minimum newsfeed ID to request | Tested
-ceil | None | int(11) of the maximum newsfeed ID to request | Tested
 
 
 # Search
