@@ -353,9 +353,7 @@
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint returns the newsfeed for a given userId.
-Offset and Ceil are used to load parts of the newsfeed rather than retrieving the whole newsfeed. 
-e.g. offset = 14020 and ceil = 14070 will return any newsfeedIds from 14021 to 14069. </p>
+<p>This endpoint returns the newsfeed for a given userId.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -375,18 +373,6 @@ e.g. offset = 14020 and ceil = 14070 will return any newsfeedIds from 14021 to 1
 <td>limit</td>
 <td>50</td>
 <td>int(11) of the size of the newsfeed you&rsquo;d like to see. E.g. 25 for 25 videos.</td>
-<td>Tested</td>
-</tr>
-<tr>
-<td>offset</td>
-<td>None</td>
-<td>int(11) of the minimum newsfeed ID to request</td>
-<td>Tested</td>
-</tr>
-<tr>
-<td>ceil</td>
-<td>None</td>
-<td>int(11) of the maximum newsfeed ID to request</td>
 <td>Tested</td>
 </tr>
 </tbody></table>
