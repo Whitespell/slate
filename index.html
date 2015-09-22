@@ -1919,10 +1919,10 @@ If on a mobile client please include deviceName, deviceType and deviceUUID.</p>
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint requests the content in the database, can be user specific (?userId=USER_ID) or category specific (?categoryId=CATEGORY_ID).</p>
+<p>This endpoint requests the content in the database, can be user specific (?userId=USER_ID), contentId specific (?contentId=CONTENT_ID),
+contentType specific (?contentType=CONTENT_TYPE) or category specific (?categoryId=CATEGORY_ID).</p>
 
-<p>curationAccepted is used for the contentCuration platform (1 accepted, 0 not). userLiked refers to whether the 
-authenticated user liked the given content. (1 authenticated user has liked it, 0 authenticated user has not liked it) </p>
+<p>userLiked refers to whether the authenticated user liked the given content. (1 authenticated user has liked it, 0 authenticated user has not liked it) </p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -1958,14 +1958,8 @@ authenticated user liked the given content. (1 authenticated user has liked it, 
 </tr>
 <tr>
 <td>categoryId</td>
-<td>0</td>
-<td>int(2), use this to search for content posted within a certain category.</td>
-<td>Tested</td>
-</tr>
-<tr>
-<td>notCurated</td>
 <td>None</td>
-<td>int value = 1, use this to search for content that has not been accepted for curation yet.</td>
+<td>int(2), use this to search for content posted within a certain category.</td>
 <td>Tested</td>
 </tr>
 <tr>
