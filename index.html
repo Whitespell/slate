@@ -1849,29 +1849,72 @@ If on a mobile client please include deviceName, deviceType and deviceUUID.</p>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"contentId"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="mi">1313</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"userId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentType"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentTitle"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"Knee to overhead press"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentDescription"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"video descr here"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"timestamp"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="mi">1433083968</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"thumbnailUrl"</span><span class="w"> </span><span class="p">:</span><span class="w">  </span><span class="s2">"http://cdn.amazoncontent.com/test.jpg"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"curationAccepted"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11835</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">14017</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Basketball Skills Training - Anthony Bathalon"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://www.youtube.com/watch?v\u003d-it8-e7dOEo"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Anthony Bathalon showing and motivating you to believe in working on your game."</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"http://i3.ytimg.com/vi/-it8-e7dOEo/0.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"poster"</span><span class="p">:{</span><span class="w">  
+                </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11835</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"publisher"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"emailVerified"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"peakbasketball"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"http://peakapp.me/img/app_assets/avatar.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"children"</span><span class="p">:[</span><span class="w">  
+                </span><span class="p">{</span><span class="w">  
+                    </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11835</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">14016</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Fun Drills For Youth Players"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://www.youtube.com/watch?v\u003dcQkYcgO7pXw"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Here are some great drills for youth players!"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"http://i3.ytimg.com/vi/cQkYcgO7pXw/0.jpg"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"children"</span><span class="p">:[]</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="p">{</span><span class="w">  
+                    </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11835</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">14018</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Full Shooting Workout for Basketball Players\n"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://www.youtube.com/watch?v\u003dJ71iEaXSLCs"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Dennis Stanton shares a full shooting workout for basketball players. "</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"http://i3.ytimg.com/vi/J71iEaXSLCs/0.jpg"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"children"</span><span class="p">:[]</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"contentId"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="mi">1212</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"userId"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentType"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentTitle"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"Knee to overhead press"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentDescription"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="s2">"see me do it"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"timestamp"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="mi">1433083968</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">99</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"thumbnailUrl"</span><span class="w"> </span><span class="p">:</span><span class="w">   </span><span class="s2">"http://cdn.amazoncontent.com/test.jpg"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"curationAccepted"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">{</span><span class="w">  
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11863</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">14021</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Yoga For a Healthy Liver"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://www.youtube.com/watch?v\u003dhlqOGPoh42s"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Yoga on deck! Join me for Yoga For A Healthy Liver!"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"http://i3.ytimg.com/vi/hlqOGPoh42s/0.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"poster"</span><span class="p">:{</span><span class="w">  
+                </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11863</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"publisher"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"emailVerified"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"peakyoga"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"http://peakapp.me/img/app_assets/avatar.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"children"</span><span class="p">:[]</span><span class="w">
         </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
