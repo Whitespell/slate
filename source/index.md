@@ -136,6 +136,7 @@ Error Code | Meaning
             "likes":0,
             "thumbnailUrl":"http://i3.ytimg.com/vi/HOf7UsHyFFQ/0.jpg",
             "userLiked":0,
+            "price":0.99,
             "children":[]
         }
     },
@@ -163,6 +164,7 @@ Error Code | Meaning
             "likes":0,
             "thumbnailUrl":"http://i3.ytimg.com/vi/bGy-pCzJG0I/0.jpg",
             "userLiked":0,
+            "price":0.99,
             "children":[]
         }
     },
@@ -190,6 +192,7 @@ Error Code | Meaning
             "likes":0,
             "thumbnailUrl":"http://i3.ytimg.com/vi/-it8-e7dOEo/0.jpg",
             "userLiked":0,
+            "price":0.99,
             "children":[
                 {
                     "userId":11835,
@@ -202,6 +205,7 @@ Error Code | Meaning
                     "likes":0,
                     "thumbnailUrl":"http://i3.ytimg.com/vi/cQkYcgO7pXw/0.jpg",
                     "userLiked":0,
+                    "price":0.99,
                     "children":[]
                 },
                 {
@@ -215,6 +219,7 @@ Error Code | Meaning
                     "likes":0,
                     "thumbnailUrl":"http://i3.ytimg.com/vi/J71iEaXSLCs/0.jpg",
                     "userLiked":0,
+                    "price":0.99,
                     "children":[]
                 }
             ]
@@ -271,7 +276,8 @@ limit | 50 | int(11) of the size of the newsfeed you'd like to see. E.g. 25 for 
             "contentUrl":"https://youtu.be/5Z2Fm-2xZgc",
             "contentDescription":"Amir's football skills",
             "likes":100,
-            "thumbnail":"http://telecoms.com/wp-content/blogs.dir/1/files/2012/06/euro-football-sport.jpg"
+            "thumbnail":"http://telecoms.com/wp-content/blogs.dir/1/files/2012/06/euro-football-sport.jpg",
+            "price": 0.99
         }
     ]
 }
@@ -326,6 +332,7 @@ offset | None | If set, start loading from user ids only larger than the offset 
             "contentUrl":"https://youtu.be/X--QIF0mFTg",
             "contentDescription":"Bored of doing the same old squat just Watch the video\nThe HARDCORE of SQUATS.",
             "likes":100,
+            "price":0.99,
             "thumbnailUrl":"https://i.ytimg.com/vi/X--QIF0mFTg/hqdefault.jpg"
         }
     ]
@@ -468,7 +475,8 @@ curl "https://peakapi.whitespell.com/users/USER_ID" \
     "userName": "pimdewitte",
     "email": "hidden",
     "thumbnail": "https://image.com/photo.jpg",
-    "slogan":"slogan"
+    "slogan":"slogan",
+    "emailNotification":0
 }
 ```
 
@@ -824,6 +832,7 @@ curl "https://peakapi.whitespell.com/users/USER_ID/saved" \
             "contentUrl":"https://youtu.be/362511",
             "contentDescription":"Rich Froning\u0027s Week of WODs: Fri-Sat.",
             "likes":100,
+            "price":0.99,
             "thumbnailUrl":"https://i.ytimg.com/vi/0P4Ao0dt9v0/hqdefault.jpg"
         },
         {
@@ -835,6 +844,7 @@ curl "https://peakapi.whitespell.com/users/USER_ID/saved" \
             "contentUrl":"https://youtu.be/2376153",
             "contentDescription":"Zuzka\u0027s Metabolic Circuit Challenge.",
             "likes":100,
+            "price":0.99,
             "thumbnailUrl":"https://i.ytimg.com/vi/Hz_A6gZZjnU/hqdefault.jpg"
         }
     ]
@@ -846,97 +856,6 @@ curl "https://peakapi.whitespell.com/users/USER_ID/saved" \
 ### HTTP Request
 
 `GET https://peakapi.whitespell.com/users/USER_ID/saved`
-
-
-## Add to Bundle
-
-
-```shell
-curl -d \ '{"contentId":CONTENT_ID,"bundleId":LIST_ID}' \
--H "Content-Type: application/json" \
--H "Authorization: YOUR_API_KEY" \
--H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
--X POST "https://peakapi.whitespell.com/users/YOUR_USER_ID/bundles"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-    {
-      "addedContentId" : 0,
-      "addedToBundleId"  : 0
-    }
-]
-```
-
-*Requires authentication as the user.* This endpoint adds the content with the given contentId to the user's list with the given bundleId.
-
-### HTTP Request
-
-`POST https://peakapi.whitespell.com/users/YOUR_USER_ID/bundles`
-
-### POST Parameters
-
-Parameter | Required | Description | Status
---------- | ------- | ----------- | ------
-contentId | Yes | int(11) | Tested
-bundleId | Yes | int(11) | Tested
-
-
-## Get Bundle
-
-
-```shell
-curl "https://peakapi.whitespell.com/users/USER_ID/bundles" \
--H "Content-Type: application/json" \
--H "Authorization: YOUR_API_KEY" \
--H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" 
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-    "bundle":[
-        {
-            "userId":11518,
-            "contentId":8420,
-            "contentType":1,
-            "categoryId":2,
-            "contentTitle":"Jim Stoppani\u0027s Superman Workout 3",
-            "contentUrl":"https://youtu.be/vK3FJnjxr8c",
-            "contentDescription":"Jim Stoppani\u0027s Superman Workout 3.",
-            "likes":100,
-            "thumbnailUrl":"https://i.ytimg.com/vi/vK3FJnjxr8c/hqdefault.jpg"
-        },
-        {
-            "userId":11603,
-            "contentId":11123,
-            "contentType":1,
-            "categoryId":13,
-            "contentTitle":"?????? ?????? -- ????",
-            "contentUrl":"https://youtu.be/qMQHyFsihe8",
-            "contentDescription":"?????????????? ?????????? ??????????? ??????? ?? ?????? ???????? ????????? ???????.",
-            "likes":100,
-            "thumbnailUrl":"https://i.ytimg.com/vi/qMQHyFsihe8/hqdefault.jpg"
-        }
-    ],
-    "bundleId":2
-}
-```
-
-*Requires authentication as the user.* This endpoint returns the saved user list for the given userId and bundleId. 
-
-### HTTP Request
-
-`GET https://peakapi.whitespell.com/users/USER_ID/bundles`
-
-### QUERY Parameters
-
-Parameter | Default | Description | Status
---------- | ------- | ----------- | ------
-bundleId | None | *REQUIRED* int(11), use this to return the saved user list for the given bundleId. | Tested
 
 
 ## Update Email Verification Status
@@ -1317,6 +1236,96 @@ typeId | Yes | Int(11), the id of the reporting type, get all reporting types wi
 message | Yes | String(255), user inputted message describing the reason for the report | Tested
 
 
+## Get User Notifications
+
+
+```shell
+curl "https://peakapi.whitespell.com/users/USER_ID/notifications" \
+       -H "Authorization: YOUR_API_KEY" \
+       -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" 
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{  
+    "userNotifications":[  
+        {  
+            "userId":11896,
+            "notificationText":"cory uploaded a new video!",
+            "notificationAction":"open-content:14068",
+            "notificationBadge":0,
+            "notificationSound":0,
+            "notificationStatus":1
+        },
+        {  
+            "userId":11896,
+            "notificationText":"pim uploaded a new video!",
+            "notificationAction":"open-content:14069",
+            "notificationBadge":0,
+            "notificationSound":0,
+            "notificationStatus":1
+        }
+    ]
+}
+```
+
+*Authentication as the user is Required* 
+
+This endpoint requests all of the notifications that a user should have received. NotificationStatus is 0 when initialized, 1 on successful send, 
+and should be set to 2 when read. (update notificationRead endpoint)
+
+### HTTP Request
+
+`GET https://peakapi.whitespell.com/users/USER_ID/notifications`
+
+### QUERY Parameters
+
+Parameter | Default | Description | Status
+--------- | ------- | ----------- | ------
+limit | 50 | int(11) of the size of the notifications list. | Tested
+offset | None | int(11) of the minimum notificationId to request | Tested
+
+
+## Update User Email Notification Status
+
+
+```shell
+curl -d \ '{"emailNotification":0}' \
+     -H "Content-Type: application/json" \
+     -H "Authorization: YOUR_API_KEY" \
+     -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+     -X POST "https://peakapi.whitespell.com/users/USER_ID/notifications"
+```
+
+> The above command returns JSON structured like this:
+> Only updated fields are returned in the response, others are "" or -1.
+
+```json  
+{
+    "userId":USER_ID,
+    "publisher":-1,
+    "emailVerified":-1,
+    "emailNotification":0,
+    "userName":"USERNAME"
+}   
+```
+
+*Authentication as the user is Required* 
+
+This endpoint modifies the user's email notification status. Unchanged values are -1.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/USER_ID/notifications`
+
+### QUERY Parameters
+
+Parameter | Default | Description | Status
+--------- | ------- | ----------- | ------
+emailNotification | None | BOOL(1 or 0). 0 for no email notifications, 1 to allow them. | Tested
+
+
 # Content
 
 
@@ -1333,37 +1342,84 @@ curl "https://peakapi.whitespell.com/content" \
 
 ```json
 [
-    {
-            "contentId"    :    1313,
-            "userId" : 11,
-            "contentType"    :    2,
-            "contentTitle"    :    "Knee to overhead press",
-            "contentDescription"    :    "video descr here",
-            "timestamp"    :    1433083968,
-            "likes":100,
-            "thumbnailUrl" :  "http://cdn.amazoncontent.com/test.jpg",
-            "curationAccepted": 1,
-            "userLiked": 1
+    {  
+            "userId":11835,
+            "contentId":14017,
+            "contentType":6,
+            "categoryId":1,
+            "contentTitle":"Basketball Skills Training - Anthony Bathalon",
+            "contentUrl":"https://www.youtube.com/watch?v\u003d-it8-e7dOEo",
+            "contentDescription":"Anthony Bathalon showing and motivating you to believe in working on your game.",
+            "likes":0,
+            "thumbnailUrl":"http://i3.ytimg.com/vi/-it8-e7dOEo/0.jpg",
+            "userLiked":0,
+            "price":0.99,
+            "poster":{  
+                "userId":11835,
+                "publisher":0,
+                "emailVerified":0,
+                "userName":"peakbasketball",
+                "thumbnail":"http://peakapp.me/img/app_assets/avatar.png"
+            },
+            "children":[  
+                {  
+                    "userId":11835,
+                    "contentId":14016,
+                    "contentType":1,
+                    "categoryId":1,
+                    "contentTitle":"Fun Drills For Youth Players",
+                    "contentUrl":"https://www.youtube.com/watch?v\u003dcQkYcgO7pXw",
+                    "contentDescription":"Here are some great drills for youth players!",
+                    "likes":0,
+                    "thumbnailUrl":"http://i3.ytimg.com/vi/cQkYcgO7pXw/0.jpg",
+                    "userLiked":0,
+                    "price":0.99,
+                    "children":[]
+                },
+                {  
+                    "userId":11835,
+                    "contentId":14018,
+                    "contentType":1,
+                    "categoryId":1,
+                    "contentTitle":"Full Shooting Workout for Basketball Players\n",
+                    "contentUrl":"https://www.youtube.com/watch?v\u003dJ71iEaXSLCs",
+                    "contentDescription":"Dennis Stanton shares a full shooting workout for basketball players. ",
+                    "likes":0,
+                    "thumbnailUrl":"http://i3.ytimg.com/vi/J71iEaXSLCs/0.jpg",
+                    "userLiked":0,
+                    "price":0.99,
+                    "children":[]
+                }
+            ]
         },
-        {
-            "contentId"    :    1212,
-            "userId" : 11,
-            "contentType"    :    1,
-            "contentTitle"    :    "Knee to overhead press",
-            "contentDescription"    :    "see me do it",
-            "timestamp"    :    1433083968,
-            "likes":99,
-            "thumbnailUrl" :   "http://cdn.amazoncontent.com/test.jpg",
-            "curationAccepted": 1,
-            "userLiked": 1
+        {  
+            "userId":11863,
+            "contentId":14021,
+            "contentType":6,
+            "categoryId":1,
+            "contentTitle":"Yoga For a Healthy Liver",
+            "contentUrl":"https://www.youtube.com/watch?v\u003dhlqOGPoh42s",
+            "contentDescription":"Yoga on deck! Join me for Yoga For A Healthy Liver!",
+            "likes":0,
+            "thumbnailUrl":"http://i3.ytimg.com/vi/hlqOGPoh42s/0.jpg",
+            "userLiked":0,
+            "price":0.99,
+            "poster":{  
+                "userId":11863,
+                "publisher":0,
+                "emailVerified":0,
+                "userName":"peakyoga",
+                "thumbnail":"http://peakapp.me/img/app_assets/avatar.png"
+            },
+            "children":[]
         }
 ]
 ```
 
-This endpoint requests the content in the database, can be user specific (?userId=USER_ID) or category specific (?categoryId=CATEGORY_ID).
+This endpoint requests the content in the database, can be user specific (?userId=USER_ID), contentId specific (?contentId=CONTENT_ID),
+contentType specific (?contentType=CONTENT_TYPE) or category specific (?categoryId=CATEGORY_ID).
 
-curationAccepted is used for the contentCuration platform (1 accepted, 0 not). userLiked refers to whether the 
-authenticated user liked the given content. (1 authenticated user has liked it, 0 authenticated user has not liked it) 
+userLiked refers to whether the authenticated user liked the given content. (1 authenticated user has liked it, 0 authenticated user has not liked it) 
 
 ### HTTP Request
 
@@ -1374,8 +1430,9 @@ authenticated user liked the given content. (1 authenticated user has liked it, 
 Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
 userId | None | int(11), use this to search for content posted by a specific userId. | Tested
-categoryId | 0 | int(2), use this to search for content posted within a certain category. | Tested
-notCurated | None | int value = 1, use this to search for content that has not been accepted for curation yet. | Tested
+contentId | None | int(11), use this to search for content with a specific contentId. | Tested
+contentType | None | int(11), use this to search for content of a certain contentType. e.g. contentType=6 for bundles | Tested
+categoryId | None | int(2), use this to search for content posted within a certain category. | Tested
 limit | 50 | int(11) of the size of the content you'd like to see. E.g. 25 for 25 videos. | Tested
 offset | None | int(11) of the minimum video ID to request (e.g. when you already have content, the last content id you have is the offset). | Tested
 
@@ -1639,7 +1696,7 @@ userId | Yes | int(11), userId of user that is liking/unliking content | Tested
 action | Yes | String, either like/unlike | Tested
 
 
-## Add content to a bundle
+## Add Content to A Bundle
 
 
 ```shell
@@ -1671,6 +1728,54 @@ This endpoint adds a child to a parent (bundle)
 Parameter | Required | Description | Status
 --------- | ------- | ----------- | ------
 childId | Yes | int(11), contentId of the parent content (bundle) | Tested
+
+
+## Update Content
+
+
+```shell
+curl -d \ '{"userId":"UPLOADER_USER_ID","contentTitle":"CONTENT_TITLE","contentDescription":"CONTENT_DESCRIPTION","contentPrice":CONTENT_PRICE}' \
+-H "Content-Type: application/json" \
+-H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+-X POST "https://peakapi.whitespell.com/content/CONTENT_ID"
+```
+
+> The above command returns JSON structured like this:
+> Only updated fields are returned in the response, others are "", 0 or [].
+
+```json
+{
+    "userId":11837,
+    "contentId":14092,
+    "contentType":0,
+    "categoryId":0,
+    "contentTitle":"newTitle",
+    "contentUrl":"",
+    "contentDescription":"newDescription",
+    "likes":0,
+    "thumbnailUrl":"",
+    "userLiked":0,
+    "price":0.99,
+    "children":[]
+}
+```
+
+*Requires authentication as the uploader*
+ 
+This endpoint allows a user to update their content.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/content/CONTENT_ID`
+
+### POST Parameters
+
+Parameter | Required | Description | Status
+--------- | ------- | ----------- | ------
+userId | Yes | int(11) | Tested
+contentTitle | No | String(45) | Tested
+contentDescription | No | String(100) | Tested
+contentPrice | No | Double(10,2)  | Tested
 
 
 # Categories
