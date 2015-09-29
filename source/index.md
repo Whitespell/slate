@@ -136,7 +136,7 @@ Error Code | Meaning
             "likes":0,
             "thumbnailUrl":"http://i3.ytimg.com/vi/HOf7UsHyFFQ/0.jpg",
             "userLiked":0,
-            "price":0.99,
+            "contentPrice":0.99,
             "children":[]
         }
     },
@@ -164,7 +164,7 @@ Error Code | Meaning
             "likes":0,
             "thumbnailUrl":"http://i3.ytimg.com/vi/bGy-pCzJG0I/0.jpg",
             "userLiked":0,
-            "price":0.99,
+            "contentPrice":0.99,
             "children":[]
         }
     },
@@ -192,7 +192,7 @@ Error Code | Meaning
             "likes":0,
             "thumbnailUrl":"http://i3.ytimg.com/vi/-it8-e7dOEo/0.jpg",
             "userLiked":0,
-            "price":0.99,
+            "contentPrice":0.99,
             "children":[
                 {
                     "userId":11835,
@@ -205,7 +205,7 @@ Error Code | Meaning
                     "likes":0,
                     "thumbnailUrl":"http://i3.ytimg.com/vi/cQkYcgO7pXw/0.jpg",
                     "userLiked":0,
-                    "price":0.99,
+                    "contentPrice":0.99,
                     "children":[]
                 },
                 {
@@ -219,7 +219,7 @@ Error Code | Meaning
                     "likes":0,
                     "thumbnailUrl":"http://i3.ytimg.com/vi/J71iEaXSLCs/0.jpg",
                     "userLiked":0,
-                    "price":0.99,
+                    "contentPrice":0.99,
                     "children":[]
                 }
             ]
@@ -277,7 +277,7 @@ limit | 50 | int(11) of the size of the newsfeed you'd like to see. E.g. 25 for 
             "contentDescription":"Amir's football skills",
             "likes":100,
             "thumbnail":"http://telecoms.com/wp-content/blogs.dir/1/files/2012/06/euro-football-sport.jpg",
-            "price": 0.99
+            "contentPrice": 0.99
         }
     ]
 }
@@ -332,7 +332,7 @@ offset | None | If set, start loading from user ids only larger than the offset 
             "contentUrl":"https://youtu.be/X--QIF0mFTg",
             "contentDescription":"Bored of doing the same old squat just Watch the video\nThe HARDCORE of SQUATS.",
             "likes":100,
-            "price":0.99,
+            "contentPrice":0.99,
             "thumbnailUrl":"https://i.ytimg.com/vi/X--QIF0mFTg/hqdefault.jpg"
         }
     ]
@@ -832,7 +832,7 @@ curl "https://peakapi.whitespell.com/users/USER_ID/saved" \
             "contentUrl":"https://youtu.be/362511",
             "contentDescription":"Rich Froning\u0027s Week of WODs: Fri-Sat.",
             "likes":100,
-            "price":0.99,
+            "contentPrice":0.99,
             "thumbnailUrl":"https://i.ytimg.com/vi/0P4Ao0dt9v0/hqdefault.jpg"
         },
         {
@@ -844,7 +844,7 @@ curl "https://peakapi.whitespell.com/users/USER_ID/saved" \
             "contentUrl":"https://youtu.be/2376153",
             "contentDescription":"Zuzka\u0027s Metabolic Circuit Challenge.",
             "likes":100,
-            "price":0.99,
+            "contentPrice":0.99,
             "thumbnailUrl":"https://i.ytimg.com/vi/Hz_A6gZZjnU/hqdefault.jpg"
         }
     ]
@@ -1256,7 +1256,8 @@ curl "https://peakapi.whitespell.com/users/USER_ID/notifications" \
             "notificationAction":"open-content:14068",
             "notificationBadge":0,
             "notificationSound":0,
-            "notificationStatus":1
+            "notificationStatus":1,
+            "notificationImage":"THUMBNAIL_URL"
         },
         {  
             "userId":11896,
@@ -1264,7 +1265,8 @@ curl "https://peakapi.whitespell.com/users/USER_ID/notifications" \
             "notificationAction":"open-content:14069",
             "notificationBadge":0,
             "notificationSound":0,
-            "notificationStatus":1
+            "notificationStatus":1,
+            "notificationImage":"THUMBNAIL_URL"
         }
     ]
 }
@@ -1291,7 +1293,7 @@ offset | None | int(11) of the minimum notificationId to request | Tested
 
 
 ```shell
-curl -d \ '{"emailNotification":0}' \
+curl -d \ '{"emailNotifications":0}' \
      -H "Content-Type: application/json" \
      -H "Authorization: YOUR_API_KEY" \
      -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
@@ -1303,10 +1305,10 @@ curl -d \ '{"emailNotification":0}' \
 
 ```json  
 {
-    "userId":USER_ID,
+    "userId":1337,
     "publisher":-1,
     "emailVerified":-1,
-    "emailNotification":0,
+    "emailNotifications":0,
     "userName":"USERNAME"
 }   
 ```
@@ -1323,7 +1325,7 @@ This endpoint modifies the user's email notification status. Unchanged values ar
 
 Parameter | Default | Description | Status
 --------- | ------- | ----------- | ------
-emailNotification | None | BOOL(1 or 0). 0 for no email notifications, 1 to allow them. | Tested
+emailNotifications | None | BOOL(1 or 0). 0 for no email notifications, 1 to allow them. | Tested
 
 
 # Content
@@ -1353,7 +1355,7 @@ curl "https://peakapi.whitespell.com/content" \
             "likes":0,
             "thumbnailUrl":"http://i3.ytimg.com/vi/-it8-e7dOEo/0.jpg",
             "userLiked":0,
-            "price":0.99,
+            "contentPrice":0.99,
             "poster":{  
                 "userId":11835,
                 "publisher":0,
@@ -1373,7 +1375,7 @@ curl "https://peakapi.whitespell.com/content" \
                     "likes":0,
                     "thumbnailUrl":"http://i3.ytimg.com/vi/cQkYcgO7pXw/0.jpg",
                     "userLiked":0,
-                    "price":0.99,
+                    "contentPrice":0.99,
                     "children":[]
                 },
                 {  
@@ -1387,7 +1389,7 @@ curl "https://peakapi.whitespell.com/content" \
                     "likes":0,
                     "thumbnailUrl":"http://i3.ytimg.com/vi/J71iEaXSLCs/0.jpg",
                     "userLiked":0,
-                    "price":0.99,
+                    "contentPrice":0.99,
                     "children":[]
                 }
             ]
@@ -1403,7 +1405,7 @@ curl "https://peakapi.whitespell.com/content" \
             "likes":0,
             "thumbnailUrl":"http://i3.ytimg.com/vi/hlqOGPoh42s/0.jpg",
             "userLiked":0,
-            "price":0.99,
+            "contentPrice":0.99,
             "poster":{  
                 "userId":11863,
                 "publisher":0,
@@ -1441,7 +1443,7 @@ offset | None | int(11) of the minimum video ID to request (e.g. when you alread
 
 
 ```shell
-curl -d \ '{"categoryId":1,"contentType":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION","thumbnailUrl":"thumburl.com"}' \
+curl -d \ '{"categoryId":1,"contentType":CONTENT_TYPE,"contentTitle":"CONTENT_TITLE","contentUrl":"CONTENT_URL","contentDescription":"DESCRIPTION","thumbnailUrl":"thumburl.com","contentPrice":0.99}' \
 -H "Content-Type: application/json" \
 -H "Authorization: YOUR_API_KEY" \
 -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
@@ -1474,6 +1476,7 @@ contentType | Yes | int, Numeric value of the content type (find all content typ
 contentTitle | Yes | String(45) | Tested
 contentUrl | Yes | String(255) | Tested
 contentDescription | Yes | String(100) | Tested
+contentPrice | Yes | Double(10,2) | Tested
 thumbnailUrl | Yes | String(255) | Tested
 
 
@@ -1755,7 +1758,7 @@ curl -d \ '{"userId":"UPLOADER_USER_ID","contentTitle":"CONTENT_TITLE","contentD
     "likes":0,
     "thumbnailUrl":"",
     "userLiked":0,
-    "price":0.99,
+    "contentPrice":0.99,
     "children":[]
 }
 ```
