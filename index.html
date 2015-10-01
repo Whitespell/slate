@@ -235,7 +235,8 @@
 
 <h2 id="get-newsfeed">Get Newsfeed</h2>
 <pre class="highlight shell"><code>    curl <span class="s2">"https://peakapi.whitespell.com/newsfeed/USER_ID"</span> <span class="se">\</span>
-    -H <span class="s2">"Content-Type: application/json"</span>   
+    -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+    -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
 </code></pre>
 
 <blockquote>
@@ -348,7 +349,8 @@
 
 <h1 id="search">Search</h1>
 <pre class="highlight shell"><code>    curl <span class="s2">"https://peakapi.whitespell.com/search?q=SEARCH_STRING"</span> <span class="se">\</span>
-        -H <span class="s2">"Content-Type: application/json"</span> 
+    -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+    -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
 </code></pre>
 
 <blockquote>
@@ -1871,7 +1873,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo; or -
 <h2 id="request-content">Request Content</h2>
 <pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/content"</span> <span class="se">\</span>
        -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
-       -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> 
+       -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
 </code></pre>
 
 <blockquote>
@@ -1928,11 +1930,13 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo; or -
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
+<p><em>Authentication as the requesting user is required</em></p>
+
 <p>This endpoint requests the content in the database, can be user specific (?userId=USER_ID), contentId specific (?contentId=CONTENT_ID),
 contentType specific (?contentType=CONTENT_TYPE) or category specific (?categoryId=CATEGORY_ID).</p>
 
 <p>userLiked refers to whether the authenticated user liked the given content. (1 authenticated user has liked it, 0 authenticated user has not liked it),
-recommended only applies to the newsfeed. hasAccess is 0 when the user needs to purchase to content to view it, 1 when the content is free or purchased.</p>
+recommended only applies to the newsfeed. hasAccess is 0 when the user needs to purchase content to view it, 1 when the content is free or purchased.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
