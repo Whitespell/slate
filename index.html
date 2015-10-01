@@ -390,35 +390,83 @@
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-    </span><span class="nt">"users"</span><span class="p">:[</span><span class="w">  
-        </span><span class="p">{</span><span class="w">  
-            </span><span class="nt">"userFollowing"</span><span class="p">:[],</span><span class="w">
-            </span><span class="nt">"usersFollowed"</span><span class="p">:[],</span><span class="w">
-            </span><span class="nt">"categoryFollowing"</span><span class="p">:[],</span><span class="w">
-            </span><span class="nt">"categoryPublishing"</span><span class="p">:[],</span><span class="w">
-            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">1337</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"football"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"displayName"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"newsfeedId"</span><span class="p">:</span><span class="mi">14122</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"user"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11832</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"publisher"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"emailVerified"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"emailNotifications"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"PeakFitness"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"displayName"</span><span class="p">:</span><span class="s2">" peakfitness"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"info@whitespell.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"http://peakapp.me/img/app_assets/avatar.png"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"coverPhoto"</span><span class="p">:</span><span class="s2">"http://peakapp.me/img/app_assets/cover.png"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"slogan"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"content"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11832</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">14122</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Cross-Training Workout"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://www.youtube.com/watch?v\u003dxUvuywQy8Ik"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Here are two great exercises from my 31 Days Of Fitness Series: Thrusters and Renegade Rows"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentPrice"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"hasAccess"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"recommended"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"poster"</span><span class="p">:{</span><span class="w">
+                </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11832</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"publisher"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"emailVerified"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"emailNotifications"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"PeakFitness"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"http://peakapp.me/img/app_assets/avatar.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"children"</span><span class="p">:[]</span><span class="w">
         </span><span class="p">}</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"categories"</span><span class="p">:[</span><span class="w">  
-        </span><span class="mi">4</span><span class="w">
-    </span><span class="p">],</span><span class="w">
-    </span><span class="nt">"content"</span><span class="p">:[</span><span class="w">  
-        </span><span class="p">{</span><span class="w">  
-            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">165</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Amir Football Skills"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://youtu.be/5Z2Fm-2xZgc"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Amir's football skills"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"http://telecoms.com/wp-content/blogs.dir/1/files/2012/06/euro-football-sport.jpg"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.99</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"newsfeedId"</span><span class="p">:</span><span class="mi">14121</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"user"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11832</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"publisher"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"emailVerified"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"emailNotifications"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"PeakFitness"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"displayName"</span><span class="p">:</span><span class="s2">" peakfitness"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"email"</span><span class="p">:</span><span class="s2">"info@whitespell.com"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"http://peakapp.me/img/app_assets/avatar.png"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"coverPhoto"</span><span class="p">:</span><span class="s2">"http://peakapp.me/img/app_assets/cover.png"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"slogan"</span><span class="p">:</span><span class="s2">""</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"content"</span><span class="p">:{</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11832</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">14121</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Cross-Training Workout"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Here are two great exercises from my 31 Days Of Fitness Series: Thrusters and Renegade Rows"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentPrice"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"hasAccess"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"recommended"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"poster"</span><span class="p">:{</span><span class="w">
+                </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11832</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"publisher"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"emailVerified"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"emailNotifications"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"PeakFitness"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"http://peakapp.me/img/app_assets/avatar.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"children"</span><span class="p">:[]</span><span class="w">
         </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
 </span></code></pre>
 
 <p>This endpoint returns a JSON Object with a profiles array, a categories array (this returns the numbers of the searched categories, e.g. 1=football,2=skydiving,etc) and also a list of content. 
@@ -1210,28 +1258,27 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;.</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
     </span><span class="nt">"savedContent"</span><span class="p">:[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11518</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">8435</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11832</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">14122</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
             </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Rich Froning\u0027s Week of WODs: Fri-Sat"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://youtu.be/362511"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Rich Froning\u0027s Week of WODs: Fri-Sat."</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentPrice"</span><span class="p">:</span><span class="mf">0.99</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"https://i.ytimg.com/vi/0P4Ao0dt9v0/hqdefault.jpg"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11518</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">8477</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Zuzka\u0027s Metabolic Circuit Challenge"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://youtu.be/2376153"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Zuzka\u0027s Metabolic Circuit Challenge."</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentPrice"</span><span class="p">:</span><span class="mf">0.99</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"https://i.ytimg.com/vi/Hz_A6gZZjnU/hqdefault.jpg"</span><span class="w">
+            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Cross-Training Workout"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://www.youtube.com/watch?v\u003dxUvuywQy8Ik"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Here are two great exercises from my 31 Days Of Fitness Series: Thrusters and Renegade Rows"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"contentPrice"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"hasAccess"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"recommended"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"poster"</span><span class="p">:{</span><span class="w">
+                </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11832</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"publisher"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"emailVerified"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"emailNotifications"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"PeakFitness"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"http://peakapp.me/img/app_assets/avatar.png"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nt">"children"</span><span class="p">:[]</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1848,6 +1895,48 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo; or -
 </tr>
 </tbody></table>
 
+<h2 id="update-user-39-s-access-to-content">Update User&rsquo;s Access to Content</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"contentId":0}'</span> <span class="se">\</span>
+     -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+     -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+     -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+     -X POST <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/access"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+    </span><span class="nt">"success"</span><span class="p">:</span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">   
+</span></code></pre>
+
+<p><em>Authentication as the user is Required</em> </p>
+
+<p>This endpoint grants the user access to a content.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/USER_ID/access</code></p>
+
+<h3 id="query-parameters">QUERY Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>contentId</td>
+<td>None</td>
+<td>Int(11). contentId the user will gain access to.</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
 <h1 id="content">Content</h1>
 
 <h2 id="request-content">Request Content</h2>
@@ -1860,84 +1949,61 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo; or -
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">  
-            </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11835</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">14017</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Basketball Skills Training - Anthony Bathalon"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://www.youtube.com/watch?v\u003d-it8-e7dOEo"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Anthony Bathalon showing and motivating you to believe in working on your game."</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"http://i3.ytimg.com/vi/-it8-e7dOEo/0.jpg"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentPrice"</span><span class="p">:</span><span class="mf">0.99</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"poster"</span><span class="p">:{</span><span class="w">  
-                </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11835</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"publisher"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"emailVerified"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"peakbasketball"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"http://peakapp.me/img/app_assets/avatar.png"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nt">"children"</span><span class="p">:[</span><span class="w">  
-                </span><span class="p">{</span><span class="w">  
-                    </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11835</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">14016</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Fun Drills For Youth Players"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://www.youtube.com/watch?v\u003dcQkYcgO7pXw"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Here are some great drills for youth players!"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"http://i3.ytimg.com/vi/cQkYcgO7pXw/0.jpg"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"contentPrice"</span><span class="p">:</span><span class="mf">0.99</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"children"</span><span class="p">:[]</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="p">{</span><span class="w">  
-                    </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11835</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">14018</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Full Shooting Workout for Basketball Players\n"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://www.youtube.com/watch?v\u003dJ71iEaXSLCs"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Dennis Stanton shares a full shooting workout for basketball players. "</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"http://i3.ytimg.com/vi/J71iEaXSLCs/0.jpg"</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"contentPrice"</span><span class="p">:</span><span class="mf">0.99</span><span class="p">,</span><span class="w">
-                    </span><span class="nt">"children"</span><span class="p">:[]</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-            </span><span class="p">]</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">  
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11863</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">14007</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Beginners Home Yoga Workout!"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://www.youtube.com/watch?v\u003dv7AYKMP6rOE"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Yoga for Complete Beginners!"</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"contentPrice"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"hasAccess"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"recommended"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"poster"</span><span class="p">:{</span><span class="w">
             </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11863</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">14021</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Yoga For a Healthy Liver"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://www.youtube.com/watch?v\u003dhlqOGPoh42s"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Yoga on deck! Join me for Yoga For A Healthy Liver!"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">"http://i3.ytimg.com/vi/hlqOGPoh42s/0.jpg"</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"contentPrice"</span><span class="p">:</span><span class="mf">0.99</span><span class="p">,</span><span class="w">
-            </span><span class="nt">"poster"</span><span class="p">:{</span><span class="w">  
+            </span><span class="nt">"publisher"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"emailVerified"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"emailNotifications"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"peakyoga"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"http://peakapp.me/img/app_assets/avatar.png"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nt">"children"</span><span class="p">:[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
                 </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11863</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"publisher"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"emailVerified"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"peakyoga"</span><span class="p">,</span><span class="w">
-                </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"http://peakapp.me/img/app_assets/avatar.png"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nt">"children"</span><span class="p">:[]</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+                </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">14008</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"contentType"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"categoryId"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"contentTitle"</span><span class="p">:</span><span class="s2">"Day 1 - Ease Into It - 30 Days of Yoga\n"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"contentUrl"</span><span class="p">:</span><span class="s2">"https://www.youtube.com/watch?v\u003doBu-pQG6sTY"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"contentDescription"</span><span class="p">:</span><span class="s2">"Join Adriene on Day 1 of The 30 Days of Yoga journey!"</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"contentPrice"</span><span class="p">:</span><span class="mf">0.0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"hasAccess"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"recommended"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                </span><span class="nt">"poster"</span><span class="p">:{</span><span class="w">
+                    </span><span class="nt">"userId"</span><span class="p">:</span><span class="mi">11863</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"publisher"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"emailVerified"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"emailNotifications"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"userName"</span><span class="p">:</span><span class="s2">"peakyoga"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="s2">"http://peakapp.me/img/app_assets/avatar.png"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nt">"children"</span><span class="p">:[]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
 <p>This endpoint requests the content in the database, can be user specific (?userId=USER_ID), contentId specific (?contentId=CONTENT_ID),
 contentType specific (?contentType=CONTENT_TYPE) or category specific (?categoryId=CATEGORY_ID).</p>
 
-<p>userLiked refers to whether the authenticated user liked the given content. (1 authenticated user has liked it, 0 authenticated user has not liked it) </p>
+<p>userLiked refers to whether the authenticated user liked the given content. (1 authenticated user has liked it, 0 authenticated user has not liked it),
+recommended only applies to the newsfeed. hasAccess is 0 when the user needs to purchase to content to view it, 1 when the content is free or purchased.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2010,7 +2076,7 @@ contentType specific (?contentType=CONTENT_TYPE) or category specific (?category
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint allows a user to add content to the database.</p>
+<p>This endpoint allows a user to add content to the database. If a content has not </p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2380,6 +2446,8 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;, 0 o
     </span><span class="nt">"thumbnailUrl"</span><span class="p">:</span><span class="s2">""</span><span class="p">,</span><span class="w">
     </span><span class="nt">"userLiked"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"contentPrice"</span><span class="p">:</span><span class="mf">0.99</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"hasAccess"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"recommended"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="nt">"children"</span><span class="p">:[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
