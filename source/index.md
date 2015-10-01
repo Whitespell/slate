@@ -252,35 +252,83 @@ limit | 50 | int(11) of the size of the newsfeed you'd like to see. E.g. 25 for 
 > The above command returns JSON structured like this:
 
 ```json
-{
-    "users":[  
-        {  
-            "userFollowing":[],
-            "usersFollowed":[],
-            "categoryFollowing":[],
-            "categoryPublishing":[],
-            "userId":1337,
-            "userName":"football",
-            "displayName":""
+[
+    {
+        "newsfeedId":14122,
+        "user":{
+            "userId":11832,
+            "publisher":1,
+            "emailVerified":0,
+            "emailNotifications":0,
+            "userName":"PeakFitness",
+            "displayName":" peakfitness",
+            "email":"info@whitespell.com",
+            "thumbnail":"http://peakapp.me/img/app_assets/avatar.png",
+            "coverPhoto":"http://peakapp.me/img/app_assets/cover.png",
+            "slogan":""
+        },
+        "content":{
+            "userId":11832,
+            "contentId":14122,
+            "contentType":6,
+            "categoryId":2,
+            "contentTitle":"Cross-Training Workout",
+            "contentUrl":"https://www.youtube.com/watch?v\u003dxUvuywQy8Ik",
+            "contentDescription":"Here are two great exercises from my 31 Days Of Fitness Series: Thrusters and Renegade Rows",
+            "likes":0,
+            "userLiked":0,
+            "contentPrice":0.0,
+            "hasAccess":1,
+            "recommended":0,
+            "poster":{
+                "userId":11832,
+                "publisher":0,
+                "emailVerified":0,
+                "emailNotifications":0,
+                "userName":"PeakFitness",
+                "thumbnail":"http://peakapp.me/img/app_assets/avatar.png"
+            },
+            "children":[]
         }
-    ],
-    "categories":[  
-        4
-    ],
-    "content":[  
-        {  
-            "userId":1,
-            "contentId":165,
-            "contentType":1,
-            "contentTitle":"Amir Football Skills",
-            "contentUrl":"https://youtu.be/5Z2Fm-2xZgc",
-            "contentDescription":"Amir's football skills",
-            "likes":100,
-            "thumbnail":"http://telecoms.com/wp-content/blogs.dir/1/files/2012/06/euro-football-sport.jpg",
-            "contentPrice": 0.99
+    },
+    {
+        "newsfeedId":14121,
+        "user":{
+            "userId":11832,
+            "publisher":1,
+            "emailVerified":0,
+            "emailNotifications":0,
+            "userName":"PeakFitness",
+            "displayName":" peakfitness",
+            "email":"info@whitespell.com",
+            "thumbnail":"http://peakapp.me/img/app_assets/avatar.png",
+            "coverPhoto":"http://peakapp.me/img/app_assets/cover.png",
+            "slogan":""
+        },
+        "content":{
+            "userId":11832,
+            "contentId":14121,
+            "contentType":6,
+            "categoryId":2,
+            "contentTitle":"Cross-Training Workout",
+            "contentDescription":"Here are two great exercises from my 31 Days Of Fitness Series: Thrusters and Renegade Rows",
+            "likes":0,
+            "userLiked":0,
+            "contentPrice":0.0,
+            "hasAccess":0,
+            "recommended":0,
+            "poster":{
+                "userId":11832,
+                "publisher":0,
+                "emailVerified":0,
+                "emailNotifications":0,
+                "userName":"PeakFitness",
+                "thumbnail":"http://peakapp.me/img/app_assets/avatar.png"
+            },
+            "children":[]
         }
-    ]
-}
+    }
+]
 ```
 
 This endpoint returns a JSON Object with a profiles array, a categories array (this returns the numbers of the searched categories, e.g. 1=football,2=skydiving,etc) and also a list of content. 
@@ -824,28 +872,27 @@ curl "https://peakapi.whitespell.com/users/USER_ID/saved" \
 {
     "savedContent":[
         {
-            "userId":11518,
-            "contentId":8435,
-            "contentType":1,
+            "userId":11832,
+            "contentId":14122,
+            "contentType":6,
             "categoryId":2,
-            "contentTitle":"Rich Froning\u0027s Week of WODs: Fri-Sat",
-            "contentUrl":"https://youtu.be/362511",
-            "contentDescription":"Rich Froning\u0027s Week of WODs: Fri-Sat.",
-            "likes":100,
-            "contentPrice":0.99,
-            "thumbnailUrl":"https://i.ytimg.com/vi/0P4Ao0dt9v0/hqdefault.jpg"
-        },
-        {
-            "userId":11518,
-            "contentId":8477,
-            "contentType":1,
-            "categoryId":2,
-            "contentTitle":"Zuzka\u0027s Metabolic Circuit Challenge",
-            "contentUrl":"https://youtu.be/2376153",
-            "contentDescription":"Zuzka\u0027s Metabolic Circuit Challenge.",
-            "likes":100,
-            "contentPrice":0.99,
-            "thumbnailUrl":"https://i.ytimg.com/vi/Hz_A6gZZjnU/hqdefault.jpg"
+            "contentTitle":"Cross-Training Workout",
+            "contentUrl":"https://www.youtube.com/watch?v\u003dxUvuywQy8Ik",
+            "contentDescription":"Here are two great exercises from my 31 Days Of Fitness Series: Thrusters and Renegade Rows",
+            "likes":0,
+            "userLiked":0,
+            "contentPrice":0.0,
+            "hasAccess":1,
+            "recommended":0,
+            "poster":{
+                "userId":11832,
+                "publisher":0,
+                "emailVerified":0,
+                "emailNotifications":0,
+                "userName":"PeakFitness",
+                "thumbnail":"http://peakapp.me/img/app_assets/avatar.png"
+            },
+            "children":[]
         }
     ]
 }
@@ -1328,6 +1375,40 @@ Parameter | Default | Description | Status
 emailNotifications | None | BOOL(1 or 0). 0 for no email notifications, 1 to allow them. | Tested
 
 
+## Update User's Access to Content
+
+
+```shell
+curl -d \ '{"contentId":0}' \
+     -H "Content-Type: application/json" \
+     -H "Authorization: YOUR_API_KEY" \
+     -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" \
+     -X POST "https://peakapi.whitespell.com/users/USER_ID/access"
+```
+
+> The above command returns JSON structured like this:
+
+```json  
+{
+    "success":true
+}   
+```
+
+*Authentication as the user is Required* 
+
+This endpoint grants the user access to a content.
+
+### HTTP Request
+
+`POST https://peakapi.whitespell.com/users/USER_ID/access`
+
+### QUERY Parameters
+
+Parameter | Default | Description | Status
+--------- | ------- | ----------- | ------
+contentId | None | Int(11). contentId the user will gain access to. | Tested
+
+
 # Content
 
 
@@ -1344,84 +1425,61 @@ curl "https://peakapi.whitespell.com/content" \
 
 ```json
 [
-    {  
-            "userId":11835,
-            "contentId":14017,
-            "contentType":6,
-            "categoryId":1,
-            "contentTitle":"Basketball Skills Training - Anthony Bathalon",
-            "contentUrl":"https://www.youtube.com/watch?v\u003d-it8-e7dOEo",
-            "contentDescription":"Anthony Bathalon showing and motivating you to believe in working on your game.",
-            "likes":0,
-            "thumbnailUrl":"http://i3.ytimg.com/vi/-it8-e7dOEo/0.jpg",
-            "userLiked":0,
-            "contentPrice":0.99,
-            "poster":{  
-                "userId":11835,
-                "publisher":0,
-                "emailVerified":0,
-                "userName":"peakbasketball",
-                "thumbnail":"http://peakapp.me/img/app_assets/avatar.png"
-            },
-            "children":[  
-                {  
-                    "userId":11835,
-                    "contentId":14016,
-                    "contentType":1,
-                    "categoryId":1,
-                    "contentTitle":"Fun Drills For Youth Players",
-                    "contentUrl":"https://www.youtube.com/watch?v\u003dcQkYcgO7pXw",
-                    "contentDescription":"Here are some great drills for youth players!",
-                    "likes":0,
-                    "thumbnailUrl":"http://i3.ytimg.com/vi/cQkYcgO7pXw/0.jpg",
-                    "userLiked":0,
-                    "contentPrice":0.99,
-                    "children":[]
-                },
-                {  
-                    "userId":11835,
-                    "contentId":14018,
-                    "contentType":1,
-                    "categoryId":1,
-                    "contentTitle":"Full Shooting Workout for Basketball Players\n",
-                    "contentUrl":"https://www.youtube.com/watch?v\u003dJ71iEaXSLCs",
-                    "contentDescription":"Dennis Stanton shares a full shooting workout for basketball players. ",
-                    "likes":0,
-                    "thumbnailUrl":"http://i3.ytimg.com/vi/J71iEaXSLCs/0.jpg",
-                    "userLiked":0,
-                    "contentPrice":0.99,
-                    "children":[]
-                }
-            ]
-        },
-        {  
+    {
+        "userId":11863,
+        "contentId":14007,
+        "contentType":6,
+        "categoryId":3,
+        "contentTitle":"Beginners Home Yoga Workout!",
+        "contentUrl":"https://www.youtube.com/watch?v\u003dv7AYKMP6rOE",
+        "contentDescription":"Yoga for Complete Beginners!",
+        "likes":0,
+        "userLiked":0,
+        "contentPrice":0.0,
+        "hasAccess":1,
+        "recommended":0,
+        "poster":{
             "userId":11863,
-            "contentId":14021,
-            "contentType":6,
-            "categoryId":1,
-            "contentTitle":"Yoga For a Healthy Liver",
-            "contentUrl":"https://www.youtube.com/watch?v\u003dhlqOGPoh42s",
-            "contentDescription":"Yoga on deck! Join me for Yoga For A Healthy Liver!",
-            "likes":0,
-            "thumbnailUrl":"http://i3.ytimg.com/vi/hlqOGPoh42s/0.jpg",
-            "userLiked":0,
-            "contentPrice":0.99,
-            "poster":{  
+            "publisher":0,
+            "emailVerified":0,
+            "emailNotifications":0,
+            "userName":"peakyoga",
+            "thumbnail":"http://peakapp.me/img/app_assets/avatar.png"
+        },
+        "children":[
+            {
                 "userId":11863,
-                "publisher":0,
-                "emailVerified":0,
-                "userName":"peakyoga",
-                "thumbnail":"http://peakapp.me/img/app_assets/avatar.png"
-            },
-            "children":[]
-        }
+                "contentId":14008,
+                "contentType":1,
+                "categoryId":3,
+                "contentTitle":"Day 1 - Ease Into It - 30 Days of Yoga\n",
+                "contentUrl":"https://www.youtube.com/watch?v\u003doBu-pQG6sTY",
+                "contentDescription":"Join Adriene on Day 1 of The 30 Days of Yoga journey!",
+                "likes":0,
+                "userLiked":0,
+                "contentPrice":0.0,
+                "hasAccess":1,
+                "recommended":0,
+                "poster":{
+                    "userId":11863,
+                    "publisher":0,
+                    "emailVerified":0,
+                    "emailNotifications":0,
+                    "userName":"peakyoga",
+                    "thumbnail":"http://peakapp.me/img/app_assets/avatar.png"
+                },
+                "children":[]
+            }
+        ]
+    }
 ]
 ```
 
 This endpoint requests the content in the database, can be user specific (?userId=USER_ID), contentId specific (?contentId=CONTENT_ID),
 contentType specific (?contentType=CONTENT_TYPE) or category specific (?categoryId=CATEGORY_ID).
 
-userLiked refers to whether the authenticated user liked the given content. (1 authenticated user has liked it, 0 authenticated user has not liked it) 
+userLiked refers to whether the authenticated user liked the given content. (1 authenticated user has liked it, 0 authenticated user has not liked it),
+recommended only applies to the newsfeed. hasAccess is 0 when the user needs to purchase to content to view it, 1 when the content is free or purchased.
 
 ### HTTP Request
 
@@ -1461,7 +1519,7 @@ curl -d \ '{"categoryId":1,"contentType":CONTENT_TYPE,"contentTitle":"CONTENT_TI
 ]
 ```
 
-This endpoint allows a user to add content to the database.
+This endpoint allows a user to add content to the database. If a content has not 
 
 ### HTTP Request
 
@@ -1759,6 +1817,8 @@ curl -d \ '{"userId":"UPLOADER_USER_ID","contentTitle":"CONTENT_TITLE","contentD
     "thumbnailUrl":"",
     "userLiked":0,
     "contentPrice":0.99,
+    "hasAccess":0,
+    "recommended":0,
     "children":[]
 }
 ```
