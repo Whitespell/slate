@@ -1868,6 +1868,28 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo; or -
 </tr>
 </tbody></table>
 
+<h2 id="get-total-publisher-views">Get Total Publisher Views</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/views"</span> <span class="se">\</span>
+       -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+       -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> 
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">  
+    </span><span class="nt">"totalViews"</span><span class="p">:</span><span class="mi">1000</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p><em>Authentication as the user is Required</em> </p>
+
+<p>This endpoint returns all the views a publisher has gotten on their published content.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://peakapi.whitespell.com/users/USER_ID/views</code></p>
+
 <h1 id="content">Content</h1>
 
 <h2 id="request-content">Request Content</h2>
@@ -2009,7 +2031,7 @@ recommended only applies to the newsfeed. hasAccess is 0 when the user needs to 
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint allows a user to add content to the database. If a content has not </p>
+<p>This endpoint allows a user to add content to the database.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
@@ -2425,6 +2447,48 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;, 0 o
 <td>contentPrice</td>
 <td>No</td>
 <td>Double(10,2)</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h2 id="content-like-action">Content Like Action</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"userId":188}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/content/CONTENT_ID/views"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"success"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint allows a user like/unlike content.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/content/CONTENT_ID/views</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>userId</td>
+<td>Yes</td>
+<td>int(11), userId of user that is viewing the content</td>
 <td>Tested</td>
 </tr>
 </tbody></table>
