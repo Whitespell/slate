@@ -2489,6 +2489,32 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;, 0 o
 </tr>
 </tbody></table>
 
+<h2 id="delete-content">Delete Content</h2>
+<pre class="highlight shell"><code>curl <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X DELETE <span class="s2">"https://peakapi.whitespell.com/content/CONTENT_ID"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"success"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p><em>Requires authentication as the publisher</em></p>
+
+<p>This endpoint allows a publisher to delete uploaded content (and the video/thumbnails).</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE https://peakapi.whitespell.com/content/CONTENT_ID</code></p>
+
 <h1 id="categories">Categories</h1>
 
 <h2 id="request-categories">Request Categories</h2>
