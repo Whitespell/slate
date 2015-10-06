@@ -1878,6 +1878,32 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo; or -
 
 <p><code class="prettyprint">GET https://peakapi.whitespell.com/users/USER_ID/views</code></p>
 
+<h2 id="delete-a-user">Delete a User</h2>
+<pre class="highlight shell"><code>curl <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X DELETE <span class="s2">"https://peakapi.whitespell.com/users/USER_ID"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"success"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p><em>Requires authentication as the user</em></p>
+
+<p>This endpoint allows a user to delete their Peak user account. Not reversible.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE https://peakapi.whitespell.com/users/USER_ID</code></p>
+
 <h1 id="content">Content</h1>
 
 <h2 id="request-content">Request Content</h2>
@@ -2163,6 +2189,7 @@ recommended only applies to the newsfeed. hasAccess is 0 when the user needs to 
 </blockquote>
 <pre class="highlight json"><code><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"commentId"</span><span class="p">:</span><span class="mi">91</span><span class="p">,</span><span class="w">
         </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">8420</span><span class="p">,</span><span class="w">
         </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nt">"comment"</span><span class="p">:</span><span class="s2">"first comment"</span><span class="p">,</span><span class="w">
@@ -2176,6 +2203,7 @@ recommended only applies to the newsfeed. hasAccess is 0 when the user needs to 
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"commentId"</span><span class="p">:</span><span class="mi">92</span><span class="p">,</span><span class="w">
         </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">8420</span><span class="p">,</span><span class="w">
         </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nt">"comment"</span><span class="p">:</span><span class="s2">"second comment"</span><span class="p">,</span><span class="w">
@@ -2189,6 +2217,7 @@ recommended only applies to the newsfeed. hasAccess is 0 when the user needs to 
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"commentId"</span><span class="p">:</span><span class="mi">93</span><span class="p">,</span><span class="w">
         </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">8420</span><span class="p">,</span><span class="w">
         </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nt">"comment"</span><span class="p">:</span><span class="s2">"third comment"</span><span class="p">,</span><span class="w">
@@ -2202,6 +2231,7 @@ recommended only applies to the newsfeed. hasAccess is 0 when the user needs to 
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"commentId"</span><span class="p">:</span><span class="mi">94</span><span class="p">,</span><span class="w">
         </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">8420</span><span class="p">,</span><span class="w">
         </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nt">"comment"</span><span class="p">:</span><span class="s2">"fourth comment"</span><span class="p">,</span><span class="w">
@@ -2215,6 +2245,7 @@ recommended only applies to the newsfeed. hasAccess is 0 when the user needs to 
         </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"commentId"</span><span class="p">:</span><span class="mi">95</span><span class="p">,</span><span class="w">
         </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">8420</span><span class="p">,</span><span class="w">
         </span><span class="nt">"likes"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
         </span><span class="nt">"comment"</span><span class="p">:</span><span class="s2">"wow this video is awesome, love it!"</span><span class="p">,</span><span class="w">
@@ -2514,6 +2545,32 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;, 0 o
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">DELETE https://peakapi.whitespell.com/content/CONTENT_ID</code></p>
+
+<h2 id="delete-a-comment">Delete a Comment</h2>
+<pre class="highlight shell"><code>curl <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X DELETE <span class="s2">"https://peakapi.whitespell.com/comments/COMMENT_ID"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"success"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p><em>Requires authentication as the comment poster</em></p>
+
+<p>This endpoint allows a user to delete a comment they posted.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">DELETE https://peakapi.whitespell.com/comments/COMMENT_ID</code></p>
 
 <h1 id="categories">Categories</h1>
 
