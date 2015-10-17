@@ -1411,6 +1411,77 @@ contentId | None | Int(11). contentId the user will gain access to. | Tested
 
 # Content
 
+## Request Individual Content Object
+
+
+```shell
+curl "https://peakapi.whitespell.com/content" \
+       -H "Authorization: YOUR_API_KEY" \
+       -H "X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY" 
+```
+
+> The above command returns JSON structured like this:
+
+```json
+    {
+        "userId":11863,
+        "contentId":14007,
+        "contentType":6,
+        "categoryId":3,
+        "contentTitle":"Beginners Home Yoga Workout!",
+        "contentUrl":"https://www.youtube.com/watch?v\u003dv7AYKMP6rOE",
+        "contentDescription":"Yoga for Complete Beginners!",
+        "likes":0,
+        "userLiked":0,
+        "contentPrice":0.0,
+        "hasAccess":1,
+        "recommended":0,
+        "parent":null,
+        "processed":1,
+        "poster":{
+            "userId":11863,
+            "publisher":0,
+            "emailVerified":0,
+            "emailNotifications":0,
+            "userName":"peakyoga",
+            "thumbnail":"http://peakapp.me/img/app_assets/avatar.png"
+        },
+        "children":[
+            {
+                "userId":11863,
+                "contentId":14008,
+                "contentType":1,
+                "categoryId":3,
+                "contentTitle":"Day 1 - Ease Into It - 30 Days of Yoga\n",
+                "contentUrl":"https://www.youtube.com/watch?v\u003doBu-pQG6sTY",
+                "contentDescription":"Join Adriene on Day 1 of The 30 Days of Yoga journey!",
+                "likes":0,
+                "userLiked":0,
+                "contentPrice":0.0,
+                "hasAccess":1,
+                "parent":14007,
+                "processed":1,
+                "recommended":0,
+                "poster":{
+                    "userId":11863,
+                    "publisher":0,
+                    "emailVerified":0,
+                    "emailNotifications":0,
+                    "userName":"peakyoga",
+                    "thumbnail":"http://peakapp.me/img/app_assets/avatar.png"
+                },
+                "children":[]
+            }
+        ]
+    }
+```
+
+This endpoint returns a specific content object as specified in the URL
+
+### HTTP Request
+
+`GET https://peakapi.whitespell.com/content/CONTENT_ID`
+
 
 ## Request Content
 
@@ -1438,6 +1509,8 @@ curl "https://peakapi.whitespell.com/content" \
         "contentPrice":0.0,
         "hasAccess":1,
         "recommended":0,
+        "parent":null,
+        "processed":1,
         "poster":{
             "userId":11863,
             "publisher":0,
@@ -1459,6 +1532,8 @@ curl "https://peakapi.whitespell.com/content" \
                 "userLiked":0,
                 "contentPrice":0.0,
                 "hasAccess":1,
+                "parent":14007,
+                "processed":1,
                 "recommended":0,
                 "poster":{
                     "userId":11863,
@@ -1493,6 +1568,8 @@ userId | None | int(11), use this to search for content posted by a specific use
 contentId | None | int(11), use this to search for content with a specific contentId. | Tested
 contentType | None | int(11), use this to search for content of a certain contentType. e.g. contentType=6 for bundles | Tested
 categoryId | None | int(2), use this to search for content posted within a certain category. | Tested
+parent | None | int(11), finds all content objects which match a parent object id | Not Tested
+processed | None | int(1), 0 or 1, find processed or unprocessed videos | Tested
 limit | 50 | int(11) of the size of the content you'd like to see. E.g. 25 for 25 videos. | Tested
 offset | None | int(11) of the minimum video ID to request (e.g. when you already have content, the last content id you have is the offset). | Tested
 
@@ -1806,20 +1883,7 @@ curl -d \ '{"userId":"UPLOADER_USER_ID","contentTitle":"CONTENT_TITLE","contentD
 
 ```json
 {
-    "userId":11837,
-    "contentId":14092,
-    "contentType":0,
-    "categoryId":0,
-    "contentTitle":"newTitle",
-    "contentUrl":"",
-    "contentDescription":"newDescription",
-    "likes":0,
-    "thumbnailUrl":"",
-    "userLiked":0,
-    "contentPrice":0.99,
-    "hasAccess":0,
-    "recommended":0,
-    "children":[]
+    "updateStatus" : "success"
 }
 ```
 
@@ -1839,7 +1903,13 @@ userId | Yes | int(11) | Tested
 contentTitle | No | String(45) | Tested
 contentDescription | No | String(100) | Tested
 contentPrice | No | Double(10,2)  | Tested
-
+categoryId | No | int(1) | Tested
+contentUrl | No | String(255)  | Tested
+content1080p | No | String(255)  | Tested
+content720p | No | String(255)  | Tested
+content480p | No | String(255)  | Tested
+contentPreview720p | No | String(255)  | Tested
+processed | No | int(1) | Tested
 
 # Categories
 
