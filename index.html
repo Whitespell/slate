@@ -794,7 +794,8 @@ Now trending users are sorted by amount of published content. </p>
     </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hidden"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://image.com/photo.jpg"</span><span class="p">,</span><span class="w">
     </span><span class="nt">"slogan"</span><span class="p">:</span><span class="s2">"slogan"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"emailNotification"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+    </span><span class="nt">"emailNotification"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"subscriber"</span><span class="p">:</span><span class="mi">0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -2944,36 +2945,34 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;, 0 o
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-       </span><span class="err">[</span><span class="w">
-          </span><span class="err">{</span><span class="w">
-             </span><span class="nt">"orderId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"orderUUID"</span><span class="p">:</span><span class="s2">"27614847GDgvc.231234441"</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"orderType"</span><span class="p">:</span><span class="s2">"bundle"</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"orderStatus"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"orderOrigin"</span><span class="p">:</span><span class="s2">"apple"</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"publisherId"</span><span class="p">:</span><span class="mi">11989</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"buyerId"</span><span class="p">:</span><span class="mi">11990</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">14267</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"emailSent"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"delivered"</span><span class="p">:</span><span class="mi">0</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="p">{</span><span class="w">
-             </span><span class="nt">"orderId"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"orderUUID"</span><span class="p">:</span><span class="s2">"27614847GDgvc3123123.1"</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"orderType"</span><span class="p">:</span><span class="s2">"subscription"</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"orderStatus"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"orderOrigin"</span><span class="p">:</span><span class="s2">"google"</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"publisherId"</span><span class="p">:</span><span class="mi">-1</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"buyerId"</span><span class="p">:</span><span class="mi">11990</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">-1</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"emailSent"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
-             </span><span class="nt">"delivered"</span><span class="p">:</span><span class="mi">0</span><span class="w">
-          </span><span class="p">}</span><span class="w">
-       </span><span class="p">]</span><span class="w">
-    </span><span class="err">}</span><span class="w">
-</span><span class="err">]</span><span class="w">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="err">[</span><span class="w">
+      </span><span class="err">{</span><span class="w">
+         </span><span class="nt">"orderId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"orderUUID"</span><span class="p">:</span><span class="s2">"27614847GDgvc.231234441"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"orderType"</span><span class="p">:</span><span class="s2">"bundle"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"orderStatus"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"orderOrigin"</span><span class="p">:</span><span class="s2">"apple"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"publisherId"</span><span class="p">:</span><span class="mi">11989</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"buyerId"</span><span class="p">:</span><span class="mi">11990</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">14267</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"emailSent"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"delivered"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+      </span><span class="p">}</span><span class="err">,</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+         </span><span class="nt">"orderId"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"orderUUID"</span><span class="p">:</span><span class="s2">"27614847GDgvc3123123.1"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"orderType"</span><span class="p">:</span><span class="s2">"subscription"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"orderStatus"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"orderOrigin"</span><span class="p">:</span><span class="s2">"google"</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"publisherId"</span><span class="p">:</span><span class="mi">-1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"buyerId"</span><span class="p">:</span><span class="mi">11990</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">-1</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"emailSent"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+         </span><span class="nt">"delivered"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="err">]</span><span class="w">
+</span><span class="err">}</span><span class="w">
 </span></code></pre>
 
 <p>This endpoint is used to get all orders for a user, bundles and subscriptions.</p>
