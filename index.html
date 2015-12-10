@@ -2901,8 +2901,8 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;, 0 o
 </thead><tbody>
 <tr>
 <td>orderUUID</td>
-<td>Yes</td>
-<td>String(255), unique identifier provided by apple/google for this order</td>
+<td>No</td>
+<td>String(255), unique identifier provided by google for this order, not required for apple</td>
 <td>Tested</td>
 </tr>
 <tr>
@@ -2915,6 +2915,12 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;, 0 o
 <td>publisherId</td>
 <td>No</td>
 <td>int(11), userId of the publisher of this content, not required for subscription</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>orderPayload</td>
+<td>No</td>
+<td>String(Unlimited), only needed for apple purchase, used to get transaction information</td>
 <td>Tested</td>
 </tr>
 <tr>
