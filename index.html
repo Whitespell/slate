@@ -2861,6 +2861,127 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;, 0 o
 </tr>
 </tbody></table>
 
+<h1 id="orders">Orders</h1>
+
+<h2 id="create-an-order">Create an Order</h2>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"orderUUID":"ORDER_UUID","orderType":1,"publisherId":134,"buyerId":1337,"contentId":1111,"orderOriginId":1}'</span> <span class="se">\</span>
+-H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+-H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
+-H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
+-X POST <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/order"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"orderType"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"success"</span><span class="w">    </span><span class="p">:</span><span class="w">    </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint is used to create an order in the database for a user&rsquo;s bundle purchase or subscription.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">POST https://peakapi.whitespell.com/users/USER_ID/order</code></p>
+
+<h3 id="post-parameters">POST Parameters</h3>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>orderUUID</td>
+<td>Yes</td>
+<td>String(255), unique identifier provided by apple/google for this order</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>orderType</td>
+<td>Yes</td>
+<td>int(11), 1 for bundle, 2 for subscription</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>publisherId</td>
+<td>No</td>
+<td>int(11), userId of the publisher of this content, not required for subscription</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>buyerId</td>
+<td>Yes</td>
+<td>int(11), userId of the buyer of this content/subscription</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>contentId</td>
+<td>No</td>
+<td>int(11), contentId of purchased bundle, not required for subscription</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>orderOriginId</td>
+<td>Yes</td>
+<td>int(11), 1 for ApplePay, 2 for GooglePlay, 3 for Web based order</td>
+<td>Tested</td>
+</tr>
+</tbody></table>
+
+<h2 id="get-an-order">Get an Order</h2>
+<pre class="highlight shell"><code>curl <span class="s2">"https://peakapi.whitespell.com/users/USER_ID/order"</span> <span class="se">\</span>
+  -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span>
+</code></pre>
+
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+       </span><span class="err">[</span><span class="w">
+          </span><span class="err">{</span><span class="w">
+             </span><span class="nt">"orderId"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"orderUUID"</span><span class="p">:</span><span class="s2">"27614847GDgvc.231234441"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"orderType"</span><span class="p">:</span><span class="s2">"bundle"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"orderStatus"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"orderOrigin"</span><span class="p">:</span><span class="s2">"apple"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"publisherId"</span><span class="p">:</span><span class="mi">11989</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"buyerId"</span><span class="p">:</span><span class="mi">11990</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">14267</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"emailSent"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"delivered"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="p">{</span><span class="w">
+             </span><span class="nt">"orderId"</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"orderUUID"</span><span class="p">:</span><span class="s2">"27614847GDgvc3123123.1"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"orderType"</span><span class="p">:</span><span class="s2">"subscription"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"orderStatus"</span><span class="p">:</span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"orderOrigin"</span><span class="p">:</span><span class="s2">"google"</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"publisherId"</span><span class="p">:</span><span class="mi">-1</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"buyerId"</span><span class="p">:</span><span class="mi">11990</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"contentId"</span><span class="p">:</span><span class="mi">-1</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"emailSent"</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="w">
+             </span><span class="nt">"delivered"</span><span class="p">:</span><span class="mi">0</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+       </span><span class="p">]</span><span class="w">
+    </span><span class="err">}</span><span class="w">
+</span><span class="err">]</span><span class="w">
+</span></code></pre>
+
+<p>This endpoint is used to get all orders for a user, bundles and subscriptions.</p>
+
+<h3 id="http-request">HTTP Request</h3>
+
+<p><code class="prettyprint">GET https://peakapi.whitespell.com/users/USER_ID/order</code></p>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
