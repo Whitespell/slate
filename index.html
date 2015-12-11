@@ -2865,7 +2865,7 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;, 0 o
 <h1 id="orders">Orders</h1>
 
 <h2 id="create-an-order">Create an Order</h2>
-<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"orderUUID":"ORDER_UUID","orderType":1,"publisherId":134,"buyerId":1337,"contentId":1111,"orderOriginId":1}'</span> <span class="se">\</span>
+<pre class="highlight shell"><code>curl -d <span class="se">\ </span><span class="s1">'{"orderUUID":"ORDER_UUID","orderType":1,"publisherId":134,"buyerId":1337,"contentId":1111,"orderOriginId":1,"orderPayload":"LONG_STRING"}'</span> <span class="se">\</span>
 -H <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
 -H <span class="s2">"Authorization: YOUR_API_KEY"</span> <span class="se">\</span>
 -H <span class="s2">"X-Authentication: YOUR_USER_ID,YOUR_AUTH_KEY"</span> <span class="se">\</span>
@@ -2900,27 +2900,9 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;, 0 o
 </tr>
 </thead><tbody>
 <tr>
-<td>orderUUID</td>
-<td>No</td>
-<td>String(255), unique identifier provided by google for this order, not required for apple</td>
-<td>Tested</td>
-</tr>
-<tr>
 <td>orderType</td>
 <td>Yes</td>
 <td>int(11), 1 for bundle, 2 for subscription</td>
-<td>Tested</td>
-</tr>
-<tr>
-<td>publisherId</td>
-<td>No</td>
-<td>int(11), userId of the publisher of this content, not required for subscription</td>
-<td>Tested</td>
-</tr>
-<tr>
-<td>orderPayload</td>
-<td>No</td>
-<td>String(Unlimited), only needed for apple purchase, used to get transaction information</td>
 <td>Tested</td>
 </tr>
 <tr>
@@ -2930,15 +2912,39 @@ Only updated fields are returned in the response, others are &ldquo;&rdquo;, 0 o
 <td>Tested</td>
 </tr>
 <tr>
+<td>orderOriginId</td>
+<td>Yes</td>
+<td>int(11), 1 for ApplePay, 2 for GooglePlay, 3 for Web based order</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>publisherId</td>
+<td>No</td>
+<td>int(11), userId of the publisher of this content, not required for subscription</td>
+<td>Tested</td>
+</tr>
+<tr>
 <td>contentId</td>
 <td>No</td>
 <td>int(11), contentId of purchased bundle, not required for subscription</td>
 <td>Tested</td>
 </tr>
 <tr>
-<td>orderOriginId</td>
-<td>Yes</td>
-<td>int(11), 1 for ApplePay, 2 for GooglePlay, 3 for Web based order</td>
+<td>orderPayload</td>
+<td>No</td>
+<td>String(Unlimited), only needed for apple purchase, used to get transaction information</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>productId</td>
+<td>No</td>
+<td>String(255), only needed for google purchase, used to get transaction information</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>purchaseToken</td>
+<td>No</td>
+<td>String(Unlimited), only needed for google purchase, used to get transaction information</td>
 <td>Tested</td>
 </tr>
 </tbody></table>
