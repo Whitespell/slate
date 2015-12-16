@@ -377,9 +377,21 @@
 </tr>
 </thead><tbody>
 <tr>
+<td>offset</td>
+<td>0</td>
+<td>int(11) The newsfeedId offset, newsfeed is sorted in descending order, so offset=11499 will show LIMIT newsfeedIds &lt; 11499.</td>
+<td>Tested</td>
+</tr>
+<tr>
 <td>limit</td>
 <td>50</td>
 <td>int(11) of the size of the newsfeed you&rsquo;d like to see. E.g. 25 for 25 videos.</td>
+<td>Tested</td>
+</tr>
+<tr>
+<td>categoryId</td>
+<td>50</td>
+<td>int(1) The category id of the newsfeed content, used for showing only content from the given category.</td>
 <td>Tested</td>
 </tr>
 </tbody></table>
@@ -1593,8 +1605,6 @@ through the web link provided in their email.</p>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-
-<p>Always use the users/checkfacebook endpoint first to determine if the user&rsquo;s Peak password is required to log in.</p>
 
 <p>This endpoint is used to create a new user or authenticate a current one with the Facebook login accessToken. 
 Intended for use on client side after retrieving the Facebook access token from Facebook login in the client. 
